@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[reverse text]]></title>
+      <url>%2F2017%2F01%2F23%2Freverse-text%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[用最少的css代码做star rating]]></title>
+      <url>%2F2017%2F01%2F23%2Fstar-rating-with-css%2F</url>
+      <content type="text"><![CDATA[参考链接 first-step: 直接用unicode 标记星星(编码utf-8,so easy)123&lt;div class="rating"&gt;&lt;span&gt;☆&lt;/span&gt;&lt;span&gt;☆&lt;/span&gt;&lt;span&gt;☆&lt;/span&gt;&lt;span&gt;☆&lt;/span&gt;&lt;span&gt;☆&lt;/span&gt;&lt;/div&gt; second-step: 给:hover添加伪元素，使得空心star变为实心123456.rating &gt; span:hover:before&#123; /*content属性与:before以及:after伪元素使用，插入生成内容。*/ /*该属性用于定义元素之前或之后放置的生成内容。默认地，这往往是行内内容，不过该内容创建的框类型可以用属性 display 控制。*/ content:"\2605"; position:absolute;&#125; third-step: 解决选择相邻同级元素的问题css 不能直接选择之前的同级元素，可以选择之后的同级元素。所以，这里我们把字符的顺序更改了，就可以使用同级元素了，选取on hover 元素之前的所有star了。12345678910.rating &#123; unicode-bidi: bidi-override; direction: rtl;&#125;.rating &gt; span:hover:before,.rating &gt; span:hover ~ span:before &#123; content: "\2605"; position: absolute; color: gold;&#125; summary一般网站的打分功能需要与后台交互。这个只是一个纯样式的，没有数据交互。可以使用radio 表单元素设计可以真正交互的star rating。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[2017 new year goal]]></title>
+      <url>%2F2017%2F01%2F23%2F2017-new-year-plan%2F</url>
+      <content type="text"><![CDATA[学习目标 Expert knowledge of HTML5, CSS, Javascript, and W3C compliance Knowledge of advanced CSS using a preprocessor(SCSS&amp;Gulp) TypeScript (2017/1/20学习完成基本语法概念) NodeJS PYTHON 英语词汇量到2万，目前一万八 健身目标 目前体重 51.4kg，希望年底能到45kg。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[test markdown]]></title>
+      <url>%2F2017%2F01%2F23%2Ftext-markdown%2F</url>
+      <content type="text"><![CDATA[just test markdown syntax 123var a=0;var b=10;console.log(a+b); frontend css html javascript backend python sql pg]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[猴年倒数第二个工作日]]></title>
+      <url>%2F2017%2F01%2F23%2F%E7%8C%B4%E5%B9%B4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%97%A5%2F</url>
+      <content type="text"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi necessitatibus, quo ad quia cumque optio commodi facilis vero atque dolores at repellat, laborum officia iste omnis nam vitae! A, dolorum!Perferendis suscipit repudiandae reiciendis libero fugit voluptatem excepturi at maiores amet cumque dolorem, ex, totam, molestias nesciunt quibusdam nisi labore facere nulla soluta consectetur impedit in. Ipsum qui sint esse.Debitis blanditiis animi earum aliquid est facere similique minus quo saepe error pariatur perferendis deleniti necessitatibus sit, laboriosam, non, odit porro sapiente delectus quod laudantium obcaecati doloribus? Enim, a, saepe!Quidem accusantium eaque ipsa, fugiat ea iusto error harum perferendis. Soluta culpa a sequi incidunt libero ut, cum laboriosam blanditiis dolores accusantium numquam necessitatibus dolor voluptatibus, officiis ab repellendus quo.Vitae non deserunt mollitia doloremque consequuntur, inventore distinctio voluptates voluptas perferendis, minima iure incidunt accusantium eveniet est consectetur dignissimos? Ratione eligendi, nihil ullam, placeat esse amet deleniti. Optio qui, nihil?Fuga eos odit consequuntur asperiores sed architecto. Eaque ut hic qui, iure officiis non voluptate nesciunt cupiditate libero omnis ullam aperiam corporis, tempora sapiente est ducimus, provident placeat totam deleniti!]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2017%2F01%2F23%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+  
+  
+</search>
