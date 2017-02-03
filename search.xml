@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[reverse text]]></title>
       <url>%2F2017%2F01%2F23%2Freverse-text%2F</url>
-      <content type="text"></content>
+      <content type="text"><![CDATA[实现文字从右到左。123&lt;div dir="rtl"&gt; right to left text&lt;/div&gt; 1234selector&#123; unicode-bidi:bidi-override; direction:rtl;&#125;]]></content>
     </entry>
 
     
