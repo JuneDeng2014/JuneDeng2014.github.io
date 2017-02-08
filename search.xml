@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[养成良好的工作习惯]]></title>
+      <url>%2F2017%2F02%2F08%2F%E5%85%BB%E6%88%90%E8%89%AF%E5%A5%BD%E7%9A%84%E5%B7%A5%E4%BD%9C%E4%B9%A0%E6%83%AF%2F</url>
+      <content type="text"><![CDATA[昨天开完会，感觉很激动。也有点忐忑，第一次参与这样的项目，想着我能完成吗？会议演示的时候，查看了jessica写的校验逻辑，好清晰的文档啊。我跟另一个妹纸说：我以后也要这样工作。即使离职了，也会被思念。留下的是好的代码，清晰的文档。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[看不懂代码的忧伤]]></title>
       <url>%2F2017%2F02%2F04%2F%E7%9C%8B%E4%B8%8D%E6%87%82%E4%BB%A3%E7%A0%81%E7%9A%84%E5%BF%A7%E4%BC%A4%2F</url>
       <content type="text"><![CDATA[DJANGO的user模块，我搞了很久，还是不太懂。用大神写的代码，models里面定义的类似懂非懂。下午用sqlite命令，把用户表里面的数据展现出来了，能直观地看到用户信息了，然并卵，还是不会继续写。这个逻辑有点绕。 至少学了会儿sqlite的命令。。。忧伤的一个下午。]]></content>
