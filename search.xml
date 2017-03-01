@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[如何避免table自动换行]]></title>
-      <url>%2F2017%2F03%2F01%2F%E5%A6%82%E6%9E%9C%E9%81%BF%E5%85%8Dtable%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C%2F</url>
+      <url>%2F2017%2F03%2F01%2F%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8Dtable%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C%2F</url>
       <content type="text"><![CDATA[HTML的表格渲染很特殊，当单元格的内容过长，就会自动换行，导致表格的显示很凌乱。只要添加2行css代码就可以解决这个问题。 对table元素，应用css代码： 1234/*让文本在同一行继续*/table&#123; white-space:nowrap&#125; 给table的父元素添加样式： 123.table-wraper&#123; overflow:auto; &#125; 不过这样生成的滚动条很随性。如果追求美观，需要再调整一下滚动条的样式。]]></content>
     </entry>
 
