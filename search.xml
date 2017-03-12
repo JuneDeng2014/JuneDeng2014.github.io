@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[css简单代码实现正方形]]></title>
       <url>%2F2017%2F03%2F12%2Fcss%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E6%AD%A3%E6%96%B9%E5%BD%A2%2F</url>
-      <content type="text"><![CDATA[简单代码实现正方形：1div&#123;padding: 50%&#125; 应用案例：很多移动端app头图1:1，屏幕尺寸大小不固定，让所有的屏幕大小下都是正方形。123456&lt;div class="container"&gt; &lt;div class="example"&gt; &lt;h2&gt;hello&lt;/h2&gt; &lt;h4&gt;other info&lt;/h4&gt; &lt;/div&gt;&lt;/div&gt; 1234567891011121314.container&#123; padding:50%; background:url(exp.jpg); background-size:100%; position:relative;&#125;.example&#123; position:absolute; top:0; right:0; bottom:0; left:0;&#125;]]></content>
+      <content type="text"><![CDATA[简单代码实现正方形：1div&#123;padding: 50%&#125; 应用案例：很多移动端app头图1:1，屏幕尺寸大小不固定，让所有的屏幕大小下都是正方形。123456&lt;div class="container"&gt; &lt;div class="example"&gt; &lt;h2&gt;hello&lt;/h2&gt; &lt;h4&gt;other info&lt;/h4&gt; &lt;/div&gt;&lt;/div&gt; 1234567891011121314.container&#123; padding:50%; background:url(exp.jpg); background-size:100%; position:relative;&#125;.example&#123; position:absolute; top:0; right:0; bottom:0; left:0;&#125; 内容参考来自张鑫旭的慕课网视频：(http://www.imooc.com/video/12598 ).]]></content>
     </entry>
 
     
