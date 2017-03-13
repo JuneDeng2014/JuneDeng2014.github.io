@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[利用padding绘制图形]]></title>
       <url>%2F2017%2F03%2F13%2Fuse-padding-to-draw-graph%2F</url>
-      <content type="text"><![CDATA[借助padding实现三道杠1&lt;div class="tri-line"&gt;&lt;/div&gt; 12345678.tri-line&#123; width:150px; height:30px; border-top:30px solid; boder-bottom:30px solid; background-color:currentColor; background-clip:content-box;&#125; 借助padding实现白眼效果1&lt;div class="eye"&gt;&lt;/div&gt; 123456789.eye&#123; width:150px; height:150px; padding:10px; border:10px solid; border-radius:50%; background-color:currentColor; background-clip:content-box;&#125;]]></content>
+      <content type="text"><![CDATA[借助padding实现三道杠1&lt;div class="tri-line"&gt;&lt;/div&gt; 12345678.tri-line&#123; width:150px; height:30px; border-top:30px solid; boder-bottom:30px solid; background-color:currentColor; background-clip:content-box;&#125; 借助padding实现白眼效果1&lt;div class="eye"&gt;&lt;/div&gt; 123456789.eye&#123; width:150px; height:150px; padding:10px; border:10px solid; border-radius:50%; background-color:currentColor; background-clip:content-box;&#125; 参考:css padding与图形绘制–张鑫旭]]></content>
     </entry>
 
     
