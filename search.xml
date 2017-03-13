@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[利用padding布局]]></title>
+      <url>%2F2017%2F03%2F13%2Fpadding-and-layout%2F</url>
+      <content type="text"><![CDATA[使用百分比构建固定比例布局移动端：1:1 头图123div&#123; padding:50%;&#125; 配合margin实现等高布局很大的margin-bottom,padding-bottom值填充缺失的空间。123456789101112131415161718192021222324252627.box&#123; overflow:hidden; resize:vertical;&#125;.child-orange,child-green&#123; margin-bottom:-600px;padding-bottom:600px;&#125;.child-orange&#123; float:left; background-color:orange;&#125;.child-green&#123; float:left; background-color:green;&#125;# 两栏自适应布局## padding在容器上```HTML&lt;div class="pbox"&gt; &lt;img src="xx.jpg"&gt; text here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt; 1234567.pbox&#123; padding-left:120px;&#125;.pbox img&#123; float:left; margin-left:-120px;&#125; padding在子元素上123456789&lt;div&gt; &lt;img src="xx.jpg"&gt; &lt;div class="auto"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;&lt;/div&gt; 1234img&#123;float:left;&#125;.auto&#123; padding-left:120px;&#125; 内容参考来自张鑫旭的慕课网视频：(http://www.imooc.com/video/12600).]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[利用padding绘制图形]]></title>
       <url>%2F2017%2F03%2F13%2Fuse-padding-to-draw-graph%2F</url>
       <content type="text"><![CDATA[借助padding实现三道杠1&lt;div class="tri-line"&gt;&lt;/div&gt; 12345678.tri-line&#123; width:150px; height:30px; border-top:30px solid; boder-bottom:30px solid; background-color:currentColor; background-clip:content-box;&#125; 借助padding实现白眼效果1&lt;div class="eye"&gt;&lt;/div&gt; 123456789.eye&#123; width:150px; height:150px; padding:10px; border:10px solid; border-radius:50%; background-color:currentColor; background-clip:content-box;&#125; 参考:css padding与图形绘制–张鑫旭]]></content>
