@@ -403,8 +403,9 @@
 </blockquote>
 <p>为何我的修改没有效果？<br>因为我的页面列表是ajax请求数据生成的，而autofocus是在页面加载的时候就确定一个表单控件是否获取焦点。</p>
 <blockquote>
-<p>Note that the focusing of the control may occur before the firing of the DOMContentLoaded event.<br>我的input标签是在页面加载完成之后才添加到dom中的;所以设置的autofocus没有生效。<br>最后还是老老实获取表单元素，添加focus事件。</p>
+<p>Note that the focusing of the control may occur before the firing of the DOMContentLoaded event.</p>
 </blockquote>
+<p>我的input标签是在页面加载完成之后才添加到dom中的;所以设置的autofocus没有生效。<br>最后还是老老实获取表单元素，添加focus事件。</p>
 
           
         

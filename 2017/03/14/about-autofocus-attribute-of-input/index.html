@@ -94,7 +94,7 @@ autofocus HTML5This Boolean attribute lets you specify that a form control shoul
 <meta property="og:description" content="今天要修复一个小bug，当发生点击事件，会显示表单，要让表单内部的input自动获得焦点。我想当然给表单控件设置了autofocus属性，然而，没有生效。查看了下mdn的信息：
 
 autofocus HTML5This Boolean attribute lets you specify that a form control should have input focus when the pa">
-<meta property="og:updated_time" content="2017-03-14T10:49:19.000Z">
+<meta property="og:updated_time" content="2017-03-15T01:49:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="input的autofocus属性小坑">
 <meta name="twitter:description" content="今天要修复一个小bug，当发生点击事件，会显示表单，要让表单内部的input自动获得焦点。我想当然给表单控件设置了autofocus属性，然而，没有生效。查看了下mdn的信息：
@@ -403,8 +403,9 @@ autofocus HTML5This Boolean attribute lets you specify that a form control shoul
 </blockquote>
 <p>为何我的修改没有效果？<br>因为我的页面列表是ajax请求数据生成的，而autofocus是在页面加载的时候就确定一个表单控件是否获取焦点。</p>
 <blockquote>
-<p>Note that the focusing of the control may occur before the firing of the DOMContentLoaded event.<br>我的input标签是在页面加载完成之后才添加到dom中的;所以设置的autofocus没有生效。<br>最后还是老老实获取表单元素，添加focus事件。</p>
+<p>Note that the focusing of the control may occur before the firing of the DOMContentLoaded event.</p>
 </blockquote>
+<p>我的input标签是在页面加载完成之后才添加到dom中的;所以设置的autofocus没有生效。<br>最后还是老老实获取表单元素，添加focus事件。</p>
 
       
     </div>
