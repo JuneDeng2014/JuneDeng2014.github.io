@@ -4,6 +4,20 @@
     
     <entry>
       <title></title>
+      <url>%2F2017%2F05%2F01%2Fborder-and-layout%2F</url>
+      <content type="text"><![CDATA[border与等高布局 .box{ border-left:300px solid #222; background: #ddd; } .left{ width:300px; margin-left:-300px; float:left; } 导航1 导航1 导航1 导航1 导航1 导航1 模块1 模块1 模块1 模块1 模块1]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[border与等高布局]]></title>
+      <url>%2F2017%2F05%2F01%2Fborder-and-layout%2F</url>
+      <content type="text"><![CDATA[12345678&lt;div class="box"&gt; &lt;nav class="left"&gt; &lt;h3&gt;导航1&lt;/h3&gt; &lt;/nav&gt; &lt;section&gt; &lt;div class="module"&gt;&lt;/div&gt; &lt;/section&gt;&lt;/div&gt; 12345678.box&#123; border-left:300px solid #222;&#125;.left&#123; width:300px; margin-left:-300px; float:left;&#125; reference:http://www.imooc.com/video/13378测试了上面的代码，发现没有实现等高布局。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title></title>
       <url>%2F2017%2F05%2F01%2Funtitled%2F</url>
       <content type="text"><![CDATA[use border to draw triange .triangle{ border-width: 100px; border-style:solid; border-color: red transparent transparent transparent; width: 0; height: 0; }]]></content>
     </entry>
