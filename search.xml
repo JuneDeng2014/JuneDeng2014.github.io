@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[图片文字垂直居中]]></title>
+      <url>%2F2017%2F05%2F11%2Fvertical-aligin-middle%2F</url>
+      <content type="text"><![CDATA[个数不定的文字内容与图片的垂直居中对齐1234&lt;div&gt;&lt;span&gt;文字们哈哈哈哈哈&lt;/span&gt;&lt;img src="/images/june.jpg"&gt;&lt;/div&gt; 12div&gt;span&#123;display:inline-block;width:210px;vertical-align:middle;&#125;div&gt;img&#123;vertical-align:middle;&#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title></title>
       <url>%2F2017%2F05%2F01%2Fborder-and-layout%2F</url>
       <content type="text"><![CDATA[border与等高布局 .box{ border-left:300px solid #222; background: #ddd; } .left{ width:300px; margin-left:-300px; float:left; } 导航1 导航1 导航1 导航1 导航1 导航1 模块1 模块1 模块1 模块1 模块1]]></content>
