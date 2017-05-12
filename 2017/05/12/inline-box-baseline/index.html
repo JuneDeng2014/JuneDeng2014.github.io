@@ -84,40 +84,64 @@
 
 
 
-<meta name="description" content="use border to draw triange
+<meta name="description" content="inline-box与baseline
 	
-		.triangle{
-			border-width: 100px;
-			border-style:solid;
-			border-color: red transparent transparent transparent;
-			width: 0;
-			height: 0;
-		}">
+		.dib-baseline{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border:1px solid #ddd;
+			background: red;
+		}
+	
+
+
+
+x-baseline
+
+
+The baseline of an &apos;inline">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Juney">
-<meta property="og:url" content="https://junedeng2014.github.io/2017/05/01/untitled/index.html">
+<meta property="og:url" content="https://junedeng2014.github.io/2017/05/12/inline-box-baseline/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="use border to draw triange
+<meta property="og:description" content="inline-box与baseline
 	
-		.triangle{
-			border-width: 100px;
-			border-style:solid;
-			border-color: red transparent transparent transparent;
-			width: 0;
-			height: 0;
-		}">
-<meta property="og:updated_time" content="2017-05-01T07:05:56.000Z">
+		.dib-baseline{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border:1px solid #ddd;
+			background: red;
+		}
+	
+
+
+
+x-baseline
+
+
+The baseline of an &apos;inline">
+<meta property="og:updated_time" content="2017-05-12T07:12:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Juney">
-<meta name="twitter:description" content="use border to draw triange
+<meta name="twitter:description" content="inline-box与baseline
 	
-		.triangle{
-			border-width: 100px;
-			border-style:solid;
-			border-color: red transparent transparent transparent;
-			width: 0;
-			height: 0;
-		}">
+		.dib-baseline{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border:1px solid #ddd;
+			background: red;
+		}
+	
+
+
+
+x-baseline
+
+
+The baseline of an &apos;inline">
 
 
 
@@ -145,7 +169,7 @@
 
 
 
-  <link rel="canonical" href="https://junedeng2014.github.io/2017/05/01/untitled/"/>
+  <link rel="canonical" href="https://junedeng2014.github.io/2017/05/12/inline-box-baseline/"/>
 
 
 
@@ -307,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/01/untitled/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/12/inline-box-baseline/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -346,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-01T14:06:48+08:00">
-                2017-05-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T14:30:27+08:00">
+                2017-05-12
               </time>
             
 
@@ -366,7 +390,7 @@
 
           
           
-             <span id="/2017/05/01/untitled/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2017/05/12/inline-box-baseline/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -396,20 +420,30 @@
         <!DOCTYPE html>
 <html>
 <head>
-	<title>use border to draw triange</title>
+	<meta charset="utf-8">
+	<title>inline-box与baseline</title>
 	<style type="text/css">
-		.triangle{
-			border-width: 100px;
-			border-style:solid;
-			border-color: red transparent transparent transparent;
-			width: 0;
-			height: 0;
+		.dib-baseline{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border:1px solid #ddd;
+			background: red;
 		}
 	</style>
 </head>
 <body>
- <!-- <span class="triangle"></span> -->
- <div class="triangle"></div>
+<span class="dib-baseline"></span>
+<span class="dib-baseline">x-baseline</span>
+
+<p>
+The baseline of an 'inline-block' is the baseline of its last line box in the normal flow, unless it has either on in-flow line boxes or if its 'overflow' property has a computed value other than 'visible', in which case the baseline is the bottom margin edge.
+</p>
+<p>
+该现象解释如下：
+在正常文档流中，inline-block的baseline是它的最后一个line-box的baseline。
+如果它没有包含in-flow line boxes，或它的overflow属性有一个非visible的computed value,那么它的baseline就是它的bottome margin edge.
+</p>
 </body>
 </html>
       
@@ -437,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/border-and-triangle/" rel="next" title="用border构建三角形">
-                <i class="fa fa-chevron-left"></i> 用border构建三角形
+              <a href="/2017/05/11/vertical-aligin-middle/" rel="next" title="图片文字垂直居中 ">
+                <i class="fa fa-chevron-left"></i> 图片文字垂直居中 
               </a>
             
           </div>
@@ -446,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/01/border-and-layout/" rel="prev" title="border与等高布局">
-                border与等高布局 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title></title>
+      <url>%2F2017%2F05%2F12%2Finline-box-baseline%2F</url>
+      <content type="text"><![CDATA[inline-box与baseline .dib-baseline{ display: inline-block; width: 150px; height: 150px; border:1px solid #ddd; background: red; } x-baseline The baseline of an 'inline-block' is the baseline of its last line box in the normal flow, unless it has either on in-flow line boxes or if its 'overflow' property has a computed value other than 'visible', in which case the baseline is the bottom margin edge. 该现象解释如下： 在正常文档流中，inline-block的baseline是它的最后一个line-box的baseline。 如果它没有包含in-flow line boxes，或它的overflow属性有一个非visible的computed value,那么它的baseline就是它的bottome margin edge.]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[图片文字垂直居中]]></title>
       <url>%2F2017%2F05%2F11%2Fvertical-aligin-middle%2F</url>
       <content type="text"><![CDATA[个数不定的文字内容与图片的垂直居中对齐1234&lt;div&gt;&lt;span&gt;文字们哈哈哈哈哈&lt;/span&gt;&lt;img src="/images/june.jpg"&gt;&lt;/div&gt; 12div&gt;span&#123;display:inline-block;width:210px;vertical-align:middle;&#125;div&gt;img&#123;vertical-align:middle;&#125;]]></content>
@@ -20,13 +27,6 @@
       <title><![CDATA[border与等高布局]]></title>
       <url>%2F2017%2F05%2F01%2Fborder-and-layout%2F</url>
       <content type="text"><![CDATA[12345678&lt;div class="box"&gt; &lt;nav class="left"&gt; &lt;h3&gt;导航1&lt;/h3&gt; &lt;/nav&gt; &lt;section&gt; &lt;div class="module"&gt;&lt;/div&gt; &lt;/section&gt;&lt;/div&gt; 12345678.box&#123; border-left:300px solid #222;&#125;.left&#123; width:300px; margin-left:-300px; float:left;&#125; reference:http://www.imooc.com/video/13378测试了上面的代码，发现没有实现等高布局。]]></content>
-    </entry>
-
-    
-    <entry>
-      <title></title>
-      <url>%2F2017%2F05%2F01%2Funtitled%2F</url>
-      <content type="text"><![CDATA[use border to draw triange .triangle{ border-width: 100px; border-style:solid; border-color: red transparent transparent transparent; width: 0; height: 0; }]]></content>
     </entry>
 
     
