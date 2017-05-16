@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/13/use-padding-to-draw-graph/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/14/about-autofocus-attribute-of-input/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -309,8 +309,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/13/use-padding-to-draw-graph/" itemprop="url">
-                  利用padding绘制图形
+                <a class="post-title-link" href="/2017/03/14/about-autofocus-attribute-of-input/" itemprop="url">
+                  input的autofocus属性小坑
                 </a>
               
             
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T19:14:44+08:00">
-                2017-03-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-14T16:00:59+08:00">
+                2017-03-14
               </time>
             
 
@@ -368,7 +368,7 @@
 
           
           
-             <span id="/2017/03/13/use-padding-to-draw-graph/" class="leancloud_visitors" data-flag-title="利用padding绘制图形">
+             <span id="/2017/03/14/about-autofocus-attribute-of-input/" class="leancloud_visitors" data-flag-title="input的autofocus属性小坑">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -397,11 +397,15 @@
       
         
           
-            <h1 id="借助padding实现三道杠"><a href="#借助padding实现三道杠" class="headerlink" title="借助padding实现三道杠"></a>借助padding实现三道杠</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tri-line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.tri-line</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">border-top</span>:<span class="number">30px</span> solid;</div><div class="line">	<span class="attribute">boder-bottom</span>:<span class="number">30px</span> solid;</div><div class="line">	<span class="attribute">background-color</span>:currentColor;</div><div class="line">	<span class="attribute">background-clip</span>:content-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="借助padding实现白眼效果"><a href="#借助padding实现白眼效果" class="headerlink" title="借助padding实现白眼效果"></a>借助padding实现白眼效果</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.eye</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">10px</span>;</div><div class="line">	<span class="attribute">border</span>:<span class="number">10px</span> solid;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">50%</span>;</div><div class="line">	<span class="attribute">background-color</span>:currentColor;</div><div class="line">	<span class="attribute">background-clip</span>:content-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>参考:<a href="http://www.imooc.com/video/12601" target="_blank" rel="external">css padding与图形绘制–张鑫旭</a></p>
+            <p>今天要修复一个小bug，当发生点击事件，会显示表单，要让表单内部的input自动获得焦点。<br>我想当然给表单控件设置了autofocus属性，然而，没有生效。<br>查看了下mdn的信息：</p>
+<blockquote>
+<p>autofocus HTML5<br>This Boolean attribute lets you specify that a form control should have input focus when the page loads, unless the user overrides it (e.g. by typing in a different control). Only one form element in a document can have the autofocus attribute, which is a Boolean. It cannot be applied if the type attribute is set to hidden (that is, you cannot automatically set focus to a hidden control). Note that the focusing of the control may occur before the firing of the DOMContentLoaded event.</p>
+</blockquote>
+<p>为何我的修改没有效果？<br>因为我的页面列表是ajax请求数据生成的，而autofocus是在页面加载的时候就确定一个表单控件是否获取焦点。</p>
+<blockquote>
+<p>Note that the focusing of the control may occur before the firing of the DOMContentLoaded event.</p>
+</blockquote>
+<p>我的input标签是在页面加载完成之后才添加到dom中的;所以设置的autofocus没有生效。<br>最后还是老老实获取表单元素，添加focus事件。</p>
 
           
         
@@ -440,7 +444,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/13/padding-of-form-elements/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/13/padding-and-layout/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -465,8 +469,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/13/padding-of-form-elements/" itemprop="url">
-                  表单元素内置padding值
+                <a class="post-title-link" href="/2017/03/13/padding-and-layout/" itemprop="url">
+                  利用padding布局
                 </a>
               
             
@@ -482,7 +486,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T18:32:10+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T19:37:17+08:00">
                 2017-03-13
               </time>
             
@@ -524,7 +528,7 @@
 
           
           
-             <span id="/2017/03/13/padding-of-form-elements/" class="leancloud_visitors" data-flag-title="表单元素内置padding值">
+             <span id="/2017/03/13/padding-and-layout/" class="leancloud_visitors" data-flag-title="利用padding布局">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -552,19 +556,16 @@
 
       
         
-          <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ol>
-<li>所有浏览器的input／textarea都有内置padding值。</li>
-<li>所有浏览器的button按钮都有内置padding值。</li>
-<li>部分浏览器select下拉有padding值，比如firefox。ie8+可以设置padding值。</li>
-<li>所有浏览器的radio/checkbox没有padding值。</li>
-<li>button元素的padding很奇葩。。。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/13/padding-of-form-elements/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="使用百分比构建固定比例布局"><a href="#使用百分比构建固定比例布局" class="headerlink" title="使用百分比构建固定比例布局"></a>使用百分比构建固定比例布局</h1><p>移动端：1:1 头图<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">50%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="配合margin实现等高布局"><a href="#配合margin实现等高布局" class="headerlink" title="配合margin实现等高布局"></a>配合margin实现等高布局</h1><p>很大的margin-bottom,padding-bottom值填充缺失的空间。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">	<span class="attribute">overflow</span>:hidden;</div><div class="line">	<span class="attribute">resize</span>:vertical;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child-orange</span>,<span class="selector-tag">child-green</span>&#123;</div><div class="line">	<span class="attribute">margin-bottom</span>:-<span class="number">600px</span>;<span class="attribute">padding-bottom</span>:<span class="number">600px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child-orange</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">	<span class="attribute">background-color</span>:orange;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child-green</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">	<span class="attribute">background-color</span>:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="两栏自适应布局"><a href="#两栏自适应布局" class="headerlink" title="两栏自适应布局"></a>两栏自适应布局</h1><h2 id="padding在容器上"><a href="#padding在容器上" class="headerlink" title="padding在容器上"></a>padding在容器上</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pbox"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"xx.jpg"</span>&gt;</span> text here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div><div class="line">	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div class="line">	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div class="line">	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div><div class="line">	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div class="line">	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.pbox</span>&#123;</div><div class="line">	<span class="attribute">padding-left</span>:<span class="number">120px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.pbox</span> <span class="selector-tag">img</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">	<span class="attribute">margin-left</span>:-<span class="number">120px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="padding在子元素上"><a href="#padding在子元素上" class="headerlink" title="padding在子元素上"></a>padding在子元素上</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"xx.jpg"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"auto"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div><div class="line">	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div class="line">	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div class="line">	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div><div class="line">	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div class="line">	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span>&#123;<span class="attribute">float</span>:left;&#125;</div><div class="line"><span class="selector-class">.auto</span>&#123;</div><div class="line">	<span class="attribute">padding-left</span>:<span class="number">120px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>内容参考来自张鑫旭的慕课网视频：(<a href="http://www.imooc.com/video/12600" target="_blank" rel="external">http://www.imooc.com/video/12600</a>).</p>
+
+          
         
       
     </div>
@@ -596,7 +597,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -639,7 +640,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

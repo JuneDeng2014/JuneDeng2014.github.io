@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/12/inline-box-baseline/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/16/SmearWorker/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -309,7 +309,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/12/inline-box-baseline/" itemprop="url">
+                <a class="post-title-link" href="/2017/05/16/SmearWorker/" itemprop="url">
                   未命名
                 </a>
               
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T14:30:27+08:00">
-                2017-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T15:48:14+08:00">
+                2017-05-16
               </time>
             
 
@@ -346,7 +346,7 @@
 
           
           
-             <span id="/2017/05/12/inline-box-baseline/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2017/05/16/SmearWorker/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -375,35 +375,18 @@
       
         
           
-            <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>inline-box与baseline</title>
-	<style type="text/css">
-		.dib-baseline{
-			display: inline-block;
-			width: 150px;
-			height: 150px;
-			border:1px solid #ddd;
-			background: red;
-		}
-	</style>
-</head>
-<body>
-<span class="dib-baseline"></span>
-<span class="dib-baseline">x-baseline</span>
+            // 从主线程获取ImageData对象，对其进行处理并将它传递回去
+onmessage=function(e){
+	postMessage(smear(e.data));
+}
 
-<p>
-The baseline of an 'inline-block' is the baseline of its last line box in the normal flow, unless it has either on in-flow line boxes or if its 'overflow' property has a computed value other than 'visible', in which case the baseline is the bottom margin edge.
-</p>
-<p>
-该现象解释如下：
-在正常文档流中，inline-block的baseline是它的最后一个line-box的baseline。
-如果它没有包含in-flow line boxes，或它的overflow属性有一个非visible的computed value,那么它的baseline就是它的bottome margin edge.
-</p>
-</body>
-</html>
+// 将ImageData中的像素信息向右涂抹，产生动态模糊效果
+// 对于大图片，此方法会进行大量计算
+// 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题
+function smear(pixels){
+	var data=pixels.data,width=pixels.width,height=pixels.height;
+	var n=10,m=n-1;//设置n倍大，用于更多的涂抹
+	for(var row=0;row
           
         
       
@@ -441,7 +424,7 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/11/vertical-aligin-middle/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/16/worker-example/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -466,8 +449,8 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
             
               
                 
-                <a class="post-title-link" href="/2017/05/11/vertical-aligin-middle/" itemprop="url">
-                  图片文字垂直居中 
+                <a class="post-title-link" href="/2017/05/16/worker-example/" itemprop="url">
+                  未命名
                 </a>
               
             
@@ -483,8 +466,8 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T16:32:23+08:00">
-                2017-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T15:18:29+08:00">
+                2017-05-16
               </time>
             
 
@@ -494,28 +477,6 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -525,7 +486,7 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
 
           
           
-             <span id="/2017/05/11/vertical-aligin-middle/" class="leancloud_visitors" data-flag-title="图片文字垂直居中 ">
+             <span id="/2017/05/16/worker-example/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -554,8 +515,44 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
       
         
           
-            <p>个数不定的文字内容与图片的垂直居中对齐<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>文字们哈哈哈哈哈<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/june.jpg"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&gt;<span class="selector-tag">span</span>&#123;<span class="attribute">display</span>:inline-block;<span class="attribute">width</span>:<span class="number">210px</span>;<span class="attribute">vertical-align</span>:middle;&#125;</div><div class="line"><span class="selector-tag">div</span>&gt;<span class="selector-tag">img</span>&#123;<span class="attribute">vertical-align</span>:middle;&#125;</div></pre></td></tr></table></figure>
+            <!DOCTYPE html>
+<html>
+<head>
+	<title>web worker</title>
+</head>
+<body>
+<img src="../images/june.jpg" onclick="smear(this)">
+
+<script type="text/javascript">
+	// 异步的将图片内容替换为动态的模糊版本
+	function smear(img){
+		// 创建一个和图片尺寸相同的屏幕外的canvas
+		var canvas=document.createElement("canvas");
+		canvas.width=img.width;
+		canvas.height=img.height;
+
+		// 将图片复制到画布中，随后提取像素
+		var context=canvas.getContext("2d");
+		context.drawImage(img,0,0);
+		var pixels=context.getImageData(0,0,img.width,img.height);
+
+		// 将像素信息传递给Worker线程
+		var worker=new Worker("SmearWorker.js");
+		worker.postMessage(pixels);
+
+		// 注册事件处理程序来获取worker的响应
+		worker.onmessage=function(e){
+			var smeared_pixels=e.data;
+			context.putImageData(smeared_pixels,0,0);
+			img.src=canvas.toDataURL();
+			worker.terminate();
+			canvas.width=canvas.height=0;
+		}
+
+	}
+</script>
+</body>
+</html>
           
         
       
@@ -588,7 +585,7 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -631,7 +628,7 @@ The baseline of an 'inline-block' is the baseline of its last line box in the no
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

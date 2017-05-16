@@ -4,6 +4,20 @@
     
     <entry>
       <title></title>
+      <url>%2F2017%2F05%2F16%2FSmearWorker%2F</url>
+      <content type="text"><![CDATA[// 从主线程获取ImageData对象，对其进行处理并将它传递回去 onmessage=function(e){ postMessage(smear(e.data)); } // 将ImageData中的像素信息向右涂抹，产生动态模糊效果 // 对于大图片，此方法会进行大量计算 // 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题 function smear(pixels){ var data=pixels.data,width=pixels.width,height=pixels.height; var n=10,m=n-1;//设置n倍大，用于更多的涂抹 for(var row=0;row]]></content>
+    </entry>
+
+    
+    <entry>
+      <title></title>
+      <url>%2F2017%2F05%2F16%2Fworker-example%2F</url>
+      <content type="text"><![CDATA[web worker // 异步的将图片内容替换为动态的模糊版本 function smear(img){ // 创建一个和图片尺寸相同的屏幕外的canvas var canvas=document.createElement("canvas"); canvas.width=img.width; canvas.height=img.height; // 将图片复制到画布中，随后提取像素 var context=canvas.getContext("2d"); context.drawImage(img,0,0); var pixels=context.getImageData(0,0,img.width,img.height); // 将像素信息传递给Worker线程 var worker=new Worker("SmearWorker.js"); worker.postMessage(pixels); // 注册事件处理程序来获取worker的响应 worker.onmessage=function(e){ var smeared_pixels=e.data; context.putImageData(smeared_pixels,0,0); img.src=canvas.toDataURL(); worker.terminate(); canvas.width=canvas.height=0; } }]]></content>
+    </entry>
+
+    
+    <entry>
+      <title></title>
       <url>%2F2017%2F05%2F12%2Finline-box-baseline%2F</url>
       <content type="text"><![CDATA[inline-box与baseline .dib-baseline{ display: inline-block; width: 150px; height: 150px; border:1px solid #ddd; background: red; } x-baseline The baseline of an 'inline-block' is the baseline of its last line box in the normal flow, unless it has either on in-flow line boxes or if its 'overflow' property has a computed value other than 'visible', in which case the baseline is the bottom margin edge. 该现象解释如下： 在正常文档流中，inline-block的baseline是它的最后一个line-box的baseline。 如果它没有包含in-flow line boxes，或它的overflow属性有一个非visible的computed value,那么它的baseline就是它的bottome margin edge.]]></content>
     </entry>
