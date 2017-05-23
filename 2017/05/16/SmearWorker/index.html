@@ -86,38 +86,41 @@
 
 <meta name="description" content="// 从主线程获取ImageData对象，对其进行处理并将它传递回去
 onmessage=function(e){
+	if(typeof e.data === &apos;string&apos;){
+		console.log(&quot;Worker: &quot;+e.data);
+		return;
+	}
 	postMessage(smear(e.data));
 }
 
-// 将ImageData中的像素信息向右涂抹，产生动态模糊效果
-// 对于大图片，此方法会进行大量计算
-// 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题
-function smear(pixels){">
+// 将ImageData中的像素信息向右涂抹，产生动态模糊">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Juney">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/05/16/SmearWorker/index.html">
 <meta property="og:site_name" content="Juney">
 <meta property="og:description" content="// 从主线程获取ImageData对象，对其进行处理并将它传递回去
 onmessage=function(e){
+	if(typeof e.data === &apos;string&apos;){
+		console.log(&quot;Worker: &quot;+e.data);
+		return;
+	}
 	postMessage(smear(e.data));
 }
 
-// 将ImageData中的像素信息向右涂抹，产生动态模糊效果
-// 对于大图片，此方法会进行大量计算
-// 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题
-function smear(pixels){">
-<meta property="og:updated_time" content="2017-05-16T08:30:50.000Z">
+// 将ImageData中的像素信息向右涂抹，产生动态模糊">
+<meta property="og:updated_time" content="2017-05-17T02:27:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Juney">
 <meta name="twitter:description" content="// 从主线程获取ImageData对象，对其进行处理并将它传递回去
 onmessage=function(e){
+	if(typeof e.data === &apos;string&apos;){
+		console.log(&quot;Worker: &quot;+e.data);
+		return;
+	}
 	postMessage(smear(e.data));
 }
 
-// 将ImageData中的像素信息向右涂抹，产生动态模糊效果
-// 对于大图片，此方法会进行大量计算
-// 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题
-function smear(pixels){">
+// 将ImageData中的像素信息向右涂抹，产生动态模糊">
 
 
 
@@ -395,6 +398,10 @@ function smear(pixels){">
       
         // 从主线程获取ImageData对象，对其进行处理并将它传递回去
 onmessage=function(e){
+	if(typeof e.data === 'string'){
+		console.log("Worker: "+e.data);
+		return;
+	}
 	postMessage(smear(e.data));
 }
 
@@ -439,6 +446,10 @@ function smear(pixels){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/23/font-face/" rel="prev" title="font-face">
+                font-face <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -499,7 +510,7 @@ function smear(pixels){
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
