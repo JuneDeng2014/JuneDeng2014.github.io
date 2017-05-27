@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[learn-compass]]></title>
+      <url>%2F2017%2F05%2F27%2Flearn-compass%2F</url>
+      <content type="text"><![CDATA[It’s important to remember that long selectors incur a small rendering performance penalty that in aggregate can slow down your web page. There is no need to exactly mimic your document structure in your css. Instead nest only deep enough that the selector is unique to that part of the document. For instance, don’t use table thead tr th when a simple th selector will suffice. This might mean that you have to separate your styles into several selectors and let the document cascade work to your advantage.摘自：http://compass-style.org/help/tutorials/best_practices/ 长的选择器会影响渲染表现，累积起来会导致页面变慢。没有必要在css里效仿你的文档结构。只需要嵌套到该选择器在该部分文档唯一的就足够了。比如，当一个简单的th选择器就够了的时候，不要使用table thead tr th。这意味着你必须把样式分散在几个选择器中。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[font-face]]></title>
       <url>%2F2017%2F05%2F23%2Ffont-face%2F</url>
       <content type="text"><![CDATA[昨天要改一个很简单的需求，把网站的标题改下。修改了html，发现字体很奇怪。有的是设计师给的，有的不是。 本以为需要切图，查看了源码，发现字体文件只有之前标题的那几个字。新增的字没有办法应用那个字体。 找设计师要来了他的字体文件，truetype的，解压。上传到http://transfonter.org。把自己需要的那几个字，也就是新的标题转为svg,woff,ttf,eot,woff2格式。替换掉原来的font文件即可。 12345678910@font-face &#123; font-family: "myfont"; src: url("../font/myfont.eot"); /* IE9 */ src: url("../font/myfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../font/myfont.woff") format("woff"), /* chrome, firefox */ url("../font/myfont.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url("../font/myfont.svg#myfont") format("svg"); /* iOS 4.1- */ font-style: normal; font-weight: normal;&#125; 查看为何这段代码生效：http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/1234567@font-face &#123; font-family: 'MyFontFamily'; src: url('myfont-webfont.eot?#iefix') format('embedded-opentype'), url('myfont-webfont.woff') format('woff'), url('myfont-webfont.ttf') format('truetype'), url('myfont-webfont.svg#svgFontName') format('svg'); &#125;]]></content>
