@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[设备像素、设备独立像素、css像素]]></title>
+      <url>%2F2017%2F06%2F01%2Fabout-pixel%2F</url>
+      <content type="text"><![CDATA[definition设备像素:又称物理像素（physical pixel），设备能控制显示的最小单位，我们可以把这些像素看作成显示器上一个个的点。 CSS像素CSS像素是Web编程的概念，独立于设备的用于逻辑上衡量像素的单位，也就是说我们在做网页时用到的CSS像素单位，是抽象的，而不是实际存在的。 设备独立像素：(也叫密度无关像素)，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用并控制的虚拟像素(比如：CSS 像素,只是在android机中CSS 像素就不叫”CSS 像素”了而是叫”设备独立像素”)，然后由相关系统转换为物理像素。 在PC端可以通过screen.width/height属性来获取设备独立像素值，在PC端这个值把它当成我们常说的屏幕分辨率（实际上它不是，但是由于在PC端设备像素和设备独立像素数值相等，才有这么一个不准确的说法）。但你把浏览器切换到设备模式时，也就是在移动端环境下通过上面的screen.width/height获取的不是移动设备的分辨率，而是移动设备的屏宽/高（这里只是猜测），如：Iphone 5s下screen.width =320、screen.height = 568。本以为是浏览器里的设备环境没有完全模拟真实的移动设备环境，可是用真机测试时，还是出现同样的结果screen.width =320、screen.height = 568。值得注意的是：不管你手机是否切换到横屏，这两个值还是一样的。所以不管是移动端还是PC端通过screen.width/height获取的这个值是设备独立像素（CSS 像素），而不是设备的屏幕分辨率，因为设备的屏幕分辨率对于WEB开发者来说是无法通过代码来获得的，是完全透明的. 摘自：http://yunkus.com/physical-pixel-device-independent-pixels/]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[devicePixelRatio]]></title>
       <url>%2F2017%2F05%2F31%2FdevicePixelRatio%2F</url>
       <content type="text"><![CDATA[definitionwindow.devicePixelRatio is the ratio between physical pixels and device-independent pixels (dips) on the device.window.devicePixelRatio = physical pixels / dips Dips are the abstract pixels that are used to feed information to the width/height media queries and the meta viewport device-width. relation with other propertiesdips:设置页面的&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;，获取document.documentElement.clientWidth，大部分浏览器会返回viewport layout的宽度，即为dips summary devicePixelRatio is mostly trustworthy on most browsers. On iOS devices, multiply devicePixelRatio by screen.width to get the physical pixel count. On Android and Windows Phone devices, divide screen.width by devicePixelRatio to get the dips count.]]></content>
