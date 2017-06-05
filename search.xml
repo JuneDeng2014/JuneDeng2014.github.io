@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[git add 详解]]></title>
+      <url>%2F2017%2F06%2F05%2Fgit-add%2F</url>
+      <content type="text"><![CDATA[一、前言git add命令主要用于把我们要提交的文件的信息添加到索引库中。当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。 二、基本git add &lt; path &gt;表示 add to index only files created or modified and not those deleted]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[设备像素、设备独立像素、css像素]]></title>
       <url>%2F2017%2F06%2F01%2Fabout-pixel%2F</url>
       <content type="text"><![CDATA[definition设备像素:又称物理像素（physical pixel），设备能控制显示的最小单位，我们可以把这些像素看作成显示器上一个个的点。 CSS像素CSS像素是Web编程的概念，独立于设备的用于逻辑上衡量像素的单位，也就是说我们在做网页时用到的CSS像素单位，是抽象的，而不是实际存在的。 设备独立像素：(也叫密度无关像素)，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用并控制的虚拟像素(比如：CSS 像素,只是在android机中CSS 像素就不叫”CSS 像素”了而是叫”设备独立像素”)，然后由相关系统转换为物理像素。 在PC端可以通过screen.width/height属性来获取设备独立像素值，在PC端这个值把它当成我们常说的屏幕分辨率（实际上它不是，但是由于在PC端设备像素和设备独立像素数值相等，才有这么一个不准确的说法）。但你把浏览器切换到设备模式时，也就是在移动端环境下通过上面的screen.width/height获取的不是移动设备的分辨率，而是移动设备的屏宽/高（这里只是猜测），如：Iphone 5s下screen.width =320、screen.height = 568。本以为是浏览器里的设备环境没有完全模拟真实的移动设备环境，可是用真机测试时，还是出现同样的结果screen.width =320、screen.height = 568。值得注意的是：不管你手机是否切换到横屏，这两个值还是一样的。所以不管是移动端还是PC端通过screen.width/height获取的这个值是设备独立像素（CSS 像素），而不是设备的屏幕分辨率，因为设备的屏幕分辨率对于WEB开发者来说是无法通过代码来获得的，是完全透明的. 摘自：http://yunkus.com/physical-pixel-device-independent-pixels/]]></content>
