@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title></title>
+      <url>%2F2017%2F10%2F25%2Ffloat_test%2F</url>
+      <content type="text"><![CDATA[parent element of floated elements collapsed .box-set { background: #eaeaed; overflow: auto; } .box { background: #2db34a; float: left; margin: 1.858736059%; width: 29.615861214%; } Box 1 Box 2 Box 3]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[测试浮动崩溃]]></title>
+      <url>%2F2017%2F10%2F25%2Ffloat-test%2F</url>
+      <content type="text"><![CDATA[While floats do provide quite a bit of fire power, they do come with a few of their own problems. The most popular problem involves a parent element that contains numerous floated elements. Content on the page will respect the size and placement of the floated children element, but these floated elements no longer impact the outer edges of the parent container. In this event the parent element loses context of exactly what it contains and collapses, thus giving the parent element a height of 0 and ignoring various other properties. A lot of times this may go unnoticed, specifically when the parent element doesn’t have any styles tied to it and the nested elements look to have aligned correctly. Should the nested elements not line up correctly, styling errors may appear. Taking a look at the demo below, the .box-set division should have a light gray background, however the background is not seen as all of the elements nested within it are floated. Upon inspecting the .box-set division you will see it has a height of 0. reference:https://learn.shayhowe.com/advanced-html-css/detailed-css-positioning/]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[2017/10/23 review my new year goal]]></title>
       <url>%2F2017%2F10%2F23%2F2017-10-23%2F</url>
       <content type="text"><![CDATA[回顾自己的2017目标： 学习目标 Expert knowledge of HTML5, CSS, Javascript, and W3C compliance这个目标很难衡量，但我知道我今年并没有花时间去系统全面的学习这些。完成度0%。 Knowledge of advanced CSS using a preprocessor(SCSS&amp;Gulp)会用sass了。这个目标完成度只有20%。 TypeScript (2017/1/20学习完成基本语法概念)没有在实际项目中使用，学好的语法知识现在已经全部忘记了。在练习中学习在项目中学习在实践中学习才是王道。 NodeJS完全没有花时间去学习。 PYTHON完全没有花时间在这个上面。 英语词汇量到2万，目前一万八完成了。每天20分支保持住了。健身目标 目前体重 51.4kg，希望年底能到45kg。现在47.5kg，希望年底能达成这个目标。]]></content>
