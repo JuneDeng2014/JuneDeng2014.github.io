@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[css布局学习]]></title>
+      <url>%2F2017%2F11%2F21%2Fcss%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%2F</url>
+      <content type="text"><![CDATA[max-width 使用max-width替代width可以使浏览器更好地处理小窗口的情况。所有主流浏览器斗支持max-width，包括ie7+. 1234#main&#123; max-wdith:600px; margin:0 auto;&#125; box-sizing 传统的盒子模型不直接，所以新增了box-sizing的css属性。当你设置元素的CSS box-sizing:border-box;时，此原属的内边距和边框不再会增加它的宽度。 不过 box-sizing 是个很新的属性，目前需要使用 -webkit- 和 -moz- 前缀。这可以启用特定浏览器实验中的特性。同时记住它是支持IE8+的。 position static 默认值。任意CSS position:static;的元素表示不会被特殊定位。 relative fixed 一个固定定位CSS position:fixed;元素会相对于视窗来定位，这意味着即使页面滚动，它还是会停留在相同的位置。和CSS position:relative;一样，top\right\bottom\left属性都可用。 脱离文档流。 移动浏览器对fixed支持很差。 absolute absolute 是最棘手的position值。 absolute 与 fixed 的表现类似，但是它不是相对于视窗而是相对于最近的“positioned”祖先元素。如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。记住一个“positioned”元素是指 position 值不是 static 的元素。]]></content>
+    </entry>
+
+    
+    <entry>
       <title></title>
       <url>%2F2017%2F10%2F25%2Ffloat_test%2F</url>
       <content type="text"><![CDATA[parent element of floated elements collapsed .box-set { background: #eaeaed; overflow: auto; } .box { background: #2db34a; float: left; margin: 1.858736059%; width: 29.615861214%; } Box 1 Box 2 Box 3]]></content>
