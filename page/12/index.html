@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/13/padding-and-layout/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/01/如何避免table自动换行/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -309,8 +309,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/13/padding-and-layout/" itemprop="url">
-                  利用padding布局
+                <a class="post-title-link" href="/2017/03/01/如何避免table自动换行/" itemprop="url">
+                  如何避免table自动换行
                 </a>
               
             
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T19:37:17+08:00">
-                2017-03-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T10:55:44+08:00">
+                2017-03-01
               </time>
             
 
@@ -368,7 +368,7 @@
 
           
           
-             <span id="/2017/03/13/padding-and-layout/" class="leancloud_visitors" data-flag-title="利用padding布局">
+             <span id="/2017/03/01/如何避免table自动换行/" class="leancloud_visitors" data-flag-title="如何避免table自动换行">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -396,16 +396,22 @@
 
       
         
-          
-            <h1 id="使用百分比构建固定比例布局"><a href="#使用百分比构建固定比例布局" class="headerlink" title="使用百分比构建固定比例布局"></a>使用百分比构建固定比例布局</h1><p>移动端：1:1 头图<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">50%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="配合margin实现等高布局"><a href="#配合margin实现等高布局" class="headerlink" title="配合margin实现等高布局"></a>配合margin实现等高布局</h1><p>很大的margin-bottom,padding-bottom值填充缺失的空间。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">	<span class="attribute">overflow</span>:hidden;</div><div class="line">	<span class="attribute">resize</span>:vertical;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child-orange</span>,<span class="selector-tag">child-green</span>&#123;</div><div class="line">	<span class="attribute">margin-bottom</span>:-<span class="number">600px</span>;<span class="attribute">padding-bottom</span>:<span class="number">600px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child-orange</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">	<span class="attribute">background-color</span>:orange;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child-green</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">	<span class="attribute">background-color</span>:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="两栏自适应布局"><a href="#两栏自适应布局" class="headerlink" title="两栏自适应布局"></a>两栏自适应布局</h1><h2 id="padding在容器上"><a href="#padding在容器上" class="headerlink" title="padding在容器上"></a>padding在容器上</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pbox"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"xx.jpg"</span>&gt;</span> text here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div><div class="line">	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div class="line">	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div class="line">	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div><div class="line">	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div class="line">	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.pbox</span>&#123;</div><div class="line">	<span class="attribute">padding-left</span>:<span class="number">120px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.pbox</span> <span class="selector-tag">img</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">	<span class="attribute">margin-left</span>:-<span class="number">120px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="padding在子元素上"><a href="#padding在子元素上" class="headerlink" title="padding在子元素上"></a>padding在子元素上</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"xx.jpg"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"auto"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div><div class="line">	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div class="line">	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div class="line">	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div><div class="line">	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div class="line">	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span>&#123;<span class="attribute">float</span>:left;&#125;</div><div class="line"><span class="selector-class">.auto</span>&#123;</div><div class="line">	<span class="attribute">padding-left</span>:<span class="number">120px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>内容参考来自张鑫旭的慕课网视频：(<a href="http://www.imooc.com/video/12600" target="_blank" rel="external">http://www.imooc.com/video/12600</a>).</p>
-
-          
+          <p>HTML的表格渲染很特殊，当单元格的内容过长，就会自动换行，导致表格的显示很凌乱。<br>只要添加2行css代码就可以解决这个问题。</p>
+<ol>
+<li><p>对table元素，应用css代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*让文本在同一行继续*/</span></div><div class="line"><span class="selector-tag">table</span>&#123;</div><div class="line">    <span class="attribute">white-space</span>:nowrap</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>给table的父元素添加样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.table-wraper</span>&#123;</div><div class="line">   <span class="attribute">overflow</span>:auto; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/01/如何避免table自动换行/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -442,7 +448,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/03/13/use-padding-to-draw-graph/">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/02/17/周总结/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="June Deng">
@@ -467,8 +473,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/13/use-padding-to-draw-graph/" itemprop="url">
-                  利用padding绘制图形
+                <a class="post-title-link" href="/2017/02/17/周总结/" itemprop="url">
+                  周总结
                 </a>
               
             
@@ -484,8 +490,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T19:14:44+08:00">
-                2017-03-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T10:40:06+08:00">
+                2017-02-17
               </time>
             
 
@@ -507,8 +513,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/life/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
                   </a>
                 </span>
 
@@ -526,7 +532,7 @@
 
           
           
-             <span id="/2017/03/13/use-padding-to-draw-graph/" class="leancloud_visitors" data-flag-title="利用padding绘制图形">
+             <span id="/2017/02/17/周总结/" class="leancloud_visitors" data-flag-title="周总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -554,14 +560,14 @@
 
       
         
-          
-            <h1 id="借助padding实现三道杠"><a href="#借助padding实现三道杠" class="headerlink" title="借助padding实现三道杠"></a>借助padding实现三道杠</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tri-line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.tri-line</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">border-top</span>:<span class="number">30px</span> solid;</div><div class="line">	<span class="attribute">boder-bottom</span>:<span class="number">30px</span> solid;</div><div class="line">	<span class="attribute">background-color</span>:currentColor;</div><div class="line">	<span class="attribute">background-clip</span>:content-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="借助padding实现白眼效果"><a href="#借助padding实现白眼效果" class="headerlink" title="借助padding实现白眼效果"></a>借助padding实现白眼效果</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.eye</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">10px</span>;</div><div class="line">	<span class="attribute">border</span>:<span class="number">10px</span> solid;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">50%</span>;</div><div class="line">	<span class="attribute">background-color</span>:currentColor;</div><div class="line">	<span class="attribute">background-clip</span>:content-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>参考:<a href="http://www.imooc.com/video/12601" target="_blank" rel="external">css padding与图形绘制–张鑫旭</a></p>
-
-          
+          <p>本周马不停蹄地写项目。<br>在应用中发现自己的不足，还有很多需要学习的。<br>css首当其冲。<br>平时写得太少，导致用的时候踩了很多坑。比如一个sticy footer,看似简单，实现起来发现毛病真多。<br>学习编程，真的是需要多多地敲代码，多多地应用，多多地测试。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/17/周总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -593,7 +599,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -636,7 +642,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
