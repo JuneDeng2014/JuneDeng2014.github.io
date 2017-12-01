@@ -411,17 +411,17 @@ Eliminate unnecessary resources from application.
  - Does this resource need or have an SLA?Does this resource follow performance best practices:compression,caching,and so on.
 
 Too often,pages contain resources that are unnecessary,or worse,that hinder page performance without delivering much value to the visitor or to the site they&apos;re hosted on.This applies equally to first-party and third-party resources and widgets.
-</code></pre><h2 id="Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets"><a href="#Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets" class="headerlink" title="Optimizing Encoding and Transfer Size of Text-Based Assets"></a>Optimizing Encoding and Transfer Size of Text-Based Assets</h2><pre><code>### Data compression 101
+</code></pre><h2 id="Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets"><a href="#Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets" class="headerlink" title="Optimizing Encoding and Transfer Size of Text-Based Assets"></a>Optimizing Encoding and Transfer Size of Text-Based Assets</h2><pre><code>1. Data compression 101
 TL;DR:
     - Compression is the process of encoding information using fewer bits.
     - Eliminating unnecessary data always yields the best results.
     - There are many different compression techniques and algorithms.
     - You will need a varity of techniques to achieve the best compression.
-### Minification:preprocessing &amp; context-specific optimizations
+2. Minification:preprocessing &amp; context-specific optimizations
 TL;DR:
     - Content-specific optimizations can significantly reduce the size of delivered resources.
     - Content-specific optimizations are best applied as part of your build/release cycle.
-### Text compression with GZIP
+3. Text compression with GZIP
 TL;DR:
     - GZIP performs best on text-based assets:CSS,JavaScript,HTML
     - All modern browsers support GZIP compression and will automatically request it.
