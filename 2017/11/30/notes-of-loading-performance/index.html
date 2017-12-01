@@ -100,7 +100,7 @@ Use timeouts to handle intermittent connectivity
 
 Optimizing Content EfficiencyEliminating Unnecessary DownloadsTL;DR
 - I">
-<meta property="og:updated_time" content="2017-12-01T09:38:34.000Z">
+<meta property="og:updated_time" content="2017-12-01T09:40:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="notes of loading performance">
 <meta name="twitter:description" content="Understanding Low Bandwith and High Latency
@@ -497,13 +497,13 @@ Image optimization boils down to two criteria: optimizing the number of bytes us
 As a result, one of the simplest and most effective image optimization techniques is to ensure that we are not shipping any more pixels than needed to display the asset at its intended size in the browser. Sounds simple, right? Unfortunately, most pages fail this test for many of their image assets: typically, they ship larger assets and rely on the browser to rescale them - which also consumes extra CPU resources - and display them at a lower resolution.
 
 **you should ensure that the number of unnecessary pixels is minimal, and that your large assets in particular are delivered as close as possible to their display size.**
-</code></pre><h3 id="Image-optimization-checklist"><a href="#Image-optimization-checklist" class="headerlink" title="Image optimization checklist"></a>Image optimization checklist</h3><pre><code>- **Prefer vector formats**
-- **Minify and compress SVG assets**
-- **Pick best raster image format**
-- **Experiment with optimal quality settings for raster formats**
-- **Remove unnecessary image metadata**
-- **Serve scaled images**
-- **Automate**:invest into automated tools and infrastructure that will ensure that all of your image assets are always optimized
+</code></pre><h3 id="Image-optimization-checklist"><a href="#Image-optimization-checklist" class="headerlink" title="Image optimization checklist"></a>Image optimization checklist</h3><pre><code>- __Prefer vector formats__
+- __Minify and compress SVG assets__
+- __Pick best raster image format__
+- __Experiment with optimal quality settings for raster formats__
+- __Remove unnecessary image metadata__
+- __Serve scaled images__
+- __Automate__:invest into automated tools and infrastructure that will ensure that all of your image assets are always optimized
 </code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization</a></p>
 
       
