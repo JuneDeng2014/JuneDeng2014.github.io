@@ -100,7 +100,7 @@ Use timeouts to handle intermittent connectivity
 
 Optimizing Content EfficiencyEliminating Unnecessary DownloadsTL;DR
 - I">
-<meta property="og:updated_time" content="2017-12-01T09:40:32.000Z">
+<meta property="og:updated_time" content="2017-12-01T09:58:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="notes of loading performance">
 <meta name="twitter:description" content="Understanding Low Bandwith and High Latency
@@ -476,15 +476,15 @@ if a raster image is required,deliver and optimize multiple variants of each ima
     - Start by selecting the right universal format:gif,png,jepg
     - Experiment and select the best settings for each format:quality,palette size,etc
     - Consider adding WebP and JPEG XR assets for modern clients
-</code></pre><ol>
-<li>Do you need animation? If so, GIF is the only universal choice</li>
-<li>Do you need to preserve fine detail with highest resolution? Use PNG.</li>
-<li>Are you optimizing a photo,screenshot,or a similar image asset? Use JPEG.</li>
-</ol>
-<p>WebP and JPEG XR :</p>
-<pre><code>- Some CDNS provide image optimization as a service,including JPEG XR and WebP delivery.
-- Some open-source tools(for example,PageSpeed for Apache or Nginx) automate the optimization,conversation,and serving of approriate assets.
-- You can add additional application logic to detect the client,check which formats they support,and serve the best availlable image format.
+
+1. Do you need animation? If so, GIF is the only universal choice
+1. Do you need to preserve fine detail with highest resolution? Use PNG.
+1. Are you optimizing a photo,screenshot,or a similar image asset? Use JPEG.
+
+WebP and JPEG XR :
+    - Some CDNS provide image optimization as a service,including JPEG XR and WebP delivery.
+    - Some open-source tools(for example,PageSpeed for Apache or Nginx) automate the optimization,conversation,and serving of approriate assets.
+    - You can add additional application logic to detect the client,check which formats they support,and serve the best availlable image format.
 </code></pre><h3 id="Tools-and-parameter-turning"><a href="#Tools-and-parameter-turning" class="headerlink" title="Tools and parameter turning"></a>Tools and parameter turning</h3><pre><code>- gifsicle:create and optimize GIF images
 - jpegtran:optimize JPEG images
 - optipng:lossless PNG optimization
@@ -540,6 +540,10 @@ As a result, one of the simplest and most effective image optimization technique
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/04/automate-image-optimization/" rel="prev" title="automate-image-optimization">
+                automate-image-optimization <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -609,7 +613,7 @@ As a result, one of the simplest and most effective image optimization technique
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +631,7 @@ As a result, one of the simplest and most effective image optimization technique
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
