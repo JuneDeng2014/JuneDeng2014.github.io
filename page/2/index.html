@@ -284,6 +284,185 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/04/automate-image-optimization/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="June Deng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/june.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Juney">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Juney" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/04/automate-image-optimization/" itemprop="url">
+                  automate-image-optimization
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-04T10:46:54+08:00">
+                2017-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/12/04/automate-image-optimization/" class="leancloud_visitors" data-flag-title="automate-image-optimization">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/imagemin/imagemin" target="_blank" rel="external">https://github.com/imagemin/imagemin</a><br><a href="https://github.com/jcupitt/libvips" target="_blank" rel="external">https://github.com/jcupitt/libvips</a></p>
+<p>compress images tools:</p>
+<ul>
+<li>ImageOptim</li>
+<li>MozJPEG</li>
+<li>Progressive JPEG</li>
+<li>pngquant</li>
+<li>SVGO</li>
+<li>Instead of crazy huge animated GIFs, deliver H.264 videos (or WebM for Chrome, Firefox and Opera)!</li>
+<li>gif: <a href="https://github.com/pornel/giflossy" target="_blank" rel="external">https://github.com/pornel/giflossy</a></li>
+</ul>
+<p>image optimisation</p>
+<ol>
+<li>Choose the right format</li>
+<li>Size approriately</li>
+<li>Adapt intelligently</li>
+<li>Compress carefully </li>
+<li>Prioritize critical images</li>
+<li>Lazy-load the rest</li>
+<li>Take care with tools</li>
+</ol>
+<p>Tools and libraries like ImageMagick, libjpeg, jpegtran, jpeg-recompress and imagemin support exporting Progressive JPEGs.</p>
+<p>SVG can be powerful for icons, offering a way to represent visualizations as a sprite without the quirky workarounds needed for icon fonts. It has more granular CSS styling control than icon fonts (SVG stroke properties), better positioning control (no need to hack around pseudo-elements and CSS display) and SVGs are much more accessible.</p>
+<p>Tools like svg-sprite and IcoMoon can automate combining SVGs into sprites which can be used via a CSS Sprite, Symbol Sprite or Stacked Sprite. Una Kravetz has a practical write-up on how to use gulp-svg-sprite for an SVG sprite workflow worth checking out. Sara Soudein also covers making the transition from icon fonts to SVG on her blog.</p>
+<p>Always comprese from the original image. Recompressing images has consequences.</p>
+<p>When editing your source files,store them in a lossless format like PNG or TIFF,so you preserve as much as quality as you can.</p>
+<p>Resizing and decoding images are expensive operations for a browser on average mobile hardware.<br>Serve the smallest images for your target screen sizes and resolutions, taking advantage of srcset and sizes.</p>
+<p>Omitting the width or height attributes on an image can also negatively impact performance. Without them, a browser assigns a smaller placeholder region for the image until sufficient bytes have arrived for it to know the correct dimensions. At that point, the document layout must be updated in what can be a costly step called reflow.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/11/30/notes-of-loading-performance/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -525,179 +704,11 @@ As a result, one of the simplest and most effective image optimization technique
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/11/30/performance-notes/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="June Deng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/june.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Juney">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Juney" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/11/30/performance-notes/" itemprop="url">
-                  performance notes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-30T15:32:43+08:00">
-                2017-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/11/30/performance-notes/" class="leancloud_visitors" data-flag-title="performance notes">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mearsure-Performance-with-Rail-Model"><a href="#Mearsure-Performance-with-Rail-Model" class="headerlink" title="Mearsure Performance with Rail Model"></a>Mearsure Performance with Rail Model</h1><p>response,animation,idle,load<br>TL;DR</p>
-<pre><code>- Focus on the user;the goal isn&apos;t to make your site perform fast on any specific device, its to ultimately make users happy.
-- Respond to users immediately;acknowledge user input in under 100ms.
-- When animating or scrolling,produce a frame in under 10ms.
-- Maxmize main thread idle time.
-- Keep users engaged;deliver interactive content in under 1000ms.
-</code></pre><h2 id="Focus-on-the-user"><a href="#Focus-on-the-user" class="headerlink" title="Focus on the user"></a>Focus on the user</h2><h2 id="Response-respond-in-under-100ms"><a href="#Response-respond-in-under-100ms" class="headerlink" title="Response:respond in under 100ms"></a>Response:respond in under 100ms</h2><h2 id="Animation-produce-a-frame-in-10ms"><a href="#Animation-produce-a-frame-in-10ms" class="headerlink" title="Animation:produce a frame in 10ms"></a>Animation:produce a frame in 10ms</h2><h2 id="Idle-maximize-idle-time"><a href="#Idle-maximize-idle-time" class="headerlink" title="Idle:maximize idle time"></a>Idle:maximize idle time</h2><pre><code>Use idle time to complete deferred work. For example, keep pre-load data to aminimum so that your app loads fast, and use idle time to load remainning data/
-
-Deferrend work should be grouped into blocks of about 50ms. Should a user begin interacting, then the highest priority is to respond to that.
-
-To allow for &amp;lt;100ms response,the app must yield control back to main thread every &amp;lt;50ms,such that can execute its pixel pipeline,react to user input,and so on.
-
-Working in 500ms blocks allows the task to finish while still ensuring instant response.
-</code></pre><h2 id="Load-deliver-content-under-100ms"><a href="#Load-deliver-content-under-100ms" class="headerlink" title="Load:deliver content under 100ms"></a>Load:deliver content under 100ms</h2><pre><code>Load your site in under 1 second.
-Focus on optimizing the critical rendering path to unblock rendering.
-You don&apos;t have to load everything in under 1 second to produce the perception of a complete load.Enable progressive rendering and do some work in the background.Defer non-essential loads to periods of idle time.
-</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/rail" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/rail</a>  </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -740,7 +751,7 @@ You don&apos;t have to load everything in under 1 second to produce the percepti
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
