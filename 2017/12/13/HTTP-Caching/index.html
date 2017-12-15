@@ -94,7 +94,7 @@ The validation token enables efficient resource update checks:no data transferre
 <meta property="og:description" content="Validating cached responses with ETags
 The server uses the ETag HTTP header to communicate a validation token.
 The validation token enables efficient resource update checks:no data transferred if the">
-<meta property="og:updated_time" content="2017-12-15T03:23:55.000Z">
+<meta property="og:updated_time" content="2017-12-15T03:28:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP-Caching">
 <meta name="twitter:description" content="Validating cached responses with ETags
@@ -399,12 +399,11 @@ The validation token enables efficient resource update checks:no data transferre
       
         <h1 id="Validating-cached-responses-with-ETags"><a href="#Validating-cached-responses-with-ETags" class="headerlink" title="Validating cached responses with ETags"></a>Validating cached responses with ETags</h1><ul>
 <li>The server uses the ETag HTTP header to communicate a validation token.</li>
-<li><p>The validation token enables efficient resource update checks:no data transferred if the resource has not changed.<br>Ensure that the server is providing the necessary ETag tokens. Check your server documentation for the necessary configuration flags.</p>
+<li>The validation token enables efficient resource update checks:no data transferred if the resource has not changed.<br>Ensure that the server is providing the necessary ETag tokens. Check your server documentation for the necessary configuration flags.</li>
+</ul>
 <h1 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h1><ul>
 <li>Each resource can define its caching policy via the Cache-Control HTTP header.</li>
 <li>Cache-Control directives control who can cache the response, under which conditions, and for how long.</li>
-</ul>
-</li>
 </ul>
 <h2 id="“no-cache”-and-“no-store”"><a href="#“no-cache”-and-“no-store”" class="headerlink" title="“no-cache” and “no-store”"></a>“no-cache” and “no-store”</h2><p>“no-cache” indicates that the returned response can’t be used to satisfy a subsequent request to the same URL without first checking with the server if the response has changed. As a result, if a proper validation token (ETag) is present, no-cache incurs a roundtrip to validate the cached response, but can eliminate the download if the resource has not changed.</p>
 <p>By contrast, “no-store” is much simpler. It simply disallows the browser and all intermediate caches from storing any version of the returned response—for example, one containing private personal or banking data. Every time the user requests this asset, a request is sent to the server and a full response is downloaded.</p>
