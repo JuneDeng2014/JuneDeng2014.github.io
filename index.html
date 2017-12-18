@@ -414,7 +414,7 @@
 <p>http和https URIs看起来基本一样。区别在于，当一个客户端通过https uri去获取一个资源，会使用加密的连接。<br>加密的网络连接最初用于保护密码和信用卡交易，但现在，很多的网站会使用它们保护用户的隐私。</p>
 <p>还有很多其他的uri方案。可在<a href="http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" target="_blank" rel="external">http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml</a> 查看。</p>
 <h1 id="Hostname"><a href="#Hostname" class="headerlink" title="Hostname"></a>Hostname</h1><p>在http uri中，方案之后就是主机名(hostname)：比如www.udacity.com或者localhost。这告知客户端连接到哪个服务器。</p>
-<p>我们经常看到网络地址写得和主机名一样。但在html代码中，我们不能这样写<code>HTML &lt;a href=&quot;www.google.com&quot;&gt;this&lt;/a&gt;</code>就连接到Google。<br>主机名只能出现在它支持的uri方案之后，比如<em>http</em>或者<em>https</em>。在这些URIs之后，必须还有<em>://</em>分开方案和主机名。<br>不是所有的URIs都有主机名。比如<em>mailto</em>URI只需要一个邮箱地址:<em>malito:spam#example.net</em>就是一个符合语法规范的<em>mailto</em>URI。这也稍微更多地展现了uri中的标点符号用法:<em>:</em>在方案之后，<em>//</em>在主机名之前。<em>mailto</em>没有主机名部分，所以没有<em>//</em> 部分。</p>
+<p>我们经常看到网络地址写得和主机名一样。但在html代码中，我们不能这样写<code>HTML &lt;a href=&quot;www.google.com&quot;&gt;this&lt;/a&gt;</code>就连接到Google。<br>主机名只能出现在它支持的uri方案之后，比如<em>http</em>或者<em>https</em>。在这些URIs之后，必须还有<em>://</em>分开方案和主机名。<br>不是所有的URIs都有主机名。比如<em>mailto</em>URI只需要一个邮箱地址:<em>malito:spamexample.net</em>就是一个符合语法规范的<em>mailto</em>URI。这也稍微更多地展现了uri中的标点符号用法:<em>:</em>在方案之后，<em>//</em>在主机名之前。<em>mailto</em>没有主机名部分，所以没有<em>//</em> 部分。</p>
 <h1 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h1><p>在http uri(和很多其他),下一个出现的就是路径，指明了服务器上的一个特定的资源。<br>一个服务器可以有很多资源在上面 - 比如不提的网页，视频或者api。路径告知服务器客户端要查找的是哪一个资源。</p>
 <p>在之前的示例服务器上，你看到的路径与你的文件系统上的文件相对应。<br>真实世界中，URI路径并不一定与特定的文件名相同。比如，如果你Google搜索，你会看到一个类似<em>/search?q=ponies</em>的uri路径。这并不意味着Google服务器上有一个名为<em>/search?q=ponies</em>的文件。<br>服务器解析路径，确定发送什么资源。<br>在搜索请求的例子中，服务器会发送回之前可能从未存在过的搜索结果页面。</p>
 
