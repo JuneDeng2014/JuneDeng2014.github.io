@@ -284,6 +284,177 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-note03-parts-of-uri/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="June Deng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/june.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Juney">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Juney" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/18/http-web-servers-note03-parts-of-uri/" itemprop="url">
+                  http & web servers note03 parts of uri
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T15:04:25+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/12/18/http-web-servers-note03-parts-of-uri/" class="leancloud_visitors" data-flag-title="http & web servers note03 parts of uri">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇博文是记录学习udacity的课程http &amp; web servers的第三篇。</p>
+<h1 id="Parts-of-a-URI"><a href="#Parts-of-a-URI" class="headerlink" title="Parts of a URI"></a>Parts of a URI</h1><p>网络地址也叫做uri，统一资源标识符。<br>从网络用户的角度来看，uri就是一段文本你键入到浏览器，告知浏览器你想访问哪个页面。<br>从网络开发者的角度来看，uri要稍微复杂点.</p>
+<blockquote>
+<p>你或许见过术语URL,或者统一资源定位符。两者非常接近。具体来说，url是网络资源的uri。<br>a URL is a URI for a resource on the network.<br>因为uri稍微更精确一点，我们在课程中会使用该术语。<br>不必太担心二者之间的区别。</p>
+</blockquote>
+<p>一个URI即一个资源的名字 - 就比如眼前这个页面，一个维基百科的文章，一个数据资源比如Google地图的api。<br>uri由几个部分组成，每个部分都有自己对语法。<br>有些部分是可选的，这就是为什么不同服务的uri不同于彼此。</p>
+<p>这是一个uri的例子：<a href="https://en.wikipedia.org/wiki/Fish" target="_blank" rel="external">https://en.wikipedia.org/wiki/Fish</a></p>
+<p>这个uri有三个可见的部分，由一些标点符号分开：</p>
+<ul>
+<li>https is the scheme;(方案)</li>
+<li>en.wikipedia.org is the hostname;(主机名)</li>
+<li>and /wiki/Fish is the path;(路径)</li>
+</ul>
+<h1 id="Scheme"><a href="#Scheme" class="headerlink" title="Scheme"></a>Scheme</h1><p>uri的第一部分是方案(scheme),告诉客户端如何获取资源。<br>常见的uri方案有：http,https,file。<br>文件uri方案告诉客户端在本地文件系统获取文件。<br>http和https uri指向网络服务器提供的资源。</p>
+<p>http和https URIs看起来基本一样。区别在于，当一个客户端通过https uri去获取一个资源，会使用加密的连接。<br>加密的网络连接最初用于保护密码和信用卡交易，但现在，很多的网站会使用它们保护用户的隐私。</p>
+<p>还有很多其他的uri方案。可在<a href="http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" target="_blank" rel="external">http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml</a> 查看。</p>
+<h1 id="Hostname"><a href="#Hostname" class="headerlink" title="Hostname"></a>Hostname</h1><p>在http uri中，方案之后就是主机名(hostname)：比如www.udacity.com或者localhost。这告知客户端连接到哪个服务器。</p>
+<p>我们经常看到网络地址写得和主机名一样。但在html代码中，我们不能这样写<code>HTML &lt;a href=&quot;www.google.com&quot;&gt;this&lt;/a&gt;</code>就连接到Google。<br>主机名只能出现在它支持的uri方案之后，比如<em>http</em>或者<em>https</em>。在这些URIs之后，必须还有<em>://</em>分开方案和主机名。<br>不是所有的URIs都有主机名。比如<em>mailto</em>URI只需要一个邮箱地址:<em>malito:spam#example.net</em>就是一个符合语法规范的<em>mailto</em>URI。这也稍微更多地展现了uri中的标点符号用法:<em>:</em>在方案之后，<em>//</em>在主机名之前。<em>mailto</em>没有主机名部分，所以没有<em>//</em> 部分。</p>
+<h1 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h1><p>在http uri(和很多其他),下一个出现的就是路径，指明了服务器上的一个特定的资源。<br>一个服务器可以有很多资源在上面 - 比如不提的网页，视频或者api。路径告知服务器客户端要查找的是哪一个资源。</p>
+<p>在之前的示例服务器上，你看到的路径与你的文件系统上的文件相对应。<br>真实世界中，URI路径并不一定与特定的文件名相同。比如，如果你Google搜索，你会看到一个类似<em>/search?q=ponies</em>的uri路径。这并不意味着Google服务器上有一个名为<em>/search?q=ponies</em>的文件。<br>服务器解析路径，确定发送什么资源。<br>在搜索请求的例子中，服务器会发送回之前可能从未存在过的搜索结果页面。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-note02-your-first-web-server/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -435,174 +606,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-note01-introduction/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="June Deng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/june.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Juney">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Juney" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/18/http-web-servers-note01-introduction/" itemprop="url">
-                  http & web servers note01 preparation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T10:39:18+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/12/18/http-web-servers-note01-introduction/" class="leancloud_visitors" data-flag-title="http & web servers note01 preparation">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇博文是记录学习udacity的课程http &amp; web servers的第一篇。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
-<li>安装python3</li>
-<li>安装git</li>
-<li>安装Nmap</li>
-<li>在两个终端测试ncat程序</li>
-</ul>
-<h1 id="安装Nmap"><a href="#安装Nmap" class="headerlink" title="安装Nmap"></a>安装Nmap</h1><ul>
-<li>Windows: 下载运行 <a href="https://nmap.org/dist/nmap-7.30-setup.exe" target="_blank" rel="external">https://nmap.org/dist/nmap-7.30-setup.exe</a></li>
-<li>Mac (with Homebrew):在终端运行 brew install nmap</li>
-<li>Mac (without Homebrew): 下载安装 <a href="https://nmap.org/dist/nmap-7.30.dmg" target="_blank" rel="external">https://nmap.org/dist/nmap-7.30.dmg</a></li>
-<li>Debian/Ubuntu/Mint: 终端运行 sudo apt-get install nmap</li>
-</ul>
-<p>检查ncat是否正确安装运行，开2个终端，其中一个运行ncat -l 9999,另一个运行ncat localhost 9999.然后在其中一个终端输入一些内容，按enter键，应该可以在令一个终端看到输入的内容。<br>其中一个ncat程序在这里充当了一个简单的网络服务器的角色，令一个充当客户端角色。</p>
-<blockquote>
-<p>Note:如果发生错误如“Address already in use”,表示你电脑中已经有其他程序在使用9999端口。你可以换个端口使用。注意客户端和服务器需要使用同一个端口。<br>在终端输入Control-C退出ncat程序。如果先输入的是服务器端，客服端会自动推出。因为服务器关闭会自动中断链接。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -650,7 +653,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
