@@ -94,7 +94,7 @@ HTTP GET requests查看下示例服务器运行的终端服务器日志。当你
 <meta property="og:description" content="这篇博文是记录学习udacity的课程http &amp;amp; web servers的第五篇。
 HTTP GET requests查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
 查看日期和时间之后">
-<meta property="og:updated_time" content="2017-12-20T08:31:06.000Z">
+<meta property="og:updated_time" content="2017-12-20T08:32:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http & web servers note05 http get requests">
 <meta name="twitter:description" content="这篇博文是记录学习udacity的课程http &amp;amp; web servers的第五篇。
@@ -406,6 +406,7 @@ HTTP GET requests查看下示例服务器运行的终端服务器日志。当你
 <p>最后， <em>HTTP/1.1</em> 是该请求的协议。这么多年过去，HTTP如何工作发生了一些改变。客户端必须告知服务器它们说的是HTTP的哪一种方言。现在，HTTP/1.1是最常见的版本。</p>
 <h1 id="Exercise-Send-a-request-by-hand"><a href="#Exercise-Send-a-request-by-hand" class="headerlink" title="Exercise: Send a request by hand"></a>Exercise: Send a request by hand</h1><p>可以使用 <em>ncat</em> 连接到示例服务器，手动发送一个HTTP请求。<br>开启一个终端，运行示例服务器，<code>python3 -m http.server 8000</code>。<br>使用 <em>ncat 127.0.0.1 8000</em> 将终端连接到示例服务器。<br>键入下面两行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: localhost</div></pre></td></tr></table></figure></p>
 <p>按两次enter键，服务器的响应会马上显示在你的终端。根据你终端的尺寸大小，网络服务器的文件数量，你可能会需要向上滚动才能看到响应的开始。</p>
+<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/d7ce9e02-109b-4416-b3ee-a6832defee4c" target="_blank" rel="external">查看原文</a></p>
 
       
     </div>
