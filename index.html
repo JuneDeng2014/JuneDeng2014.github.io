@@ -398,9 +398,9 @@
         
           
             <p>这篇博文是记录学习udacity的课程http &amp; web servers的第六篇。</p>
-<h1 id="HTTP-responses"><a href="#HTTP-responses" class="headerlink" title="HTTP responses"></a>HTTP responses</h1><p> 在上一节课的<a href="https://junedeng2014.github.io/2017/12/20/http-web-servers-note05-http-get-requests/#Exercise-Send-a-request-by-hand">练习</a>中,当输入 <code>Host:localhost</code> 按下两次enter键，服务器发回一堆的文本。这就是一个HTTP响应(<em>HTTP response</em>）。当你的浏览器向服务器请求一个页面，一张图片，或者任何东西，都会发生请求和响应的交换。</p>
-<p> 其他方法测试一下。使用 <em>ncat</em> 连接到 <em>google.com</em> 80端口，发送一个请求，路径为 <em>/</em> ，在<em>google.com</em> 主机上：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: google.com</div></pre></td></tr></table></figure>
+<h1 id="HTTP-responses"><a href="#HTTP-responses" class="headerlink" title="HTTP responses"></a>HTTP responses</h1><p>在上一节课的<a href="https://junedeng2014.github.io/2017/12/20/http-web-servers-note05-http-get-requests/#Exercise-Send-a-request-by-hand">练习</a>中,当输入 <code>Host:localhost</code> 按下两次enter键，服务器发回一堆的文本。这就是一个HTTP响应(<em>HTTP response</em>）。当你的浏览器向服务器请求一个页面，一张图片，或者任何东西，都会发生请求和响应的交换。</p>
+<p>其他方法测试一下。使用 <em>ncat</em> 连接到 <em>google.com</em> 80端口，发送一个请求，路径为 <em>/</em> ，在<em>google.com</em> 主机上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: google.com</div></pre></td></tr></table></figure>
 <blockquote>
 <p>确保发送的是 <em>Host: google.com</em> ，不要加上 <em>www</em> 在这里。它们本质上是不同的主机名，我们想要看看它们的区别。按下2次enter键！</p>
 </blockquote>
