@@ -94,7 +94,7 @@ HTTP responses 在上一节课的练习中,当输入 Host:localhost 按下两次
 <meta property="og:description" content="这篇博文是记录学习udacity的课程http &amp;amp; web servers的第六篇。
 HTTP responses 在上一节课的练习中,当输入 Host:localhost 按下两次enter键，服务器发回一堆的文本。这就是一个HTTP响应(HTTP response）。当你的浏览器向服务器请求一个页面，一张图片，或者任何东西，都会发生请求和响应的交换。
  其他方法测试一下。使用 ncat">
-<meta property="og:updated_time" content="2017-12-21T07:13:50.000Z">
+<meta property="og:updated_time" content="2017-12-21T07:28:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http & web servers note06 http responses">
 <meta name="twitter:description" content="这篇博文是记录学习udacity的课程http &amp;amp; web servers的第六篇。
@@ -421,7 +421,7 @@ HTTP responses 在上一节课的练习中,当输入 Host:localhost 按下两次
 <p>WEB的很多很多特性都是通过头实现的。例如，<em>cookies</em> 是一个WEB特性，它让服务器将数据保存到浏览器上，如让用户保持登录状态。服务器发送 <em>Set-Cookie</em> 头设置一个cookie。浏览器在之后的请求中会通过一个 <em>Cookie</em> 头将cookie数据发送回服务器。</p>
 <p><em>Content-type</em> 头表明服务器发送的是何种数据，包含一般的类别和具体的格式。例如，一个PNG格式图片的 Content-type 为 <em>image/png</em> 。如果内容是文本，包括HTML，服务器也会告知文本是由哪种方式编码的。UTF-8是常见的选择，也是Python文本的默认编码方式。</p>
 <p>头经常会包含更多关于响应主体的元数据。例如，示例服务器和Google都发送了一个 <em>Content-Length</em> 头，这告知客户端响应主体的长度(以bytes计算)。当服务器发送了这条信息，客户端可以在读取第一个响应后重新使用该连接发送另一个请求。浏览器利用这个获取多条数据（比如网页上的很多图片），而不需要重新连接到服务器。</p>
-<h1 id="Response-body"><a href="#Response-body" class="headerlink" title="Response body"></a>Response body</h1><p>头部信息以一个空白行结尾。空白行之后的所有内容都是响应主体(<em>response body</em>)。如果该请求是成功的(比如一个 <em>200 OK</em> 状态)，响应主体就是客服端请求的任何资源的副本，如网页、图片或者任何其他的数据。</p>
+<h1 id="Response-body"><a href="#Response-body" class="headerlink" title="Response body"></a>Response body</h1><p>头部信息以一个空白行结尾。空白行之后的所有内容都是响应主体(<em>response body</em>)。如果该请求是成功的(比如一个 <em>200 OK</em> 状态)，响应主体就是客户端请求的任何资源的副本，如网页、图片或者任何其他的数据。</p>
 <p>但如果发生错误，响应主体就是错误信息。如果你请求一个不存在的资源，你会得到 <em>404 Not Found</em> 错误，实际的错误显示在响应主体中。</p>
 <h1 id="Exercise-Be-a-web-server"><a href="#Exercise-Be-a-web-server" class="headerlink" title="Exercise: Be a web server!"></a>Exercise: Be a web server!</h1><p>使用 <em>ncat -l 9999</em> 监听9999端口，使用浏览器连接到它 <a href="http://localhost:9999/" target="_blank" rel="external">http://localhost:9999/</a> 。在终端能看到什么？</p>
 <p>我的终端出现的是这些信息: </p>
