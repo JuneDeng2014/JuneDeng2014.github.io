@@ -397,13 +397,17 @@
       
         
           
-            <p>昨天要改一个很简单的需求，把网站的标题改下。<br>修改了html，发现字体很奇怪。<br>有的是设计师给的，有的不是。</p>
-<p>本以为需要切图，查看了源码，发现字体文件只有之前标题的那几个字。<br>新增的字没有办法应用那个字体。</p>
-<p>找设计师要来了他的字体文件，truetype的，解压。<br>上传到<a href="http://transfonter.org。" target="_blank" rel="external">http://transfonter.org。</a><br>把自己需要的那几个字，也就是新的标题转为svg,woff,ttf,eot,woff2格式。<br>替换掉原来的font文件即可。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">"myfont"</span>;</div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../font/myfont.eot"</span>); <span class="comment">/* IE9 */</span></div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../font/myfont.eot?#iefix"</span>) <span class="built_in">format</span>(<span class="string">"embedded-opentype"</span>), <span class="comment">/* IE6-IE8 */</span></div><div class="line">  <span class="built_in">url</span>(<span class="string">"../font/myfont.woff"</span>) <span class="built_in">format</span>(<span class="string">"woff"</span>), <span class="comment">/* chrome, firefox */</span></div><div class="line">  <span class="built_in">url</span>(<span class="string">"../font/myfont.ttf"</span>) <span class="built_in">format</span>(<span class="string">"truetype"</span>), <span class="comment">/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */</span></div><div class="line">  <span class="built_in">url</span>(<span class="string">"../font/myfont.svg#myfont"</span>) <span class="built_in">format</span>(<span class="string">"svg"</span>); <span class="comment">/* iOS 4.1- */</span></div><div class="line">  <span class="attribute">font-style</span>: normal;</div><div class="line">  <span class="attribute">font-weight</span>: normal;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>查看为何这段代码生效：<br><a href="http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/" target="_blank" rel="external">http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">	<span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</div><div class="line">	<span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), </div><div class="line">	     <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </div><div class="line">	     <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>),</div><div class="line">	     <span class="built_in">url</span>(<span class="string">'myfont-webfont.svg#svgFontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          昨天要改一个很简单的需求，把网站的标题改下。修改了html，发现字体很奇怪。有的是设计师给的，有的不是。
+本以为需要切图，查看了源码，发现字体文件只有之前标题的那几个字。新增的字没有办法应用那个字体。
+找设计师要来了他的字体文件，truetype的，解压。上传到http://transfonter.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/23/font-face/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -531,23 +535,21 @@
       
         
           
-            // 从主线程获取ImageData对象，对其进行处理并将它传递回去
+          // 从主线程获取ImageData对象，对其进行处理并将它传递回去
 onmessage=function(e){
 	if(typeof e.data === 'string'){
 		console.log("Worker: "+e.data);
 		return;
 	}
-	postMessage(smear(e.data));
-}
-
-// 将ImageData中的像素信息向右涂抹，产生动态模糊效果
-// 对于大图片，此方法会进行大量计算
-// 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题
-function smear(pixels){
-	var data=pixels.data,width=pixels.width,height=pixels.height;
-	var n=10,m=n-1;//设置n倍大，用于更多的涂抹
-	for(var row=0;row
-          
+	postMessage
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/16/SmearWorker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

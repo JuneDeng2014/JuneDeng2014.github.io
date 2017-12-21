@@ -397,37 +397,17 @@
       
         
           
-            <h1 id="Validating-cached-responses-with-ETags"><a href="#Validating-cached-responses-with-ETags" class="headerlink" title="Validating cached responses with ETags"></a>Validating cached responses with ETags</h1><ul>
-<li>The server uses the ETag HTTP header to communicate a validation token.</li>
-<li>The validation token enables efficient resource update checks:no data transferred if the resource has not changed.<br>Ensure that the server is providing the necessary ETag tokens. Check your server documentation for the necessary configuration flags.</li>
-</ul>
-<h1 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h1><ul>
-<li>Each resource can define its caching policy via the Cache-Control HTTP header.</li>
-<li>Cache-Control directives control who can cache the response, under which conditions, and for how long.</li>
-</ul>
-<h2 id="“no-cache”-and-“no-store”"><a href="#“no-cache”-and-“no-store”" class="headerlink" title="“no-cache” and “no-store”"></a>“no-cache” and “no-store”</h2><p>“no-cache” indicates that the returned response can’t be used to satisfy a subsequent request to the same URL without first checking with the server if the response has changed. As a result, if a proper validation token (ETag) is present, no-cache incurs a roundtrip to validate the cached response, but can eliminate the download if the resource has not changed.</p>
-<p>By contrast, “no-store” is much simpler. It simply disallows the browser and all intermediate caches from storing any version of the returned response—for example, one containing private personal or banking data. Every time the user requests this asset, a request is sent to the server and a full response is downloaded.</p>
-<h2 id="“public”-vs-“private”"><a href="#“public”-vs-“private”" class="headerlink" title="“public” vs. “private”"></a>“public” vs. “private”</h2><p>If the response is marked as “public”, then it can be cached, even if it has HTTP authentication associated with it, and even when the response status code isn’t normally cacheable. Most of the time, “public” isn’t necessary, because explicit caching information (like “max-age”) indicates that the response is cacheable anyway.</p>
-<p>By contrast, the browser can cache “private” responses. However, these responses are typically intended for a single user, so an intermediate cache is not allowed to cache them. For example, a user’s browser can cache an HTML page with private user information, but a CDN can’t cache the page.</p>
-<h2 id="“max-age”"><a href="#“max-age”" class="headerlink" title="“max-age”"></a>“max-age”</h2><p>This directive specifies the maximum time in seconds that the fetched response is allowed to be reused from the time of the request. For example, “max-age=60” indicates that the response can be cached and reused for the next 60 seconds.</p>
-<h1 id="Define-optimal-Cache-Control-policy"><a href="#Define-optimal-Cache-Control-policy" class="headerlink" title="Define optimal Cache-Control policy"></a>Define optimal Cache-Control policy</h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
-<h1 id="Invalidating-and-updating-cached-responses"><a href="#Invalidating-and-updating-cached-responses" class="headerlink" title="Invalidating and updating cached responses"></a>Invalidating and updating cached responses</h1><ul>
-<li>Locally cached responses are used until the resource “expires.”</li>
-<li>Embedding a file content fingerprint in the URL enables you force the client to update a new version of the response.</li>
-<li>Each application needs to define its own cache hierarchy for optimal performance.</li>
-</ul>
-<p>All HTTP requests that the browser makes are first routed to the browser cache to check whether there is a valid cached response that can be used to fulfill the request. If there’s a match, the response is read from the cache, which eliminates both the network latency and the data costs that the transfer incurs.</p>
-<p>How do you get the best of both worlds: client-side caching and quick updates? You change the URL of the resource and force the user to download the new response whenever its content changes. Typically, you do this by embedding a fingerprint of the file, or a version number, in its filename—for example, style.x234dff.css.</p>
-<h1 id="Caching-checklist"><a href="#Caching-checklist" class="headerlink" title="Caching checklist"></a>Caching checklist</h1><ul>
-<li>Use consistent URLs:if you serve the same content on different URLs, then that content will be fetched and stored multiple times.</li>
-<li>Ensure that the server provides a validation token (ETag): validation tokens eliminate the need to transfer the same bytes when a resource has not changed on the server.</li>
-<li>Identify which resources can be cached by intermediaries: those with responses that are identical for all users are great candidates to be cached by a CDN and other intermediaries.</li>
-<li>Determine the optimal cache lifetime for each resource:different resources may have different freshness requirements. Audit and determine the appropriate max-age for each one.</li>
-<li>Determine the best cache hierarchy for your site:the combination of resource URLs with content fingerprints and short or no-cache lifetimes for HTML documents allows you to control how quickly the client picks up updates.</li>
-<li>Minimize churn: some resources are updated more frequently than others. If there is a particular part of a resource (for example, a JavaScript function or a set of CSS styles) that is often updated, consider delivering that code as a separate file. Doing so allows the remainder of the content (for example, library code that doesn’t change very often), to be fetched from cache and minimizes the amount of downloaded content whenever an update is fetched.</li>
-</ul>
-
-          
+          Validating cached responses with ETags
+The server uses the ETag HTTP header to communicate a validation token.
+The validation token enables efficient 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/13/HTTP-Caching/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -577,53 +557,18 @@
       
         
           
-            <h1 id="Anatomy-of-a-webfont"><a href="#Anatomy-of-a-webfont" class="headerlink" title="Anatomy of a webfont"></a>Anatomy of a webfont</h1><ul>
-<li>Unicode fonts can contain thousands of glyphs.</li>
-<li>There are four font formats:WOFF2,WOFF,EOT,and TTF.</li>
-<li>Some font formates require the use of compression.</li>
-</ul>
-<h1 id="Webfont-formats"><a href="#Webfont-formats" class="headerlink" title="Webfont formats:"></a>Webfont formats:</h1><ul>
-<li>EOT:IE only</li>
-<li>TTF:partial IE support</li>
-<li>WOFF:widest support but not available in some older browsers</li>
-<li>WOFF2:in progress for many browsers</li>
-</ul>
-<p>There is no single format that works in all browsers,which means that we need to deliver multiple fomats to provide consistent experience:</p>
-<ul>
-<li>Serve WOFF 2.0 variant to browsers that support it.</li>
-<li>Serve WOFF variant to the majority of browsers.</li>
-<li>Serve TTF variant to old Android (below 4.4) browsers.</li>
-<li>Serve EOT variant to old IE (below IE9) browsers.</li>
-</ul>
-<h1 id="Reducing-font-size-with-compression"><a href="#Reducing-font-size-with-compression" class="headerlink" title="Reducing font size with compression"></a>Reducing font size with compression</h1><p>A font is a collection of glyphs, each of which is a set of paths describing the letter form. The individual glyphs are different, but they contain a lot of similar information that can be compressed with GZIP or a compatible compressor:</p>
-<ul>
-<li>EOT and TTF formats are not compressed by default. Ensure that your servers are configured to apply GZIP compression when delivering these formats.</li>
-<li>WOFF has built-in compression. Ensure that your WOFF compressor is using optimal compression settings.</li>
-<li>WOFF2 uses custom preprocessing and compression algorithms to deliver ~30% file-size reduction over other formats.</li>
-</ul>
-<p>Note: Consider using Zopfli compression for the EOT, TTF, and WOFF formats. Zopfli is a zlib compatible compressor that delivers ~5% file-size reduction over gzip.</p>
-<h1 id="Define-a-font-family-with-font-face"><a href="#Define-a-font-family-with-font-face" class="headerlink" title="Define a font family with @font-face"></a>Define a font family with @font-face</h1><ul>
-<li>Use the format() hint to specify multiple font formats.</li>
-<li>Subset large Unicode fonts to improve performance. Use Unicode-range subsetting and provide a manual subsetting fallback for older browsers.</li>
-<li>Reduce the number of stylistic font variants to improve the page- and text-rendering performance.</li>
-</ul>
-<ol>
-<li>The browser requests the HTML document.</li>
-<li>The browser begins parsing the HTML response and constructing the DOM.</li>
-<li>The browser discovers CSS, JS, and other resources and dispatches requests.</li>
-<li>The browser constructs the CSSOM after all of the CSS content is received and combines it with the DOM tree to construct the render tree.<ul>
-<li>Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.</li>
-</ul>
-</li>
-<li>The browser performs layout and paints content to the screen.<ul>
-<li>If the font is not yet available, the browser may not render any text pixels.</li>
-<li>After the font is available, the browser paints the text pixels.</li>
-</ul>
-</li>
-</ol>
-<p>The “race” between the first paint of page content, which can be done shortly after the render tree is built, and the request for the font resource is what creates the “blank text problem” where the browser might render page layout but omits any text.</p>
-
-          
+          Anatomy of a webfont
+Unicode fonts can contain thousands of glyphs.
+There are four font formats:WOFF2,WOFF,EOT,and TTF.
+Some font formates require the
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/12/web-font-optimization/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

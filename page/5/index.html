@@ -397,36 +397,23 @@
       
         
           
-            <p><a href="https://github.com/imagemin/imagemin" target="_blank" rel="external">https://github.com/imagemin/imagemin</a><br><a href="https://github.com/jcupitt/libvips" target="_blank" rel="external">https://github.com/jcupitt/libvips</a></p>
-<p>compress images tools:</p>
-<ul>
-<li>ImageOptim</li>
-<li>MozJPEG</li>
-<li>Progressive JPEG</li>
-<li>pngquant</li>
-<li>SVGO</li>
-<li>Instead of crazy huge animated GIFs, deliver H.264 videos (or WebM for Chrome, Firefox and Opera)!</li>
-<li>gif: <a href="https://github.com/pornel/giflossy" target="_blank" rel="external">https://github.com/pornel/giflossy</a></li>
-</ul>
-<p>image optimisation</p>
-<ol>
-<li>Choose the right format</li>
-<li>Size approriately</li>
-<li>Adapt intelligently</li>
-<li>Compress carefully </li>
-<li>Prioritize critical images</li>
-<li>Lazy-load the rest</li>
-<li>Take care with tools</li>
-</ol>
-<p>Tools and libraries like ImageMagick, libjpeg, jpegtran, jpeg-recompress and imagemin support exporting Progressive JPEGs.</p>
-<p>SVG can be powerful for icons, offering a way to represent visualizations as a sprite without the quirky workarounds needed for icon fonts. It has more granular CSS styling control than icon fonts (SVG stroke properties), better positioning control (no need to hack around pseudo-elements and CSS display) and SVGs are much more accessible.</p>
-<p>Tools like svg-sprite and IcoMoon can automate combining SVGs into sprites which can be used via a CSS Sprite, Symbol Sprite or Stacked Sprite. Una Kravetz has a practical write-up on how to use gulp-svg-sprite for an SVG sprite workflow worth checking out. Sara Soudein also covers making the transition from icon fonts to SVG on her blog.</p>
-<p>Always comprese from the original image. Recompressing images has consequences.</p>
-<p>When editing your source files,store them in a lossless format like PNG or TIFF,so you preserve as much as quality as you can.</p>
-<p>Resizing and decoding images are expensive operations for a browser on average mobile hardware.<br>Serve the smallest images for your target screen sizes and resolutions, taking advantage of srcset and sizes.</p>
-<p>Omitting the width or height attributes on an image can also negatively impact performance. Without them, a browser assigns a smaller placeholder region for the image until sufficient bytes have arrived for it to know the correct dimensions. At that point, the document layout must be updated in what can be a costly step called reflow.</p>
+          https://github.com/imagemin/imageminhttps://github.com/jcupitt/libvips
+compress images tools:
 
-          
+ImageOptim
+MozJPEG
+Progressive JPEG
+pngquant
+SVGO
+Inste
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/04/automate-image-optimization/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -576,107 +563,19 @@
       
         
           
-            <h1 id="Understanding-Low-Bandwith-and-High-Latency"><a href="#Understanding-Low-Bandwith-and-High-Latency" class="headerlink" title="Understanding Low Bandwith and High Latency"></a>Understanding Low Bandwith and High Latency</h1><ul>
-<li>introduce tools to emulate network</li>
-<li>Use timeouts to handle intermittent connectivity</li>
-</ul>
-<h1 id="Optimizing-Content-Efficiency"><a href="#Optimizing-Content-Efficiency" class="headerlink" title="Optimizing Content Efficiency"></a>Optimizing Content Efficiency</h1><h2 id="Eliminating-Unnecessary-Downloads"><a href="#Eliminating-Unnecessary-Downloads" class="headerlink" title="Eliminating Unnecessary Downloads"></a>Eliminating Unnecessary Downloads</h2><pre><code>TL;DR
-- Inventory your own assets and third-party assests on your pages.
-- Measure the performance of each asset:its value and its technical performance
-- Determine if the resources are providing sufficient value
-Eliminate unnecessary resources from application.
- - you&apos;ve always included resource x on your pages,but doest the cost of downloading and displaying it offset the value it delivers to the user? Can you measure and prove its value?
- - Does the resource(especially if it&apos;s a third-party resource) deliver consistent performance?Is that resource in the critical path,or need to be?If the rescource is in the critical path,could it be a single point of failure  for the site?That is,if the resource is unavailable,does it affect performance and the user experience of your page?
- - Does this resource need or have an SLA?Does this resource follow performance best practices:compression,caching,and so on.
+          Understanding Low Bandwith and High Latency
+introduce tools to emulate network
+Use timeouts to handle intermittent connectivity
 
-Too often,pages contain resources that are unnecessary,or worse,that hinder page performance without delivering much value to the visitor or to the site they&apos;re hosted on.This applies equally to first-party and third-party resources and widgets.
-</code></pre><h2 id="Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets"><a href="#Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets" class="headerlink" title="Optimizing Encoding and Transfer Size of Text-Based Assets"></a>Optimizing Encoding and Transfer Size of Text-Based Assets</h2><pre><code>1. Data compression 101
-TL;DR:
-    - Compression is the process of encoding information using fewer bits.
-    - Eliminating unnecessary data always yields the best results.
-    - There are many different compression techniques and algorithms.
-    - You will need a varity of techniques to achieve the best compression.
-2. Minification:preprocessing &amp; context-specific optimizations
-TL;DR:
-    - Content-specific optimizations can significantly reduce the size of delivered resources.
-    - Content-specific optimizations are best applied as part of your build/release cycle.
-3. Text compression with GZIP
-TL;DR:
-    - GZIP performs best on text-based assets:CSS,JavaScript,HTML
-    - All modern browsers support GZIP compression and will automatically request it.
-    - Your server must be configured to enable GZIP compression.
-    - Some CDNs require special care to ensure that GZIP is enabled.
-
-- Apply content-specific optimizations first: CSS, JS, and HTML minifiers.
-- Apply GZIP to compress the minified output.
-
-Enabling GZIP is one of the simplest and highest-payoff optimizations to implement, and yet, many people don&apos;t implement it. Most web servers compress content on your behalf, and you just need to verify that the server is correctly configured to compress all the content types that benefit from GZIP compression.
-
-
-A quick and simple way to see GZIP in action is to open Chrome DevTools and inspect the “Size / Content” column in the Network panel: “Size” indicates the transfer size of the asset, and “Content” the uncompressed size of the asset.
-</code></pre><h2 id="Image-Optimization"><a href="#Image-Optimization" class="headerlink" title="Image Optimization"></a>Image Optimization</h2><h3 id="Eliminating-and-replacing-images"><a href="#Eliminating-and-replacing-images" class="headerlink" title="Eliminating and replacing images"></a>Eliminating and replacing images</h3><pre><code>TL;DR:
-    - Eliminate unnecessary image resources
-    - Leverage CSS3 effects where possible
-    - Use web fonts instead of encoding text in images
-</code></pre><h3 id="Vector-vs-Raster-images"><a href="#Vector-vs-Raster-images" class="headerlink" title="Vector vs. Raster images"></a>Vector vs. Raster images</h3><pre><code>TL;DR：
-    - Vector images are ideal for iamges that consists of geometric shapes
-    - Vector images are zoom and resolution-independent
-    - Raster images shoud be used of complex scenes with lots of irregular shapes and details
-</code></pre><h3 id="Implications-of-high-resolution-screens"><a href="#Implications-of-high-resolution-screens" class="headerlink" title="Implications of high-resolution screens"></a>Implications of high-resolution screens</h3><pre><code>TL;DR
-    - High resolution screens have multiple device pixels per css pixel
-    - High resolution images require significantly higher number of pixels and bytes
-    - Image optimization techniques are the same regardless of resolution
-
-prefer vector images wherever possible.
-if a raster image is required,deliver and optimize multiple variants of each imagewith of help of srcset and picture.
-</code></pre><h3 id="Optimizing-vector-images"><a href="#Optimizing-vector-images" class="headerlink" title="Optimizing vector images"></a>Optimizing vector images</h3><pre><code>TL;DR
-    - SVG is an XML-based image format
-    - SVG files shoud be minified to reduce their size (tool:svgo)
-    - SVG files to compressed with GZIP
-</code></pre><h3 id="Optimizing-raster-images"><a href="#Optimizing-raster-images" class="headerlink" title="Optimizing raster images"></a>Optimizing raster images</h3><pre><code>TL;DR
-    - A raster images is a grid of pixels
-    - Each pixel encodes color and transparency information
-    - Image compressors use a variety of techniques to reduce the number of required bits per pixel to reduce file size of the image
-</code></pre><h3 id="Lossless-vs-loosy-image-compression"><a href="#Lossless-vs-loosy-image-compression" class="headerlink" title="Lossless vs loosy image compression"></a>Lossless vs loosy image compression</h3><pre><code>TL;DR
-    - Due to how our eyes work,images are great candidates for lossy compression
-    - Image optimization is a function of lossy and lossless compression
-    - Differences in image formats are due to the difference in how and which lossy and lossless algorithms are used to optimize the images
-    - There is no single best format or &quot;quality setting&quot; for all images:each combination of particular compressor and image contents produce a unique output
-</code></pre><h3 id="Selecting-the-right-image-format"><a href="#Selecting-the-right-image-format" class="headerlink" title="Selecting the right image format"></a>Selecting the right image format</h3><pre><code>TL;DR
-    - Start by selecting the right universal format:gif,png,jepg
-    - Experiment and select the best settings for each format:quality,palette size,etc
-    - Consider adding WebP and JPEG XR assets for modern clients
-
-1. Do you need animation? If so, GIF is the only universal choice
-1. Do you need to preserve fine detail with highest resolution? Use PNG.
-1. Are you optimizing a photo,screenshot,or a similar image asset? Use JPEG.
-
-WebP and JPEG XR :
-    - Some CDNS provide image optimization as a service,including JPEG XR and WebP delivery.
-    - Some open-source tools(for example,PageSpeed for Apache or Nginx) automate the optimization,conversation,and serving of approriate assets.
-    - You can add additional application logic to detect the client,check which formats they support,and serve the best availlable image format.
-</code></pre><h3 id="Tools-and-parameter-turning"><a href="#Tools-and-parameter-turning" class="headerlink" title="Tools and parameter turning"></a>Tools and parameter turning</h3><pre><code>- gifsicle:create and optimize GIF images
-- jpegtran:optimize JPEG images
-- optipng:lossless PNG optimization
-- pngquant:lossy PNG optimization
-</code></pre><h3 id="Deliver-scaled-image-assets"><a href="#Deliver-scaled-image-assets" class="headerlink" title="Deliver scaled image assets"></a>Deliver scaled image assets</h3><pre><code>TL;DR
-    - Deliver scaled assets is one of the simplest and most effective optimizations
-    - Pay close attention to large assets as they result in high overhead 
-    - Reduce the number of unnecessary pixels by scaling your images to their display size
-Image optimization boils down to two criteria: optimizing the number of bytes used to encode each image pixel, and optimizing the total number of pixels: the filesize of the image is simply the total number of pixels times the number of bytes used to encode each pixel. Nothing more, nothing less.
-As a result, one of the simplest and most effective image optimization techniques is to ensure that we are not shipping any more pixels than needed to display the asset at its intended size in the browser. Sounds simple, right? Unfortunately, most pages fail this test for many of their image assets: typically, they ship larger assets and rely on the browser to rescale them - which also consumes extra CPU resources - and display them at a lower resolution.
-
-**you should ensure that the number of unnecessary pixels is minimal, and that your large assets in particular are delivered as close as possible to their display size.**
-</code></pre><h3 id="Image-optimization-checklist"><a href="#Image-optimization-checklist" class="headerlink" title="Image optimization checklist"></a>Image optimization checklist</h3><pre><code>- __Prefer vector formats__
-- __Minify and compress SVG assets__
-- __Pick best raster image format__
-- __Experiment with optimal quality settings for raster formats__
-- __Remove unnecessary image metadata__
-- __Serve scaled images__
-- __Automate__:invest into automated tools and infrastructure that will ensure that all of your image assets are always optimized
-</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization</a></p>
-
-          
+Optimizing Content Ef
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/notes-of-loading-performance/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

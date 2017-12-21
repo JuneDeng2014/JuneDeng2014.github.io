@@ -397,25 +397,16 @@
       
         
           
-            <h1 id="Mearsure-Performance-with-Rail-Model"><a href="#Mearsure-Performance-with-Rail-Model" class="headerlink" title="Mearsure Performance with Rail Model"></a>Mearsure Performance with Rail Model</h1><p>response,animation,idle,load<br>TL;DR</p>
-<pre><code>- Focus on the user;the goal isn&apos;t to make your site perform fast on any specific device, its to ultimately make users happy.
-- Respond to users immediately;acknowledge user input in under 100ms.
-- When animating or scrolling,produce a frame in under 10ms.
-- Maxmize main thread idle time.
-- Keep users engaged;deliver interactive content in under 1000ms.
-</code></pre><h2 id="Focus-on-the-user"><a href="#Focus-on-the-user" class="headerlink" title="Focus on the user"></a>Focus on the user</h2><h2 id="Response-respond-in-under-100ms"><a href="#Response-respond-in-under-100ms" class="headerlink" title="Response:respond in under 100ms"></a>Response:respond in under 100ms</h2><h2 id="Animation-produce-a-frame-in-10ms"><a href="#Animation-produce-a-frame-in-10ms" class="headerlink" title="Animation:produce a frame in 10ms"></a>Animation:produce a frame in 10ms</h2><h2 id="Idle-maximize-idle-time"><a href="#Idle-maximize-idle-time" class="headerlink" title="Idle:maximize idle time"></a>Idle:maximize idle time</h2><pre><code>Use idle time to complete deferred work. For example, keep pre-load data to aminimum so that your app loads fast, and use idle time to load remainning data/
-
-Deferrend work should be grouped into blocks of about 50ms. Should a user begin interacting, then the highest priority is to respond to that.
-
-To allow for &amp;lt;100ms response,the app must yield control back to main thread every &amp;lt;50ms,such that can execute its pixel pipeline,react to user input,and so on.
-
-Working in 500ms blocks allows the task to finish while still ensuring instant response.
-</code></pre><h2 id="Load-deliver-content-under-100ms"><a href="#Load-deliver-content-under-100ms" class="headerlink" title="Load:deliver content under 100ms"></a>Load:deliver content under 100ms</h2><pre><code>Load your site in under 1 second.
-Focus on optimizing the critical rendering path to unblock rendering.
-You don&apos;t have to load everything in under 1 second to produce the perception of a complete load.Enable progressive rendering and do some work in the background.Defer non-essential loads to periods of idle time.
-</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/rail" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/rail</a>  </p>
-
-          
+          Mearsure Performance with Rail Modelresponse,animation,idle,loadTL;DR
+- Focus on the user;the goal isn&apos;t to make your site perform fast on any sp
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/performance-notes/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -565,24 +556,19 @@ You don&apos;t have to load everything in under 1 second to produce the percepti
       
         
           
-            <ul>
-<li><p>max-width<br>  使用max-width替代width可以使浏览器更好地处理小窗口的情况。所有主流浏览器斗支持max-width，包括ie7+.</p>
-  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#main</span>&#123;</div><div class="line">    <span class="attribute">max-wdith</span>:<span class="number">600px</span>;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>box-sizing<br>  传统的盒子模型不直接，所以新增了box-sizing的css属性。当你设置元素的<code>CSS box-sizing:border-box;</code>时，此原属的内边距和边框不再会增加它的宽度。</p>
-<p>  不过 box-sizing 是个很新的属性，目前需要使用 -webkit- 和 -moz- 前缀。这可以启用特定浏览器实验中的特性。同时记住它是支持IE8+的。</p>
-</li>
-<li><p>position</p>
-<ol>
-<li>static<br> 默认值。任意<code>CSS position:static;</code>的元素表示不会被特殊定位。</li>
-<li>relative</li>
-<li>fixed<br> 一个固定定位<code>CSS position:fixed;</code>元素会相对于视窗来定位，这意味着即使页面滚动，它还是会停留在相同的位置。和<code>CSS position:relative;</code>一样，top\right\bottom\left属性都可用。<br> 脱离文档流。<br> 移动浏览器对fixed支持很差。</li>
-<li>absolute<br> absolute 是最棘手的position值。 absolute 与 fixed 的表现类似，但是它不是相对于视窗而是相对于最近的“positioned”祖先元素。如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。记住一个“positioned”元素是指 position 值不是 static 的元素。</li>
-</ol>
-</li>
-</ul>
-
           
+max-width  使用max-width替代width可以使浏览器更好地处理小窗口的情况。所有主流浏览器斗支持max-width，包括ie7+.
+  1234#main&#123;    max-wdith:600px;    margin:0 auto;&#125;
+
+box-sizing 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/21/css布局学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

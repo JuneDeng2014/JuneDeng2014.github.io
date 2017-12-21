@@ -397,17 +397,17 @@
       
         
           
-            <p>这篇博文是记录学习udacity的课程http &amp; web servers的第二篇。</p>
-<h1 id="练习：运行你的第一个网络服务器"><a href="#练习：运行你的第一个网络服务器" class="headerlink" title="练习：运行你的第一个网络服务器"></a>练习：运行你的第一个网络服务器</h1><p>服务器只需要做一件事：处理收到的请求。<br>Python的http.server模块可以你的电脑上运行一个内置的网络服务器。</p>
-<p>开一个终端，cd到一个含有一些文件的目录，可以是文本文件，html文件或者图片，然后在终端运行：<br>python3 -m http.server 8000。</p>
-<p>浏览器键入：<a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a> 。<br>这个示例服务器是一个真正的网络服务器。如果该本地网络还有其他的电脑，你可以使用其他电脑获取该服务器上的文件。<br>当你在浏览器键入localhost:8000，你的浏览器会向你正在运行的python程序发送http请求。<br>这个程序会返回一段数据，浏览器会展示给你。</p>
-<blockquote>
-<p>Note:如果刚才的目录下，你有一个文件叫做index.html，你会看到index.html的内容，而不是目录下的文件列表。将index.html移动到其他地方，你看到的又是目录下的文件列表。</p>
-</blockquote>
-<h1 id="什么是服务器？"><a href="#什么是服务器？" class="headerlink" title="什么是服务器？"></a>什么是服务器？</h1><p>A server is just a program that accepts connections from other programs on the network.</p>
-<p>当你开始一个服务器程序，它等着客户端连接到它-就像刚才的示例服务器等着浏览器向它请求一个页面一样。<br>当连接来了，服务器运行一段代码 - 比如运行一个函数 - 来处理每一个到来的连接。<br>就像是打电话：通过这个渠道，服务器和客户端可以互聊。<br>网络客户端通过连接发送请求，服务器发送响应回来。</p>
-
-          
+          这篇博文是记录学习udacity的课程http &amp; web servers的第二篇。
+练习：运行你的第一个网络服务器服务器只需要做一件事：处理收到的请求。Python的http.server模块可以你的电脑上运行一个内置的网络服务器。
+开一个终端，cd到一个含有一些文件的目录，可以是文本文件
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/18/http-web-servers-note02-your-first-web-server/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -557,25 +557,23 @@
       
         
           
-            <p>这篇博文是记录学习udacity的课程http &amp; web servers的第一篇。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
-<li>安装python3</li>
-<li>安装git</li>
-<li>安装Nmap</li>
-<li>在两个终端测试ncat程序</li>
-</ul>
-<h1 id="安装Nmap"><a href="#安装Nmap" class="headerlink" title="安装Nmap"></a>安装Nmap</h1><ul>
-<li>Windows: 下载运行 <a href="https://nmap.org/dist/nmap-7.30-setup.exe" target="_blank" rel="external">https://nmap.org/dist/nmap-7.30-setup.exe</a></li>
-<li>Mac (with Homebrew):在终端运行 brew install nmap</li>
-<li>Mac (without Homebrew): 下载安装 <a href="https://nmap.org/dist/nmap-7.30.dmg" target="_blank" rel="external">https://nmap.org/dist/nmap-7.30.dmg</a></li>
-<li>Debian/Ubuntu/Mint: 终端运行 sudo apt-get install nmap</li>
-</ul>
-<p>检查ncat是否正确安装运行，开2个终端，其中一个运行ncat -l 9999,另一个运行ncat localhost 9999.然后在其中一个终端输入一些内容，按enter键，应该可以在另一个终端看到输入的内容。<br>其中一个ncat程序在这里充当了一个简单的网络服务器的角色，另一个充当客户端角色。</p>
-<blockquote>
-<p>Note:如果发生错误如“Address already in use”,表示你电脑中已经有其他程序在使用9999端口。你可以换个端口使用。注意客户端和服务器需要使用同一个端口。<br>在终端输入Control-C退出ncat程序。如果先输入的是服务器端，客户端会自动退出。因为服务器关闭会自动中断连接。</p>
-</blockquote>
+          这篇博文是记录学习udacity的课程http &amp; web servers的第一篇。
+准备工作
+安装python3
+安装git
+安装Nmap
+在两个终端测试ncat程序
 
-          
+安装Nmap
+Windows: 下载运行 https://nmap.org/dist/nmap-7.30-setup.e
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/18/http-web-servers-note01-introduction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
