@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="make the world a better place">
+<meta name="description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Http & Web Servers Unit 2 Lesson 1 Python's 'http.server'">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/21/http-web-servers-unit-2-lesson-1-Python-s-http-server/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="make the world a better place">
-<meta property="og:updated_time" content="2017-12-21T09:53:21.000Z">
+<meta property="og:description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
+<meta property="og:updated_time" content="2017-12-22T07:24:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http & Web Servers Unit 2 Lesson 1 Python's 'http.server'">
-<meta name="twitter:description" content="make the world a better place">
+<meta name="twitter:description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
 
 
 
@@ -391,7 +391,30 @@
       
 
       
-        
+        <h1 id="Python’s-http-server"><a href="#Python’s-http-server" class="headerlink" title="Python’s http.server"></a>Python’s <em>http.server</em></h1><p>上一节课，我们使用Python的 <em>http.server</em> 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 <em>http.server</em> 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, <em>requests</em> ，写代码充当一个HTTP的客户端。</p>
+<p>这些模块是用面向对象编程语言Python写的。你应该已经熟悉创建类实例，定义子类和定义类的方法。如果你需要复习面向对象操作的Python语法，你可以浏览<a href="https://docs.python.org/3/tutorial/classes.html" target="_blank" rel="external">Python类教程</a> 。</p>
+<p>在本节课的练习中，你将写代码运行在自己的电脑上。起始代码即上节课下载的，应该在 <em>course-ud303</em> 目录下。用你最喜欢的文本编辑器开始练习吧！</p>
+<h1 id="Servers-and-handlers"><a href="#Servers-and-handlers" class="headerlink" title="Servers and handlers"></a>Servers and handlers</h1><p>使用 <em>http.server</em> 的网络服务器由两部分组成：HTTPServer类和请求处理器类。第一部分，<em>HTTPServer</em> 类，和所有的网络服务一样，是内建在模块内的。它知道如何监听端口，接收来自客户端的请求。每当它接收到一个请求时，它就将请求交到第二部分 - 请求处理器 - 每个网络服务器的请求处理器都不一样。</p>
+<p>为了运行一个网络服务，你的Python代码需要做到下面的几点：</p>
+<ul>
+<li>引入 <em>http.server</em> 模块，至少是你需要的那一部分。</li>
+<li>创建一个 <em>http.server.BaseHTTPRequestHandler</em> 子类。这就是你的处理器类。</li>
+<li>在处理器类为每一个你想要处理的 <em>HTTP verb</em> 定义方法。(在这个课程中，我们唯一见到的 HTTP verb就是 <em>GET</em> ，但之后我们会见到更多其他的。)<ul>
+<li>GET 请求的方法必须叫做 <em>do_GET</em>。</li>
+<li>在方法内，调用处理器类的内置方法读取HTTP请求并写响应。</li>
+</ul>
+</li>
+<li>创建一个 <em>http.server.HTTPServer</em> 的实例，将你的处理器类和服务器信息给它 - 特别是你的端口号。</li>
+<li>调取这个 <em>HTTPServer</em> 实例的 <em>run_forever</em> 方法。</li>
+</ul>
+<p>一旦你调取 HTTPServer 实例的 <em>run_forever</em> 方法，它就会永远运行，除非停止。就像上一节课那样，如果你的Python服务器在运行中，你想要让它停止运行，就在它运行的终端键入 Ctrl-C。（有时候你需要键入两到三次。）</p>
+<h1 id="Exercise-The-hello-server"><a href="#Exercise-The-hello-server" class="headerlink" title="Exercise: The hello server"></a>Exercise: The hello server</h1><p>我们来快速看一个例子。从你的终端，进入到你之前下载的 <em>course-ud303</em> 目录下，在 <em>Lesson-2</em> 子目录下，你可以看到 <em>0_HelloServer</em> 子目录。里面有一个Python程序叫做 <em>HelloServer.py</em> 。在你到文本编辑器打开它看看。然后在你的终端运行这个程序: <em>python3 HelloServer.py</em> 。它什么都不会做，直到你通过浏览器访问 <a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a> 。</p>
+<h2 id="A-tour-of-the-hello-server"><a href="#A-tour-of-the-hello-server" class="headerlink" title="A tour of the hello server"></a>A tour of the hello server</h2><p>在文本编辑器打开 <em>HelloServer.py</em> ，我们来一行一行地看看这段代码的每一个部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">from http.server import HTTPServer, BaseHTTPRequestHandler</div></pre></td></tr></table></figure>
+<p>http.server模块里面包含很多部分内容。现在，这个程序只需要其中两个部分。我们现在使用 <em>import</em> 的 <em>from</em> 语法，这样我们就不用在代码里一遍又一遍打 <em>http.server</em> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class HelloHandler(BaseHTTPRequestHandler):</div><div class="line">    def do_GET(self):</div></pre></td></tr></table></figure>
+<p>这就是处理器类。从在 <em>http.server</em> 中定义的 <em>BaseHTTPRequestHandler</em> 父类继承下来。我已经定义了一个方法，<em>do_Get</em> ，用来处理 HTTP GET 请求。当这个网络服务器接收到一个 GET 请求，它就会调取这个方法响应。</p>
+
       
     </div>
 
@@ -423,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/21/http-web-servers-unti-1-lesson-7/" rel="next" title="HTTP & Web servers Unit 1 Lesson 7 Prepare for the next class">
-                <i class="fa fa-chevron-left"></i> HTTP & Web servers Unit 1 Lesson 7 Prepare for the next class
+              <a href="/2017/12/21/http-web-servers-unti-1-lesson-7/" rel="next" title="HTTP & Web Servers Unit 1 Lesson 7 Prepare for the next class">
+                <i class="fa fa-chevron-left"></i> HTTP & Web Servers Unit 1 Lesson 7 Prepare for the next class
               </a>
             
           </div>
@@ -478,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/june.jpg"
@@ -535,6 +567,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python’s-http-server"><span class="nav-number">1.</span> <span class="nav-text">Python’s http.server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servers-and-handlers"><span class="nav-number">2.</span> <span class="nav-text">Servers and handlers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercise-The-hello-server"><span class="nav-number">3.</span> <span class="nav-text">Exercise: The hello server</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-tour-of-the-hello-server"><span class="nav-number">3.1.</span> <span class="nav-text">A tour of the hello server</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
