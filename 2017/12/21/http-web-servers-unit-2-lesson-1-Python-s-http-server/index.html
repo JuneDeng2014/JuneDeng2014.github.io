@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/21/http-web-servers-unit-2-lesson-1-Python-s-http-server/index.html">
 <meta property="og:site_name" content="Juney">
 <meta property="og:description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
-<meta property="og:updated_time" content="2017-12-22T07:24:57.000Z">
+<meta property="og:updated_time" content="2017-12-27T03:07:19.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http & Web Servers Unit 2 Lesson 1 Python's 'http.server'">
 <meta name="twitter:description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
@@ -412,8 +412,23 @@
 <h2 id="A-tour-of-the-hello-server"><a href="#A-tour-of-the-hello-server" class="headerlink" title="A tour of the hello server"></a>A tour of the hello server</h2><p>在文本编辑器打开 <em>HelloServer.py</em> ，我们来一行一行地看看这段代码的每一个部分。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">from http.server import HTTPServer, BaseHTTPRequestHandler</div></pre></td></tr></table></figure>
 <p>http.server模块里面包含很多部分内容。现在，这个程序只需要其中两个部分。我们现在使用 <em>import</em> 的 <em>from</em> 语法，这样我们就不用在代码里一遍又一遍打 <em>http.server</em> 。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class HelloHandler(BaseHTTPRequestHandler):</div><div class="line">    def do_GET(self):</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloHandler</span><span class="params">(BaseHTTPRequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_GET</span><span class="params">(self)</span>:</span></div></pre></td></tr></table></figure>
 <p>这就是处理器类。从在 <em>http.server</em> 中定义的 <em>BaseHTTPRequestHandler</em> 父类继承下来。我已经定义了一个方法，<em>do_Get</em> ，用来处理 HTTP GET 请求。当这个网络服务器接收到一个 GET 请求，它就会调取这个方法响应。</p>
+<p>在之前的课程中我们了解到，服务器在一个 HTTP 响应中需要发送3样东西：一个状态码，一些头信息，和一个响应主体。处理器的父类对处理这些事情都有方法。在 <em>do_Get</em> 中，我只需要依次调取它们即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># First, send a 200 OK response</span></div><div class="line">self.send_response(<span class="number">200</span>)</div></pre></td></tr></table></figure>
+<p>服务器需要要做的就是发送一个 200 OK 状态码; <em>send_response</em> 方法做这个。我不需要告知它200意味着OK；父类已经知道这个了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Then send headers.</span></div><div class="line">self.send_header(<span class="string">'Content-type'</span>,<span class="string">'text/plain;charset=utf-8'</span>)</div><div class="line">self.end_headers()</div></pre></td></tr></table></figure>
+<p>接下来服务器需要做的就是发送 HTTP 头。 父类提供 <em>send_header</em> 和 <em>end_headers</em> 方法来做这些。目前，我只让服务器发送了一个单行的头 - Content-type 头告知客户端响应主体会是 UTF-8 编码的纯文本。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Now,write the response body.</span></div><div class="line">self.wfile.write(<span class="string">"Hello, Http!\n"</span>.encode())</div></pre></td></tr></table></figure>
+<p><em>do_GET</em> 方法的最后一部分写响应主体。</p>
+<p>父类给了我们一个叫做 <em>self.wfile</em> 的变量来发送响应。 <em>wfile</em> 代表着 <em>writeable file</em> 。Python和很多其他的编程语言一样，将打开文件和网络连接类比起来：它们都是你能读取的数据。有些文件对象是只读的；有些是只写的；有些是既能读也能写的。</p>
+<p><em>self.wfile</em> 代表着服务器到客户端的连接；如名字所示，它是只读的。它的 <em>write</em> 方法将任意的二进制数据写到发送到客户端的响应中。</p>
+<p><em>.encode()</em> 是干嘛的？之后我们再看。现在让我们看看剩下的其他代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    server_address = (<span class="string">''</span>, <span class="number">8000</span>)  <span class="comment"># Serve on all addresses, port 8000.</span></div><div class="line">    httpd = HTTPServer(server_address, HelloHandler)</div><div class="line">    httpd.serve_forever()</div></pre></td></tr></table></figure>
+<p>如果我们将该模块当作Python程序运行，这段代码才会运行。如果只是引入，则不会运行。<em>HTTPServer</em> 构造函数需要知道它监听的是哪个地址和端口；当我调用 <em>server_address</em> 的时候，将地址和端口作为元组传入。我也给了它 <em>HelloHandler</em> 类，它会用这个来处理来自客户端的请求。</p>
+<p>在文件的最后，我在 <em>HTTPServer</em> 调取了 <em>server_forever</em> ，让它开始处理HTTP请求。服务器开始运行了。</p>
+<h1 id="End-of-the-tour"><a href="#End-of-the-tour" class="headerlink" title="End of the tour"></a>End of the tour</h1><p>用Python写最基本的HTTP服务器就是这些内容了。但是这个hello server不怎么有趣。甚至做的还没有示例服务器多。不管你查询什么，它都只会说hello。</p>
+<p>余下的课程，我们会建造不只是说hello的服务器。</p>
 
       
     </div>
@@ -577,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python’s-http-server"><span class="nav-number">1.</span> <span class="nav-text">Python’s http.server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servers-and-handlers"><span class="nav-number">2.</span> <span class="nav-text">Servers and handlers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercise-The-hello-server"><span class="nav-number">3.</span> <span class="nav-text">Exercise: The hello server</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-tour-of-the-hello-server"><span class="nav-number">3.1.</span> <span class="nav-text">A tour of the hello server</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python’s-http-server"><span class="nav-number">1.</span> <span class="nav-text">Python’s http.server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servers-and-handlers"><span class="nav-number">2.</span> <span class="nav-text">Servers and handlers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercise-The-hello-server"><span class="nav-number">3.</span> <span class="nav-text">Exercise: The hello server</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-tour-of-the-hello-server"><span class="nav-number">3.1.</span> <span class="nav-text">A tour of the hello server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#End-of-the-tour"><span class="nav-number">4.</span> <span class="nav-text">End of the tour</span></a></li></ol></div>
             
 
           </div>
