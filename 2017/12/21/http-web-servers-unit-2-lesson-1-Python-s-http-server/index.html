@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/21/http-web-servers-unit-2-lesson-1-Python-s-http-server/index.html">
 <meta property="og:site_name" content="Juney">
 <meta property="og:description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
-<meta property="og:updated_time" content="2017-12-27T03:07:19.263Z">
+<meta property="og:updated_time" content="2017-12-27T03:15:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http & Web Servers Unit 2 Lesson 1 Python's 'http.server'">
 <meta name="twitter:description" content="Python’s http.server上一节课，我们使用Python的 http.server 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 http.server 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, requests ，写代码充当一个HTTP的">
@@ -410,7 +410,7 @@
 <p>一旦你调取 HTTPServer 实例的 <em>run_forever</em> 方法，它就会永远运行，除非停止。就像上一节课那样，如果你的Python服务器在运行中，你想要让它停止运行，就在它运行的终端键入 Ctrl-C。（有时候你需要键入两到三次。）</p>
 <h1 id="Exercise-The-hello-server"><a href="#Exercise-The-hello-server" class="headerlink" title="Exercise: The hello server"></a>Exercise: The hello server</h1><p>我们来快速看一个例子。从你的终端，进入到你之前下载的 <em>course-ud303</em> 目录下，在 <em>Lesson-2</em> 子目录下，你可以看到 <em>0_HelloServer</em> 子目录。里面有一个Python程序叫做 <em>HelloServer.py</em> 。在你到文本编辑器打开它看看。然后在你的终端运行这个程序: <em>python3 HelloServer.py</em> 。它什么都不会做，直到你通过浏览器访问 <a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a> 。</p>
 <h2 id="A-tour-of-the-hello-server"><a href="#A-tour-of-the-hello-server" class="headerlink" title="A tour of the hello server"></a>A tour of the hello server</h2><p>在文本编辑器打开 <em>HelloServer.py</em> ，我们来一行一行地看看这段代码的每一个部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">from http.server import HTTPServer, BaseHTTPRequestHandler</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> http.server <span class="keyword">import</span> HTTPServer, BaseHTTPRequestHandler</div></pre></td></tr></table></figure>
 <p>http.server模块里面包含很多部分内容。现在，这个程序只需要其中两个部分。我们现在使用 <em>import</em> 的 <em>from</em> 语法，这样我们就不用在代码里一遍又一遍打 <em>http.server</em> 。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloHandler</span><span class="params">(BaseHTTPRequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_GET</span><span class="params">(self)</span>:</span></div></pre></td></tr></table></figure>
 <p>这就是处理器类。从在 <em>http.server</em> 中定义的 <em>BaseHTTPRequestHandler</em> 父类继承下来。我已经定义了一个方法，<em>do_Get</em> ，用来处理 HTTP GET 请求。当这个网络服务器接收到一个 GET 请求，它就会调取这个方法响应。</p>
