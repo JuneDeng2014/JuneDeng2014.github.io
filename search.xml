@@ -192,13 +192,6 @@
 
     
     <entry>
-      <title></title>
-      <url>%2F2017%2F05%2F16%2FSmearWorker%2F</url>
-      <content type="text"><![CDATA[// 从主线程获取ImageData对象，对其进行处理并将它传递回去 onmessage=function(e){ if(typeof e.data === 'string'){ console.log("Worker: "+e.data); return; } postMessage(smear(e.data)); } // 将ImageData中的像素信息向右涂抹，产生动态模糊效果 // 对于大图片，此方法会进行大量计算 // 如果它用在主线程中的画，很有可能导致无法响应ui操作的问题 function smear(pixels){ var data=pixels.data,width=pixels.width,height=pixels.height; var n=10,m=n-1;//设置n倍大，用于更多的涂抹 for(var row=0;row]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[图片文字垂直居中]]></title>
       <url>%2F2017%2F05%2F11%2Fvertical-aligin-middle%2F</url>
       <content type="text"><![CDATA[个数不定的文字内容与图片的垂直居中对齐1234&lt;div&gt;&lt;span&gt;文字们哈哈哈哈哈&lt;/span&gt;&lt;img src="/images/june.jpg"&gt;&lt;/div&gt; 12div&gt;span&#123;display:inline-block;width:210px;vertical-align:middle;&#125;div&gt;img&#123;vertical-align:middle;&#125;]]></content>
