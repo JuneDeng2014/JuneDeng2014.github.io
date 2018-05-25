@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[移动端踩坑之滚动穿透]]></title>
+      <url>%2F2018%2F05%2F25%2F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%2F</url>
+      <content type="text"><![CDATA[问题描述：用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome） 解决办法日期控件源码修改： touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。 每次日期控件显示的时候 body:{overlow:hidden} ,隐藏的时候 body:{overflow:auto} 因为我的日期控件就在页面顶部，所以不需要记录页面的滚动位置。这样设置之后，ios和windows chrome都能够正常工作了。 bug fixed！ 网上的比较全面的解决办法]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[移动开发之rem]]></title>
       <url>%2F2018%2F05%2F25%2F%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E4%B9%8Brem%2F</url>
       <content type="text"><![CDATA[第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走: 设置base，一般来说为设计稿都尺寸/10；我这里设置为108. 设置html的fontSize。 12var doc_wid = document.body.clientWidth/10;document.getElementsByTagName("html")[0].style.fontSize=doc_wid+"px"; 尺寸计算：设计稿上面的实际尺寸rem/base比如header在设计稿为142px，那么就设置为 .header{height:142rem/$base} (scss的写法)]]></content>
