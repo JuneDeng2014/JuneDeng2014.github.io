@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="make the world a better place">
+<meta name="description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接在设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:
+
+设置base，一般来说为设计稿都尺寸/10；我这里设置为108.
+设置html的fontSize。
+12var d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动开发之rem">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/05/25/移动开发之rem/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="make the world a better place">
-<meta property="og:updated_time" content="2018-05-25T08:55:28.151Z">
+<meta property="og:description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接在设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:
+
+设置base，一般来说为设计稿都尺寸/10；我这里设置为108.
+设置html的fontSize。
+12var d">
+<meta property="og:updated_time" content="2018-05-25T09:29:32.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动开发之rem">
-<meta name="twitter:description" content="make the world a better place">
+<meta name="twitter:description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接在设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:
+
+设置base，一般来说为设计稿都尺寸/10；我这里设置为108.
+设置html的fontSize。
+12var d">
 
 
 
@@ -391,7 +403,16 @@
       
 
       
-        
+        <p>第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。<br>尺寸宽度为1080。网上看了一堆资料，然后我直接在设置了 <code>html{font-size:20px;}</code>，跟着感觉写了一通。<br>最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。<br>总的来说，移动端使用rem分为三步走:</p>
+<ul>
+<li>设置base，一般来说为设计稿都尺寸/10；我这里设置为108.</li>
+<li><p>设置html的fontSize。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> doc_wid = <span class="built_in">document</span>.body.clientWidth/<span class="number">10</span>;</div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"html"</span>)[<span class="number">0</span>].style.fontSize=doc_wid+<span class="string">"px"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>尺寸计算：设计稿上面的实际尺寸rem/base<br>比如header在设计稿为142px，那么就设置为 <code>.header{height:142rem/$base}</code> (scss的写法)</p>
+</li>
+</ul>
+
       
     </div>
 
