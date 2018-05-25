@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[移动开发之rem]]></title>
       <url>%2F2018%2F05%2F25%2F%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E4%B9%8Brem%2F</url>
-      <content type="text"><![CDATA[第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接在设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走: 设置base，一般来说为设计稿都尺寸/10；我这里设置为108. 设置html的fontSize。 12var doc_wid = document.body.clientWidth/10;document.getElementsByTagName("html")[0].style.fontSize=doc_wid+"px"; 尺寸计算：设计稿上面的实际尺寸rem/base比如header在设计稿为142px，那么就设置为 .header{height:142rem/$base} (scss的写法)]]></content>
+      <content type="text"><![CDATA[第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走: 设置base，一般来说为设计稿都尺寸/10；我这里设置为108. 设置html的fontSize。 12var doc_wid = document.body.clientWidth/10;document.getElementsByTagName("html")[0].style.fontSize=doc_wid+"px"; 尺寸计算：设计稿上面的实际尺寸rem/base比如header在设计稿为142px，那么就设置为 .header{height:142rem/$base} (scss的写法)]]></content>
     </entry>
 
     
