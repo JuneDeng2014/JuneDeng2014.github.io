@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[移动开发之rem]]></title>
+      <url>%2F2018%2F05%2F25%2F%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E4%B9%8Brem%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[移动端踩坑之z-index与fixed]]></title>
       <url>%2F2018%2F05%2F25%2F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B8%A9%E5%9D%91%E4%B9%8Bz-index%E4%B8%8Efixed%2F</url>
       <content type="text"><![CDATA[问题描述下拉列表z-index设置为10000,当显示的时候，应该是完全遮盖住主页面。但是在ios safari中，下拉列表向上拉的时候，会漏出定位为fixed的footer。 解决办法在网上找了很多css的办法，都试过了，然而没有效果。后面在朋友的提示下，灵机一动，只需要写2行js代码即可。当下拉列表显示的时候,footer 隐藏。下拉列表隐藏的时候,footer显示。]]></content>
