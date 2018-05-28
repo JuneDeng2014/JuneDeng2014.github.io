@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[移动端踩坑之滚动穿透]]></title>
       <url>%2F2018%2F05%2F25%2F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%2F</url>
-      <content type="text"><![CDATA[问题描述：用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome） 解决办法日期控件源码修改： touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。 每次日期控件显示的时候 body:{overlow:hidden} ,隐藏的时候 body:{overflow:auto} 因为我的日期控件就在页面顶部，所以不需要记录页面的滚动位置。这样设置之后，ios和windows chrome都能够正常工作了。 bug fixed！ 网上的比较全面的解决办法]]></content>
+      <content type="text"><![CDATA[问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome） 解决办法日期控件源码修改： touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。 每次日期控件显示的时候 body:{overlow:hidden} ,隐藏的时候 body:{overflow:auto} 因为我的日期控件就在页面顶部，所以不需要记录页面的滚动位置。这样设置之后，ios和windows chrome都能够正常工作了。 bug fixed！ 网上的比较全面的解决办法]]></content>
     </entry>
 
     
