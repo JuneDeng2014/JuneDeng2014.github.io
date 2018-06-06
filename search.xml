@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[表单校验之novalidate]]></title>
+      <url>%2F2018%2F06%2F06%2Fhtml-novalidate-attribute%2F</url>
+      <content type="text"><![CDATA[用django写后台项目，表单使用form，在模板中这样渲染:123456789101112131415161718192021&lt;form method="post" novalidate action="&#123;% url 'users:login' %&#125;"&gt; &#123;% csrf_token %&#125; &#123;% if form.non_field_errors %&#125; &lt;div class="error-msg"&gt; &#123;% for error in form.non_field_errors %&#125; &#123;&#123; error &#125;&#125; &#123;% endfor %&#125; &lt;/div&gt; &#123;% endif %&#125; &#123;% for field in form.visible_fields %&#125; &lt;div class="form-group&#123;% if field.errors %&#125; has-error&#123;% endif %&#125;"&gt; &lt;label&gt;&#123;&#123;field.label&#125;&#125;&lt;/label&gt; &#123;&#123; field &#125;&#125; &#123;% if field.help_text %&#125; &lt;span class="help-block"&gt;&#123;&#123; field.help_text|safe &#125;&#125;&lt;/span&gt; &#123;% endif %&#125; &#123;% for error in field.errors %&#125; &lt;span class="error-msg"&gt;&#123;&#123; error &#125;&#125;&lt;/span&gt; &#123;% endfor %&#125; &lt;/div&gt; &#123;% endfor %&#125; &lt;div class="form-group"&gt; &lt;button type="submit" class="btn-submit"&gt;登录&lt;/button&gt; &lt;/div&gt;&lt;/form&gt; 因为账号和密码等等字段都是必填的,有required属性，自带的提示根据浏览器和语言都会不一样。这不是我想要的效果。 作为一个前端工程师，在后端小朋友的提示下，给表单加了novalidate属性，来去除默认的提示。然后再自己写error-msg样式。有点忧伤。 参考资料：]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[在网站中使用微软雅黑字体是否构成侵权]]></title>
       <url>%2F2018%2F06%2F04%2F%E5%9C%A8%E7%BD%91%E7%AB%99%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91%E5%AD%97%E4%BD%93%E6%98%AF%E5%90%A6%E6%9E%84%E6%88%90%E4%BE%B5%E6%9D%83%2F</url>
       <content type="text"><![CDATA[早起搬砖，就看到前端群有个小伙伴在说公司被发了侵权警告书了，因为他们用了微软雅黑的字体。 我们公司的设计师也很喜欢用微软雅黑，回想自己做的项目，基本都是用这个字体，当即吓了一跳。 立刻开始Google。 找到了这篇文章,做了详细的描述。 总结如下： 我们可以将字体用在个人或商业的工作站上，但不允许将字体安装在服务器上，不能使用 css 的 @font-face 调用，字体文件不能被修改或者作为软件的一部分进行分发。这些都需要获得相应授权。在商业网站的图片上使用微软雅黑字体属于侵权行为。 我们在css中使用 {font-family:microsoft yahei} 是在合法的使用范围内。 通过css3的 @font-face 引入web字体是有风险的，尤其是对于商业性的网站。对于个人站点，想使用合法授权的web字体，可以访问： http://webfonts.fonts.com/ https://typekit.com/ http://www.google.com/webfonts 不必担心在css中使用字体名称，因为它仅仅调用了终端用户自身系统中存在的字体，不需要任何额外的许可。 you actually do not need a license to include the font name in your CSS, because it is only calling on the system font already existing in the end user’s computer, which does not need any extra license. 我自己的想法：平时设计师给的图文结合的设计稿，最好切图的时候只切css实现不了的图片，文字自己用html、css来写。这样既方便用户复制粘贴，又不会用侵权的风险。]]></content>
