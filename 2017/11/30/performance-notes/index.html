@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="Mearsure Performance with Rail Modelresponse,animation,idle,loadTL;DR
-- Focus on the user;the goal isn&amp;apos;t to make your site perform fast on any specific device, its to ultimately make users happy.">
+<meta name="description" content="Mearsure Performance with Rail Model#response,animation,idle,loadTL;DR
+- Focus on the user;the goal isn&amp;apos;t to make your site perform fast on any specific device, its to ultimately make users happy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="performance notes">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/11/30/performance-notes/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="Mearsure Performance with Rail Modelresponse,animation,idle,loadTL;DR
-- Focus on the user;the goal isn&amp;apos;t to make your site perform fast on any specific device, its to ultimately make users happy.">
+<meta property="og:description" content="Mearsure Performance with Rail Model#response,animation,idle,loadTL;DR
+- Focus on the user;the goal isn&amp;apos;t to make your site perform fast on any specific device, its to ultimately make users happy">
 <meta property="og:updated_time" content="2017-11-30T08:41:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="performance notes">
-<meta name="twitter:description" content="Mearsure Performance with Rail Modelresponse,animation,idle,loadTL;DR
-- Focus on the user;the goal isn&amp;apos;t to make your site perform fast on any specific device, its to ultimately make users happy.">
+<meta name="twitter:description" content="Mearsure Performance with Rail Model#response,animation,idle,loadTL;DR
+- Focus on the user;the goal isn&amp;apos;t to make your site perform fast on any specific device, its to ultimately make users happy">
 
 
 
@@ -394,23 +394,23 @@
       
 
       
-        <h1 id="Mearsure-Performance-with-Rail-Model"><a href="#Mearsure-Performance-with-Rail-Model" class="headerlink" title="Mearsure Performance with Rail Model"></a>Mearsure Performance with Rail Model</h1><p>response,animation,idle,load<br>TL;DR</p>
+        <h1><span id="mearsure-performance-with-rail-model">Mearsure Performance with Rail Model</span><a href="#mearsure-performance-with-rail-model" class="header-anchor">#</a></h1><p>response,animation,idle,load<br>TL;DR</p>
 <pre><code>- Focus on the user;the goal isn&apos;t to make your site perform fast on any specific device, its to ultimately make users happy.
 - Respond to users immediately;acknowledge user input in under 100ms.
 - When animating or scrolling,produce a frame in under 10ms.
 - Maxmize main thread idle time.
 - Keep users engaged;deliver interactive content in under 1000ms.
-</code></pre><h2 id="Focus-on-the-user"><a href="#Focus-on-the-user" class="headerlink" title="Focus on the user"></a>Focus on the user</h2><h2 id="Response-respond-in-under-100ms"><a href="#Response-respond-in-under-100ms" class="headerlink" title="Response:respond in under 100ms"></a>Response:respond in under 100ms</h2><h2 id="Animation-produce-a-frame-in-10ms"><a href="#Animation-produce-a-frame-in-10ms" class="headerlink" title="Animation:produce a frame in 10ms"></a>Animation:produce a frame in 10ms</h2><h2 id="Idle-maximize-idle-time"><a href="#Idle-maximize-idle-time" class="headerlink" title="Idle:maximize idle time"></a>Idle:maximize idle time</h2><pre><code>Use idle time to complete deferred work. For example, keep pre-load data to aminimum so that your app loads fast, and use idle time to load remainning data/
+</code></pre><h2><span id="focus-on-the-user">Focus on the user</span><a href="#focus-on-the-user" class="header-anchor">#</a></h2><h2><span id="response-respond-in-under-100ms">Response:respond in under 100ms</span><a href="#response-respond-in-under-100ms" class="header-anchor">#</a></h2><h2><span id="animation-produce-a-frame-in-10ms">Animation:produce a frame in 10ms</span><a href="#animation-produce-a-frame-in-10ms" class="header-anchor">#</a></h2><h2><span id="idle-maximize-idle-time">Idle:maximize idle time</span><a href="#idle-maximize-idle-time" class="header-anchor">#</a></h2><pre><code>Use idle time to complete deferred work. For example, keep pre-load data to aminimum so that your app loads fast, and use idle time to load remainning data/
 
 Deferrend work should be grouped into blocks of about 50ms. Should a user begin interacting, then the highest priority is to respond to that.
 
 To allow for &amp;lt;100ms response,the app must yield control back to main thread every &amp;lt;50ms,such that can execute its pixel pipeline,react to user input,and so on.
 
 Working in 500ms blocks allows the task to finish while still ensuring instant response.
-</code></pre><h2 id="Load-deliver-content-under-100ms"><a href="#Load-deliver-content-under-100ms" class="headerlink" title="Load:deliver content under 100ms"></a>Load:deliver content under 100ms</h2><pre><code>Load your site in under 1 second.
+</code></pre><h2><span id="load-deliver-content-under-100ms">Load:deliver content under 100ms</span><a href="#load-deliver-content-under-100ms" class="header-anchor">#</a></h2><pre><code>Load your site in under 1 second.
 Focus on optimizing the critical rendering path to unblock rendering.
 You don&apos;t have to load everything in under 1 second to produce the perception of a complete load.Enable progressive rendering and do some work in the background.Defer non-essential loads to periods of idle time.
-</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/rail" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/rail</a>  </p>
+</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/rail" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/rail</a></p>
 
       
     </div>
@@ -572,7 +572,7 @@ You don&apos;t have to load everything in under 1 second to produce the percepti
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mearsure-Performance-with-Rail-Model"><span class="nav-number">1.</span> <span class="nav-text">Mearsure Performance with Rail Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Focus-on-the-user"><span class="nav-number">1.1.</span> <span class="nav-text">Focus on the user</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Response-respond-in-under-100ms"><span class="nav-number">1.2.</span> <span class="nav-text">Response:respond in under 100ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animation-produce-a-frame-in-10ms"><span class="nav-number">1.3.</span> <span class="nav-text">Animation:produce a frame in 10ms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Idle-maximize-idle-time"><span class="nav-number">1.4.</span> <span class="nav-text">Idle:maximize idle time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Load-deliver-content-under-100ms"><span class="nav-number">1.5.</span> <span class="nav-text">Load:deliver content under 100ms</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Mearsure Performance with Rail Model#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Focus on the user#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Response:respond in under 100ms#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">Animation:produce a frame in 10ms#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">Idle:maximize idle time#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">Load:deliver content under 100ms#</span></a></li></ol></li></ol></div>
             
 
           </div>

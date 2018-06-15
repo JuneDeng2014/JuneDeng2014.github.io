@@ -84,34 +84,34 @@
 
 
 
-<meta name="description" content="Anatomy of a webfont
+<meta name="description" content="Anatomy of a webfont#
 Unicode fonts can contain thousands of glyphs.
 There are four font formats:WOFF2,WOFF,EOT,and TTF.
 Some font formates require the use of compression.
 
-Webfont formats:
-EOT:IE only">
+Webfont formats:#
+EOT:IE on">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web-font-optimization">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/12/web-font-optimization/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="Anatomy of a webfont
+<meta property="og:description" content="Anatomy of a webfont#
 Unicode fonts can contain thousands of glyphs.
 There are four font formats:WOFF2,WOFF,EOT,and TTF.
 Some font formates require the use of compression.
 
-Webfont formats:
-EOT:IE only">
+Webfont formats:#
+EOT:IE on">
 <meta property="og:updated_time" content="2017-12-12T10:06:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web-font-optimization">
-<meta name="twitter:description" content="Anatomy of a webfont
+<meta name="twitter:description" content="Anatomy of a webfont#
 Unicode fonts can contain thousands of glyphs.
 There are four font formats:WOFF2,WOFF,EOT,and TTF.
 Some font formates require the use of compression.
 
-Webfont formats:
-EOT:IE only">
+Webfont formats:#
+EOT:IE on">
 
 
 
@@ -409,12 +409,12 @@ EOT:IE only">
       
 
       
-        <h1 id="Anatomy-of-a-webfont"><a href="#Anatomy-of-a-webfont" class="headerlink" title="Anatomy of a webfont"></a>Anatomy of a webfont</h1><ul>
+        <h1><span id="anatomy-of-a-webfont">Anatomy of a webfont</span><a href="#anatomy-of-a-webfont" class="header-anchor">#</a></h1><ul>
 <li>Unicode fonts can contain thousands of glyphs.</li>
 <li>There are four font formats:WOFF2,WOFF,EOT,and TTF.</li>
 <li>Some font formates require the use of compression.</li>
 </ul>
-<h1 id="Webfont-formats"><a href="#Webfont-formats" class="headerlink" title="Webfont formats:"></a>Webfont formats:</h1><ul>
+<h1><span id="webfont-formats">Webfont formats:</span><a href="#webfont-formats" class="header-anchor">#</a></h1><ul>
 <li>EOT:IE only</li>
 <li>TTF:partial IE support</li>
 <li>WOFF:widest support but not available in some older browsers</li>
@@ -427,14 +427,14 @@ EOT:IE only">
 <li>Serve TTF variant to old Android (below 4.4) browsers.</li>
 <li>Serve EOT variant to old IE (below IE9) browsers.</li>
 </ul>
-<h1 id="Reducing-font-size-with-compression"><a href="#Reducing-font-size-with-compression" class="headerlink" title="Reducing font size with compression"></a>Reducing font size with compression</h1><p>A font is a collection of glyphs, each of which is a set of paths describing the letter form. The individual glyphs are different, but they contain a lot of similar information that can be compressed with GZIP or a compatible compressor:</p>
+<h1><span id="reducing-font-size-with-compression">Reducing font size with compression</span><a href="#reducing-font-size-with-compression" class="header-anchor">#</a></h1><p>A font is a collection of glyphs, each of which is a set of paths describing the letter form. The individual glyphs are different, but they contain a lot of similar information that can be compressed with GZIP or a compatible compressor:</p>
 <ul>
 <li>EOT and TTF formats are not compressed by default. Ensure that your servers are configured to apply GZIP compression when delivering these formats.</li>
 <li>WOFF has built-in compression. Ensure that your WOFF compressor is using optimal compression settings.</li>
 <li>WOFF2 uses custom preprocessing and compression algorithms to deliver ~30% file-size reduction over other formats.</li>
 </ul>
 <p>Note: Consider using Zopfli compression for the EOT, TTF, and WOFF formats. Zopfli is a zlib compatible compressor that delivers ~5% file-size reduction over gzip.</p>
-<h1 id="Define-a-font-family-with-font-face"><a href="#Define-a-font-family-with-font-face" class="headerlink" title="Define a font family with @font-face"></a>Define a font family with @font-face</h1><ul>
+<h1><span id="define-a-font-family-with-font-face">Define a font family with @font-face</span><a href="#define-a-font-family-with-font-face" class="header-anchor">#</a></h1><ul>
 <li>Use the format() hint to specify multiple font formats.</li>
 <li>Subset large Unicode fonts to improve performance. Use Unicode-range subsetting and provide a manual subsetting fallback for older browsers.</li>
 <li>Reduce the number of stylistic font variants to improve the page- and text-rendering performance.</li>
@@ -621,7 +621,7 @@ EOT:IE only">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anatomy-of-a-webfont"><span class="nav-number">1.</span> <span class="nav-text">Anatomy of a webfont</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webfont-formats"><span class="nav-number">2.</span> <span class="nav-text">Webfont formats:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reducing-font-size-with-compression"><span class="nav-number">3.</span> <span class="nav-text">Reducing font size with compression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Define-a-font-family-with-font-face"><span class="nav-number">4.</span> <span class="nav-text">Define a font family with @font-face</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Anatomy of a webfont#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Webfont formats:#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Reducing font size with compression#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Define a font family with @font-face#</span></a></li></ol></div>
             
 
           </div>

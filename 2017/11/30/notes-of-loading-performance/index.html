@@ -84,31 +84,28 @@
 
 
 
-<meta name="description" content="Understanding Low Bandwith and High Latency
+<meta name="description" content="Understanding Low Bandwith and High Latency#
 introduce tools to emulate network
 Use timeouts to handle intermittent connectivity
 
-Optimizing Content EfficiencyEliminating Unnecessary DownloadsTL;DR
-- I">
+Optimizing Content Efficiency#Eliminating Unnecessary Downloads#TL;DR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="notes of loading performance">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/11/30/notes-of-loading-performance/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="Understanding Low Bandwith and High Latency
+<meta property="og:description" content="Understanding Low Bandwith and High Latency#
 introduce tools to emulate network
 Use timeouts to handle intermittent connectivity
 
-Optimizing Content EfficiencyEliminating Unnecessary DownloadsTL;DR
-- I">
+Optimizing Content Efficiency#Eliminating Unnecessary Downloads#TL;DR">
 <meta property="og:updated_time" content="2017-12-01T09:58:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="notes of loading performance">
-<meta name="twitter:description" content="Understanding Low Bandwith and High Latency
+<meta name="twitter:description" content="Understanding Low Bandwith and High Latency#
 introduce tools to emulate network
 Use timeouts to handle intermittent connectivity
 
-Optimizing Content EfficiencyEliminating Unnecessary DownloadsTL;DR
-- I">
+Optimizing Content Efficiency#Eliminating Unnecessary Downloads#TL;DR">
 
 
 
@@ -406,11 +403,11 @@ Optimizing Content EfficiencyEliminating Unnecessary DownloadsTL;DR
       
 
       
-        <h1 id="Understanding-Low-Bandwith-and-High-Latency"><a href="#Understanding-Low-Bandwith-and-High-Latency" class="headerlink" title="Understanding Low Bandwith and High Latency"></a>Understanding Low Bandwith and High Latency</h1><ul>
+        <h1><span id="understanding-low-bandwith-and-high-latency">Understanding Low Bandwith and High Latency</span><a href="#understanding-low-bandwith-and-high-latency" class="header-anchor">#</a></h1><ul>
 <li>introduce tools to emulate network</li>
 <li>Use timeouts to handle intermittent connectivity</li>
 </ul>
-<h1 id="Optimizing-Content-Efficiency"><a href="#Optimizing-Content-Efficiency" class="headerlink" title="Optimizing Content Efficiency"></a>Optimizing Content Efficiency</h1><h2 id="Eliminating-Unnecessary-Downloads"><a href="#Eliminating-Unnecessary-Downloads" class="headerlink" title="Eliminating Unnecessary Downloads"></a>Eliminating Unnecessary Downloads</h2><pre><code>TL;DR
+<h1><span id="optimizing-content-efficiency">Optimizing Content Efficiency</span><a href="#optimizing-content-efficiency" class="header-anchor">#</a></h1><h2><span id="eliminating-unnecessary-downloads">Eliminating Unnecessary Downloads</span><a href="#eliminating-unnecessary-downloads" class="header-anchor">#</a></h2><pre><code>TL;DR
 - Inventory your own assets and third-party assests on your pages.
 - Measure the performance of each asset:its value and its technical performance
 - Determine if the resources are providing sufficient value
@@ -420,7 +417,7 @@ Eliminate unnecessary resources from application.
  - Does this resource need or have an SLA?Does this resource follow performance best practices:compression,caching,and so on.
 
 Too often,pages contain resources that are unnecessary,or worse,that hinder page performance without delivering much value to the visitor or to the site they&apos;re hosted on.This applies equally to first-party and third-party resources and widgets.
-</code></pre><h2 id="Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets"><a href="#Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets" class="headerlink" title="Optimizing Encoding and Transfer Size of Text-Based Assets"></a>Optimizing Encoding and Transfer Size of Text-Based Assets</h2><pre><code>1. Data compression 101
+</code></pre><h2><span id="optimizing-encoding-and-transfer-size-of-text-based-assets">Optimizing Encoding and Transfer Size of Text-Based Assets</span><a href="#optimizing-encoding-and-transfer-size-of-text-based-assets" class="header-anchor">#</a></h2><pre><code>1. Data compression 101
 TL;DR:
     - Compression is the process of encoding information using fewer bits.
     - Eliminating unnecessary data always yields the best results.
@@ -444,35 +441,35 @@ Enabling GZIP is one of the simplest and highest-payoff optimizations to impleme
 
 
 A quick and simple way to see GZIP in action is to open Chrome DevTools and inspect the “Size / Content” column in the Network panel: “Size” indicates the transfer size of the asset, and “Content” the uncompressed size of the asset.
-</code></pre><h2 id="Image-Optimization"><a href="#Image-Optimization" class="headerlink" title="Image Optimization"></a>Image Optimization</h2><h3 id="Eliminating-and-replacing-images"><a href="#Eliminating-and-replacing-images" class="headerlink" title="Eliminating and replacing images"></a>Eliminating and replacing images</h3><pre><code>TL;DR:
+</code></pre><h2><span id="image-optimization">Image Optimization</span><a href="#image-optimization" class="header-anchor">#</a></h2><h3><span id="eliminating-and-replacing-images">Eliminating and replacing images</span><a href="#eliminating-and-replacing-images" class="header-anchor">#</a></h3><pre><code>TL;DR:
     - Eliminate unnecessary image resources
     - Leverage CSS3 effects where possible
     - Use web fonts instead of encoding text in images
-</code></pre><h3 id="Vector-vs-Raster-images"><a href="#Vector-vs-Raster-images" class="headerlink" title="Vector vs. Raster images"></a>Vector vs. Raster images</h3><pre><code>TL;DR：
+</code></pre><h3><span id="vector-vs-raster-images">Vector vs. Raster images</span><a href="#vector-vs-raster-images" class="header-anchor">#</a></h3><pre><code>TL;DR：
     - Vector images are ideal for iamges that consists of geometric shapes
     - Vector images are zoom and resolution-independent
     - Raster images shoud be used of complex scenes with lots of irregular shapes and details
-</code></pre><h3 id="Implications-of-high-resolution-screens"><a href="#Implications-of-high-resolution-screens" class="headerlink" title="Implications of high-resolution screens"></a>Implications of high-resolution screens</h3><pre><code>TL;DR
+</code></pre><h3><span id="implications-of-high-resolution-screens">Implications of high-resolution screens</span><a href="#implications-of-high-resolution-screens" class="header-anchor">#</a></h3><pre><code>TL;DR
     - High resolution screens have multiple device pixels per css pixel
     - High resolution images require significantly higher number of pixels and bytes
     - Image optimization techniques are the same regardless of resolution
 
 prefer vector images wherever possible.
 if a raster image is required,deliver and optimize multiple variants of each imagewith of help of srcset and picture.
-</code></pre><h3 id="Optimizing-vector-images"><a href="#Optimizing-vector-images" class="headerlink" title="Optimizing vector images"></a>Optimizing vector images</h3><pre><code>TL;DR
+</code></pre><h3><span id="optimizing-vector-images">Optimizing vector images</span><a href="#optimizing-vector-images" class="header-anchor">#</a></h3><pre><code>TL;DR
     - SVG is an XML-based image format
     - SVG files shoud be minified to reduce their size (tool:svgo)
     - SVG files to compressed with GZIP
-</code></pre><h3 id="Optimizing-raster-images"><a href="#Optimizing-raster-images" class="headerlink" title="Optimizing raster images"></a>Optimizing raster images</h3><pre><code>TL;DR
+</code></pre><h3><span id="optimizing-raster-images">Optimizing raster images</span><a href="#optimizing-raster-images" class="header-anchor">#</a></h3><pre><code>TL;DR
     - A raster images is a grid of pixels
     - Each pixel encodes color and transparency information
     - Image compressors use a variety of techniques to reduce the number of required bits per pixel to reduce file size of the image
-</code></pre><h3 id="Lossless-vs-loosy-image-compression"><a href="#Lossless-vs-loosy-image-compression" class="headerlink" title="Lossless vs loosy image compression"></a>Lossless vs loosy image compression</h3><pre><code>TL;DR
+</code></pre><h3><span id="lossless-vs-loosy-image-compression">Lossless vs loosy image compression</span><a href="#lossless-vs-loosy-image-compression" class="header-anchor">#</a></h3><pre><code>TL;DR
     - Due to how our eyes work,images are great candidates for lossy compression
     - Image optimization is a function of lossy and lossless compression
     - Differences in image formats are due to the difference in how and which lossy and lossless algorithms are used to optimize the images
     - There is no single best format or &quot;quality setting&quot; for all images:each combination of particular compressor and image contents produce a unique output
-</code></pre><h3 id="Selecting-the-right-image-format"><a href="#Selecting-the-right-image-format" class="headerlink" title="Selecting the right image format"></a>Selecting the right image format</h3><pre><code>TL;DR
+</code></pre><h3><span id="selecting-the-right-image-format">Selecting the right image format</span><a href="#selecting-the-right-image-format" class="header-anchor">#</a></h3><pre><code>TL;DR
     - Start by selecting the right universal format:gif,png,jepg
     - Experiment and select the best settings for each format:quality,palette size,etc
     - Consider adding WebP and JPEG XR assets for modern clients
@@ -485,11 +482,11 @@ WebP and JPEG XR :
     - Some CDNS provide image optimization as a service,including JPEG XR and WebP delivery.
     - Some open-source tools(for example,PageSpeed for Apache or Nginx) automate the optimization,conversation,and serving of approriate assets.
     - You can add additional application logic to detect the client,check which formats they support,and serve the best availlable image format.
-</code></pre><h3 id="Tools-and-parameter-turning"><a href="#Tools-and-parameter-turning" class="headerlink" title="Tools and parameter turning"></a>Tools and parameter turning</h3><pre><code>- gifsicle:create and optimize GIF images
+</code></pre><h3><span id="tools-and-parameter-turning">Tools and parameter turning</span><a href="#tools-and-parameter-turning" class="header-anchor">#</a></h3><pre><code>- gifsicle:create and optimize GIF images
 - jpegtran:optimize JPEG images
 - optipng:lossless PNG optimization
 - pngquant:lossy PNG optimization
-</code></pre><h3 id="Deliver-scaled-image-assets"><a href="#Deliver-scaled-image-assets" class="headerlink" title="Deliver scaled image assets"></a>Deliver scaled image assets</h3><pre><code>TL;DR
+</code></pre><h3><span id="deliver-scaled-image-assets">Deliver scaled image assets</span><a href="#deliver-scaled-image-assets" class="header-anchor">#</a></h3><pre><code>TL;DR
     - Deliver scaled assets is one of the simplest and most effective optimizations
     - Pay close attention to large assets as they result in high overhead 
     - Reduce the number of unnecessary pixels by scaling your images to their display size
@@ -497,7 +494,7 @@ Image optimization boils down to two criteria: optimizing the number of bytes us
 As a result, one of the simplest and most effective image optimization techniques is to ensure that we are not shipping any more pixels than needed to display the asset at its intended size in the browser. Sounds simple, right? Unfortunately, most pages fail this test for many of their image assets: typically, they ship larger assets and rely on the browser to rescale them - which also consumes extra CPU resources - and display them at a lower resolution.
 
 **you should ensure that the number of unnecessary pixels is minimal, and that your large assets in particular are delivered as close as possible to their display size.**
-</code></pre><h3 id="Image-optimization-checklist"><a href="#Image-optimization-checklist" class="headerlink" title="Image optimization checklist"></a>Image optimization checklist</h3><pre><code>- __Prefer vector formats__
+</code></pre><h3><span id="image-optimization-checklist">Image optimization checklist</span><a href="#image-optimization-checklist" class="header-anchor">#</a></h3><pre><code>- __Prefer vector formats__
 - __Minify and compress SVG assets__
 - __Pick best raster image format__
 - __Experiment with optimal quality settings for raster formats__
@@ -666,7 +663,7 @@ As a result, one of the simplest and most effective image optimization technique
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Understanding-Low-Bandwith-and-High-Latency"><span class="nav-number">1.</span> <span class="nav-text">Understanding Low Bandwith and High Latency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Optimizing-Content-Efficiency"><span class="nav-number">2.</span> <span class="nav-text">Optimizing Content Efficiency</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Eliminating-Unnecessary-Downloads"><span class="nav-number">2.1.</span> <span class="nav-text">Eliminating Unnecessary Downloads</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-Encoding-and-Transfer-Size-of-Text-Based-Assets"><span class="nav-number">2.2.</span> <span class="nav-text">Optimizing Encoding and Transfer Size of Text-Based Assets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Optimization"><span class="nav-number">2.3.</span> <span class="nav-text">Image Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Eliminating-and-replacing-images"><span class="nav-number">2.3.1.</span> <span class="nav-text">Eliminating and replacing images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-vs-Raster-images"><span class="nav-number">2.3.2.</span> <span class="nav-text">Vector vs. Raster images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implications-of-high-resolution-screens"><span class="nav-number">2.3.3.</span> <span class="nav-text">Implications of high-resolution screens</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-vector-images"><span class="nav-number">2.3.4.</span> <span class="nav-text">Optimizing vector images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-raster-images"><span class="nav-number">2.3.5.</span> <span class="nav-text">Optimizing raster images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lossless-vs-loosy-image-compression"><span class="nav-number">2.3.6.</span> <span class="nav-text">Lossless vs loosy image compression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selecting-the-right-image-format"><span class="nav-number">2.3.7.</span> <span class="nav-text">Selecting the right image format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-and-parameter-turning"><span class="nav-number">2.3.8.</span> <span class="nav-text">Tools and parameter turning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deliver-scaled-image-assets"><span class="nav-number">2.3.9.</span> <span class="nav-text">Deliver scaled image assets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-optimization-checklist"><span class="nav-number">2.3.10.</span> <span class="nav-text">Image optimization checklist</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Understanding Low Bandwith and High Latency#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Optimizing Content Efficiency#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Eliminating Unnecessary Downloads#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Optimizing Encoding and Transfer Size of Text-Based Assets#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Image Optimization#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.1.</span> <span class="nav-text">Eliminating and replacing images#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.</span> <span class="nav-text">Vector vs. Raster images#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.3.</span> <span class="nav-text">Implications of high-resolution screens#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.4.</span> <span class="nav-text">Optimizing vector images#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.5.</span> <span class="nav-text">Optimizing raster images#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.6.</span> <span class="nav-text">Lossless vs loosy image compression#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.7.</span> <span class="nav-text">Selecting the right image format#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.8.</span> <span class="nav-text">Tools and parameter turning#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.9.</span> <span class="nav-text">Deliver scaled image assets#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.10.</span> <span class="nav-text">Image optimization checklist#</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

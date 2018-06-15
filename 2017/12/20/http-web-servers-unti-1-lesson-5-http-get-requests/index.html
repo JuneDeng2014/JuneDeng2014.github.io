@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="HTTP GET requests查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
-查看日期和时间之后的部分, “GET /readme.pg HTTP/1.1” ，这就是浏览器发送给服务器的请求">
+<meta name="description" content="HTTP GET requests#查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
+查看日期和时间之后的部分, “GET /readme.pg HTTP/1.1” ，这就是浏览器发送给服务器的请">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP & Web Servers Unit 1 Lesson 5 HTTP GET requests">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/20/http-web-servers-unti-1-lesson-5-http-get-requests/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="HTTP GET requests查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
-查看日期和时间之后的部分, “GET /readme.pg HTTP/1.1” ，这就是浏览器发送给服务器的请求">
+<meta property="og:description" content="HTTP GET requests#查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
+查看日期和时间之后的部分, “GET /readme.pg HTTP/1.1” ，这就是浏览器发送给服务器的请">
 <meta property="og:updated_time" content="2017-12-21T09:57:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP & Web Servers Unit 1 Lesson 5 HTTP GET requests">
-<meta name="twitter:description" content="HTTP GET requests查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
-查看日期和时间之后的部分, “GET /readme.pg HTTP/1.1” ，这就是浏览器发送给服务器的请求">
+<meta name="twitter:description" content="HTTP GET requests#查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：1127.0.0.1 - - [03/Oct/2016 15:45:50] &amp;quot;GET /readme.png HTTP/1.1&amp;quot; 200 -
+查看日期和时间之后的部分, “GET /readme.pg HTTP/1.1” ，这就是浏览器发送给服务器的请">
 
 
 
@@ -394,13 +394,13 @@
       
 
       
-        <h1 id="HTTP-GET-requests"><a href="#HTTP-GET-requests" class="headerlink" title="HTTP GET requests"></a>HTTP GET requests</h1><p>查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 - - [03/Oct/2016 15:45:50] &quot;GET /readme.png HTTP/1.1&quot; 200 -</div></pre></td></tr></table></figure></p>
+        <h1><span id="http-get-requests">HTTP GET requests</span><a href="#http-get-requests" class="header-anchor">#</a></h1><p>查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 - - [03/Oct/2016 15:45:50] &quot;GET /readme.png HTTP/1.1&quot; 200 -</div></pre></td></tr></table></figure></p>
 <p>查看日期和时间之后的部分, <em>“GET /readme.pg HTTP/1.1”</em> ，这就是浏览器发送给服务器的请求行的文本。该条日志记录告诉你它收到了一个请求，照字面意义，<em>GET /readme.pg HTTP/1.1</em> 。</p>
 <p>这条请求有三个部分。</p>
 <p><em>GET</em> 是使用的方法(<em>method</em>)或HTTP动词(<em>HTTP verb</em>)，这表明发出的是什么样的请求。当客户端想要服务器发送某个资源，比如一个网页或者图片，就使用 <em>GET</em> 方式。我们会在之后查看当客户端想要做其他事情，比如提交表单或对某个资源作出修改，使用的其他的方式。</p>
 <p><em>/readme.png</em> 是请求的资源的路径。注意：客户端在此没有发送该资源的完整的URI。它并没有说 <em><a href="https://localhost:8000/readme.png" target="_blank" rel="external">https://localhost:8000/readme.png</a></em> 。它只是发送路径。</p>
 <p>最后， <em>HTTP/1.1</em> 是该请求的协议。这么多年过去，HTTP如何工作发生了一些改变。客户端必须告知服务器它们说的是HTTP的哪一种方言。现在，HTTP/1.1是最常见的版本。</p>
-<h1 id="Exercise-Send-a-request-by-hand"><a href="#Exercise-Send-a-request-by-hand" class="headerlink" title="Exercise: Send a request by hand"></a>Exercise: Send a request by hand</h1><p>可以使用 <em>ncat</em> 连接到示例服务器，手动发送一个HTTP请求。<br>开启一个终端，运行示例服务器，<code>python3 -m http.server 8000</code>。<br>使用 <em>ncat 127.0.0.1 8000</em> 将终端连接到示例服务器。<br>键入下面两行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: localhost</div></pre></td></tr></table></figure></p>
+<h1><span id="exercise-send-a-request-by-hand">Exercise: Send a request by hand</span><a href="#exercise-send-a-request-by-hand" class="header-anchor">#</a></h1><p>可以使用 <em>ncat</em> 连接到示例服务器，手动发送一个HTTP请求。<br>开启一个终端，运行示例服务器，<code>python3 -m http.server 8000</code>。<br>使用 <em>ncat 127.0.0.1 8000</em> 将终端连接到示例服务器。<br>键入下面两行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: localhost</div></pre></td></tr></table></figure></p>
 <p>按两次enter键，服务器的响应会马上显示在你的终端。根据你终端的尺寸大小，网络服务器的文件数量，你可能会需要向上滚动才能看到响应的开始。</p>
 <p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/d7ce9e02-109b-4416-b3ee-a6832defee4c" target="_blank" rel="external">查看原文</a></p>
 
@@ -570,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-GET-requests"><span class="nav-number">1.</span> <span class="nav-text">HTTP GET requests</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercise-Send-a-request-by-hand"><span class="nav-number">2.</span> <span class="nav-text">Exercise: Send a request by hand</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">HTTP GET requests#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Exercise: Send a request by hand#</span></a></li></ol></div>
             
 
           </div>

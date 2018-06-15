@@ -84,20 +84,20 @@
 
 
 
-<meta name="description" content="Validating cached responses with ETags
+<meta name="description" content="Validating cached responses with ETags#
 The server uses the ETag HTTP header to communicate a validation token.
 The validation token enables efficient resource update checks:no data transferred if the">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP-Caching">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/13/HTTP-Caching/index.html">
 <meta property="og:site_name" content="Juney">
-<meta property="og:description" content="Validating cached responses with ETags
+<meta property="og:description" content="Validating cached responses with ETags#
 The server uses the ETag HTTP header to communicate a validation token.
 The validation token enables efficient resource update checks:no data transferred if the">
 <meta property="og:updated_time" content="2017-12-15T11:21:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP-Caching">
-<meta name="twitter:description" content="Validating cached responses with ETags
+<meta name="twitter:description" content="Validating cached responses with ETags#
 The server uses the ETag HTTP header to communicate a validation token.
 The validation token enables efficient resource update checks:no data transferred if the">
 
@@ -397,28 +397,28 @@ The validation token enables efficient resource update checks:no data transferre
       
 
       
-        <h1 id="Validating-cached-responses-with-ETags"><a href="#Validating-cached-responses-with-ETags" class="headerlink" title="Validating cached responses with ETags"></a>Validating cached responses with ETags</h1><ul>
+        <h1><span id="validating-cached-responses-with-etags">Validating cached responses with ETags</span><a href="#validating-cached-responses-with-etags" class="header-anchor">#</a></h1><ul>
 <li>The server uses the ETag HTTP header to communicate a validation token.</li>
 <li>The validation token enables efficient resource update checks:no data transferred if the resource has not changed.<br>Ensure that the server is providing the necessary ETag tokens. Check your server documentation for the necessary configuration flags.</li>
 </ul>
-<h1 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h1><ul>
+<h1><span id="cache-control">Cache-Control</span><a href="#cache-control" class="header-anchor">#</a></h1><ul>
 <li>Each resource can define its caching policy via the Cache-Control HTTP header.</li>
 <li>Cache-Control directives control who can cache the response, under which conditions, and for how long.</li>
 </ul>
-<h2 id="“no-cache”-and-“no-store”"><a href="#“no-cache”-and-“no-store”" class="headerlink" title="“no-cache” and “no-store”"></a>“no-cache” and “no-store”</h2><p>“no-cache” indicates that the returned response can’t be used to satisfy a subsequent request to the same URL without first checking with the server if the response has changed. As a result, if a proper validation token (ETag) is present, no-cache incurs a roundtrip to validate the cached response, but can eliminate the download if the resource has not changed.</p>
+<h2><span id="no-cache-and-no-store">“no-cache” and “no-store”</span><a href="#no-cache-and-no-store" class="header-anchor">#</a></h2><p>“no-cache” indicates that the returned response can’t be used to satisfy a subsequent request to the same URL without first checking with the server if the response has changed. As a result, if a proper validation token (ETag) is present, no-cache incurs a roundtrip to validate the cached response, but can eliminate the download if the resource has not changed.</p>
 <p>By contrast, “no-store” is much simpler. It simply disallows the browser and all intermediate caches from storing any version of the returned response—for example, one containing private personal or banking data. Every time the user requests this asset, a request is sent to the server and a full response is downloaded.</p>
-<h2 id="“public”-vs-“private”"><a href="#“public”-vs-“private”" class="headerlink" title="“public” vs. “private”"></a>“public” vs. “private”</h2><p>If the response is marked as “public”, then it can be cached, even if it has HTTP authentication associated with it, and even when the response status code isn’t normally cacheable. Most of the time, “public” isn’t necessary, because explicit caching information (like “max-age”) indicates that the response is cacheable anyway.</p>
+<h2><span id="public-vs-private">“public” vs. “private”</span><a href="#public-vs-private" class="header-anchor">#</a></h2><p>If the response is marked as “public”, then it can be cached, even if it has HTTP authentication associated with it, and even when the response status code isn’t normally cacheable. Most of the time, “public” isn’t necessary, because explicit caching information (like “max-age”) indicates that the response is cacheable anyway.</p>
 <p>By contrast, the browser can cache “private” responses. However, these responses are typically intended for a single user, so an intermediate cache is not allowed to cache them. For example, a user’s browser can cache an HTML page with private user information, but a CDN can’t cache the page.</p>
-<h2 id="“max-age”"><a href="#“max-age”" class="headerlink" title="“max-age”"></a>“max-age”</h2><p>This directive specifies the maximum time in seconds that the fetched response is allowed to be reused from the time of the request. For example, “max-age=60” indicates that the response can be cached and reused for the next 60 seconds.</p>
-<h1 id="Define-optimal-Cache-Control-policy"><a href="#Define-optimal-Cache-Control-policy" class="headerlink" title="Define optimal Cache-Control policy"></a>Define optimal Cache-Control policy</h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
-<h1 id="Invalidating-and-updating-cached-responses"><a href="#Invalidating-and-updating-cached-responses" class="headerlink" title="Invalidating and updating cached responses"></a>Invalidating and updating cached responses</h1><ul>
+<h2><span id="max-age">“max-age”</span><a href="#max-age" class="header-anchor">#</a></h2><p>This directive specifies the maximum time in seconds that the fetched response is allowed to be reused from the time of the request. For example, “max-age=60” indicates that the response can be cached and reused for the next 60 seconds.</p>
+<h1><span id="define-optimal-cache-control-policy">Define optimal Cache-Control policy</span><a href="#define-optimal-cache-control-policy" class="header-anchor">#</a></h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
+<h1><span id="invalidating-and-updating-cached-responses">Invalidating and updating cached responses</span><a href="#invalidating-and-updating-cached-responses" class="header-anchor">#</a></h1><ul>
 <li>Locally cached responses are used until the resource “expires.”</li>
 <li>Embedding a file content fingerprint in the URL enables you force the client to update a new version of the response.</li>
 <li>Each application needs to define its own cache hierarchy for optimal performance.</li>
 </ul>
 <p>All HTTP requests that the browser makes are first routed to the browser cache to check whether there is a valid cached response that can be used to fulfill the request. If there’s a match, the response is read from the cache, which eliminates both the network latency and the data costs that the transfer incurs.</p>
 <p>How do you get the best of both worlds: client-side caching and quick updates? You change the URL of the resource and force the user to download the new response whenever its content changes. Typically, you do this by embedding a fingerprint of the file, or a version number, in its filename—for example, style.x234dff.css.</p>
-<h1 id="Caching-checklist"><a href="#Caching-checklist" class="headerlink" title="Caching checklist"></a>Caching checklist</h1><ul>
+<h1><span id="caching-checklist">Caching checklist</span><a href="#caching-checklist" class="header-anchor">#</a></h1><ul>
 <li>Use consistent URLs:if you serve the same content on different URLs, then that content will be fetched and stored multiple times.</li>
 <li>Ensure that the server provides a validation token (ETag): validation tokens eliminate the need to transfer the same bytes when a resource has not changed on the server.</li>
 <li>Identify which resources can be cached by intermediaries: those with responses that are identical for all users are great candidates to be cached by a CDN and other intermediaries.</li>
@@ -593,7 +593,7 @@ The validation token enables efficient resource update checks:no data transferre
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Validating-cached-responses-with-ETags"><span class="nav-number">1.</span> <span class="nav-text">Validating cached responses with ETags</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cache-Control"><span class="nav-number">2.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#“no-cache”-and-“no-store”"><span class="nav-number">2.1.</span> <span class="nav-text">“no-cache” and “no-store”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“public”-vs-“private”"><span class="nav-number">2.2.</span> <span class="nav-text">“public” vs. “private”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“max-age”"><span class="nav-number">2.3.</span> <span class="nav-text">“max-age”</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Define-optimal-Cache-Control-policy"><span class="nav-number">3.</span> <span class="nav-text">Define optimal Cache-Control policy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Invalidating-and-updating-cached-responses"><span class="nav-number">4.</span> <span class="nav-text">Invalidating and updating cached responses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Caching-checklist"><span class="nav-number">5.</span> <span class="nav-text">Caching checklist</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Validating cached responses with ETags#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Cache-Control#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">“no-cache” and “no-store”#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">“public” vs. “private”#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">“max-age”#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Define optimal Cache-Control policy#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Invalidating and updating cached responses#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Caching checklist#</span></a></li></ol></div>
             
 
           </div>
