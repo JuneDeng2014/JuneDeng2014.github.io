@@ -85,57 +85,60 @@
 
 
 <meta name="description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你完成日复一日的开发工作。
-
-
-
-
-var versus let / const
-Replacing IIFEs with Blocks
-Arrow Functions
-Strings
-.includes( )
-.repeat( )
-Template Literals
-
-
-Destructu">
+Table of Contents
+var 与 let / const 声明
+代码执行块替换立即执行函数
+箭头函数
+字符串
+解构
+模块
+参数
+类
+Symbols
+Maps
+WeakMaps
+Promises
+Generators
+Async Await">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6-cheatsheet">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/06/15/es6-cheatsheet/index.html">
 <meta property="og:site_name" content="Juney">
 <meta property="og:description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你完成日复一日的开发工作。
-
-
-
-
-var versus let / const
-Replacing IIFEs with Blocks
-Arrow Functions
-Strings
-.includes( )
-.repeat( )
-Template Literals
-
-
-Destructu">
-<meta property="og:updated_time" content="2018-06-15T07:47:11.310Z">
+Table of Contents
+var 与 let / const 声明
+代码执行块替换立即执行函数
+箭头函数
+字符串
+解构
+模块
+参数
+类
+Symbols
+Maps
+WeakMaps
+Promises
+Generators
+Async Await">
+<meta property="og:updated_time" content="2018-06-15T07:49:05.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6-cheatsheet">
 <meta name="twitter:description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你完成日复一日的开发工作。
-
-
-
-
-var versus let / const
-Replacing IIFEs with Blocks
-Arrow Functions
-Strings
-.includes( )
-.repeat( )
-Template Literals
-
-
-Destructu">
+Table of Contents
+var 与 let / const 声明
+代码执行块替换立即执行函数
+箭头函数
+字符串
+解构
+模块
+参数
+类
+Symbols
+Maps
+WeakMaps
+Promises
+Generators
+Async Await">
 
 
 
@@ -434,52 +437,7 @@ Destructu">
 
       
         <p>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你<br>完成日复一日的开发工作。</p>
-<div class="toc">
-
-<!-- toc -->
-<ul>
-<li><a href="#var-versus-let-const">var versus let / const</a></li>
-<li><a href="#replacing-iifes-with-blocks">Replacing IIFEs with Blocks</a></li>
-<li><a href="#arrow-functions">Arrow Functions</a></li>
-<li><a href="#strings">Strings</a><ul>
-<li><a href="#includes">.includes( )</a></li>
-<li><a href="#repeat">.repeat( )</a></li>
-<li><a href="#template-literals">Template Literals</a></li>
-</ul>
-</li>
-<li><a href="#destructuring">Destructuring</a><ul>
-<li><a href="#destructuring-arrays">Destructuring Arrays</a></li>
-<li><a href="#destructuring-objects">Destructuring Objects</a></li>
-</ul>
-</li>
-<li><a href="#modules">Modules</a><ul>
-<li><a href="#exporting-in-commonjs">Exporting in CommonJS</a></li>
-<li><a href="#exporting-in-es6">Exporting in ES6</a></li>
-<li><a href="#importing-in-es6">Importing in ES6</a></li>
-</ul>
-</li>
-<li><a href="#parameters">Parameters</a><ul>
-<li><a href="#default-parameters">Default Parameters</a></li>
-<li><a href="#rest-parameters">Rest Parameters</a></li>
-<li><a href="#named-parameters">Named Parameters</a></li>
-<li><a href="#spread-operator">Spread Operator</a></li>
-</ul>
-</li>
-<li><a href="#classes">Classes</a></li>
-<li><a href="#symbols">Symbols</a><ul>
-<li><a href="#symbol">Symbol( )</a></li>
-<li><a href="#symbol-for-key">Symbol.for(key)</a></li>
-</ul>
-</li>
-<li><a href="#maps">Maps</a></li>
-<li><a href="#weakmaps">WeakMaps</a></li>
-<li><a href="#promises">Promises</a></li>
-<li><a href="#generators">Generators</a></li>
-<li><a href="#async-await">Async Await</a></li>
-</ul>
-<!-- tocstop -->
-<p></div></p>
-<ul>
+<h2><span id="table-of-contents">Table of Contents</span><a href="#table-of-contents" class="header-anchor">#</a></h2><ul>
 <li><a href="#var-versus-let--const">var 与 let / const 声明</a></li>
 <li><a href="#replacing-iifes-with-blocks">代码执行块替换立即执行函数</a></li>
 <li><a href="#arrow-functions">箭头函数</a></li>
@@ -877,7 +835,7 @@ Destructu">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">var versus let / const#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Replacing IIFEs with Blocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Arrow Functions#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Strings#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">.includes( )#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">.repeat( )#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">Template Literals#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Destructuring#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">Destructuring Arrays#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">Destructuring Objects#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Modules#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">Exporting in CommonJS#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.2.</span> <span class="nav-text">Exporting in ES6#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.3.</span> <span class="nav-text">Importing in ES6#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Parameters#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.1.</span> <span class="nav-text">Default Parameters#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.2.</span> <span class="nav-text">Rest Parameters#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.3.</span> <span class="nav-text">Named Parameters#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.4.</span> <span class="nav-text">Spread Operator#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">Classes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">Symbols#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">9.1.</span> <span class="nav-text">Symbol( )#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">9.2.</span> <span class="nav-text">Symbol.for(key)#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">Maps#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">11.</span> <span class="nav-text">WeakMaps#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">12.</span> <span class="nav-text">Promises#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">13.</span> <span class="nav-text">Generators#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">14.</span> <span class="nav-text">Async Await#</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">var versus let / const#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Replacing IIFEs with Blocks#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Arrow Functions#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Strings#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">.includes( )#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">.repeat( )#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.3.</span> <span class="nav-text">Template Literals#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Destructuring#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">Destructuring Arrays#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.2.</span> <span class="nav-text">Destructuring Objects#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Modules#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.1.</span> <span class="nav-text">Exporting in CommonJS#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.2.</span> <span class="nav-text">Exporting in ES6#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.3.</span> <span class="nav-text">Importing in ES6#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">Parameters#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.1.</span> <span class="nav-text">Default Parameters#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.2.</span> <span class="nav-text">Rest Parameters#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.3.</span> <span class="nav-text">Named Parameters#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.4.</span> <span class="nav-text">Spread Operator#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">Classes#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">Symbols#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">10.1.</span> <span class="nav-text">Symbol( )#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">10.2.</span> <span class="nav-text">Symbol.for(key)#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">11.</span> <span class="nav-text">Maps#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">12.</span> <span class="nav-text">WeakMaps#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">13.</span> <span class="nav-text">Promises#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">14.</span> <span class="nav-text">Generators#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">15.</span> <span class="nav-text">Async Await#</span></a></li></ol></div>
             
 
           </div>
