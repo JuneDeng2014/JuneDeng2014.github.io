@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[ajax知识点复习]]></title>
-      <url>%2F2018%2F06%2F28%2Fajax%E5%A4%8D%E4%B9%A0%2F</url>
+      <title><![CDATA[ajax复习]]></title>
+      <url>%2F2018%2F06%2F29%2Fajax%E5%A4%8D%E4%B9%A0-1%2F</url>
       <content type="text"><![CDATA[面试被问到一个关于ajax的优缺点问题，引出了HTML5的history。趁这个机会总结复习一下AJAX的知识点。Ajax,是Asynchronous Javascript and XML的缩写，用来描述基于用脚本操纵HTTP请求的Web应用架构。Ajax应用的主要特点是使用脚本操纵HTTP和Web服务器进行数据交换，不会导致页面重载。 一个HTTP请求由四个部分组成： HTTP请求方法或‘动作’ 正在请求的URL 一个可选的请求头集合，其中可能包含身份验证信息 一个可选的请求主体 服务器返回的HTTP响应包含三部分： 一个数字和文字组成的状态码，用来显示请求的成功和失败 一个响应头集合 响应主体 CORS#XHR2通过HTTP响应中选择发送合适对CORS(Cross-Origin Resource Sharing跨域资源共享)允许跨域访问网站。 ajax优点# 无刷新更新数据 异步服务器通信 前后端负载平和 界面与应用分离 ajax缺点# 破坏浏览器机制 安全问题 对搜索引擎支持较弱]]></content>
     </entry>
 
