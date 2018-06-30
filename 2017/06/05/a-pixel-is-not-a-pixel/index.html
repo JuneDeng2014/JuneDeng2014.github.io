@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="The tricky bits#However, there are two tricky bits: the device-width media query and the &amp;lg;meta name=”viewport” width=”device-width” &amp;gt;tag. Both work with device pixels, and not with CSS pixels, b">
+<meta name="description" content="The tricky bitsHowever, there are two tricky bits: the device-width media query and the &amp;lg;meta name=”viewport” width=”device-width” &amp;gt;tag. Both work with device pixels, and not with CSS pixels, be">
 <meta property="og:type" content="article">
 <meta property="og:title" content="a-pixel-is-not-a-pixel">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/06/05/a-pixel-is-not-a-pixel/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="The tricky bits#However, there are two tricky bits: the device-width media query and the &amp;lg;meta name=”viewport” width=”device-width” &amp;gt;tag. Both work with device pixels, and not with CSS pixels, b">
+<meta property="og:description" content="The tricky bitsHowever, there are two tricky bits: the device-width media query and the &amp;lg;meta name=”viewport” width=”device-width” &amp;gt;tag. Both work with device pixels, and not with CSS pixels, be">
 <meta property="og:updated_time" content="2017-06-06T01:56:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="a-pixel-is-not-a-pixel">
-<meta name="twitter:description" content="The tricky bits#However, there are two tricky bits: the device-width media query and the &amp;lg;meta name=”viewport” width=”device-width” &amp;gt;tag. Both work with device pixels, and not with CSS pixels, b">
+<meta name="twitter:description" content="The tricky bitsHowever, there are two tricky bits: the device-width media query and the &amp;lg;meta name=”viewport” width=”device-width” &amp;gt;tag. Both work with device pixels, and not with CSS pixels, be">
 
 
 
@@ -350,10 +350,10 @@
       
 
       
-        <h1><span id="the-tricky-bits">The tricky bits</span><a href="#the-tricky-bits" class="header-anchor">#</a></h1><p>However, there are two tricky bits: the device-width media query and the &lg;meta name=”viewport” width=”device-width” &gt;tag. Both work with device pixels, and not with CSS pixels, because they report on the context of the web page, and not on its inner CSS workings.<br>device-width媒体查询和&lg; meta name=”viewport” width=”device-width” &gt;都是指设备像素，而不是css像素。</p>
-<h1><span id="the-media-query">The media query</span><a href="#the-media-query" class="header-anchor">#</a></h1><p>The device-width media query measures the width of the device in device pixels. The width media query measures the total width of the page in CSS pixels, which, for reasons I’ll explain later, is at least 980px on the iPhone.<br>The device-width media query works as follows:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">div.sidebar &#123;</div><div class="line">	width: 300px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@media all and (max-device-width: 320px) &#123;</div><div class="line">	// styles assigned when device width is smaller than 320px;</div><div class="line">	div.sidebar &#123;</div><div class="line">		width: 100px;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1><span id="the-tricky-bits">The tricky bits</span></h1><p>However, there are two tricky bits: the device-width media query and the &lg;meta name=”viewport” width=”device-width” &gt;tag. Both work with device pixels, and not with CSS pixels, because they report on the context of the web page, and not on its inner CSS workings.<br>device-width媒体查询和&lg; meta name=”viewport” width=”device-width” &gt;都是指设备像素，而不是css像素。</p>
+<h1><span id="the-media-query">The media query</span></h1><p>The device-width media query measures the width of the device in device pixels. The width media query measures the total width of the page in CSS pixels, which, for reasons I’ll explain later, is at least 980px on the iPhone.<br>The device-width media query works as follows:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">div.sidebar &#123;</div><div class="line">	width: 300px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@media all and (max-device-width: 320px) &#123;</div><div class="line">	// styles assigned when device width is smaller than 320px;</div><div class="line">	div.sidebar &#123;</div><div class="line">		width: 100px;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>Now the sidebar is 300 CSS pixels wide, except when the device width is 320 device pixels or less, in which case it becomes 100 CSS pixels wide.<br>侧边栏为300 css像素宽，除非设备的宽度小于等于320,此时，侧边栏的css像素变为100px.<br>By the way, in theory you could use a media query that queries the device screen in centimeters or inches (@media all and (max-device-width: 9cm)). Unfortunately it seems badly to outright unsupported, even by the iPhone. The problem here is that physical units such as inches are usually translated to (CSS) pixels; thus width: 1in equals 96 pixels on all browsers I tested so far (and that’s quite a few). So these media queries are unreliable.<br>理论上说可以使用设备屏幕的厘米或者英寸来媒体查询。但是基本浏览器都不支持。</p>
-<h1><span id="the-tag">The <meta> tag</span><a href="#the-tag" class="header-anchor">#</a></h1><p>In general &lt;meta name=”viewport” content=”width=device-width” &gt; is even more useful. This tag, originally Apple-proprietary but meanwhile supported by many more mobile browsers, actually makes the layout viewport fit the device exactly.<br>Now what is the layout viewport? It’s the area (in CSS pixels) that the browser uses to calculate the dimensions of elements with percentual width, such as div.sidebar {width: 20%}. It’s usually quite a bit larger than the device screen: 980px on the iPhone, 850px on Opera, 800 on Android, etc.</p>
+<h1><span id="the-tag">The <meta> tag</span></h1><p>In general &lt;meta name=”viewport” content=”width=device-width” &gt; is even more useful. This tag, originally Apple-proprietary but meanwhile supported by many more mobile browsers, actually makes the layout viewport fit the device exactly.<br>Now what is the layout viewport? It’s the area (in CSS pixels) that the browser uses to calculate the dimensions of elements with percentual width, such as div.sidebar {width: 20%}. It’s usually quite a bit larger than the device screen: 980px on the iPhone, 850px on Opera, 800 on Android, etc.</p>
 <p>If you add &lt;meta name=”viewport” content=”width=device-width” &gt;, the width of this layout viewport is constrained to the device width in device pixels; 320 of them in the iPhone’s case.</p>
 <p>So basically Google has already inserted a layer of what are apparently called dips; device-independent pixels. This layer comes between the official, reported screen size and the CSS pixels web developers work with.</p>
 
@@ -479,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -501,7 +501,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -544,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">The tricky bits#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">The media query#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">The  tag#</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">The tricky bits</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">The media query</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">The  tag</span></a></li></ol></div>
             
 
           </div>

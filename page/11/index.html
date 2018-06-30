@@ -261,6 +261,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-unti-1-lesson-1-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/http-web-servers-unti-1-lesson-1-introduction/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 1 Introduction</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T10:39:18+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="准备工作">准备工作</span></h1><ul>
+<li>安装python3</li>
+<li>安装git</li>
+<li>安装Nmap</li>
+<li>在两个终端测试ncat程序</li>
+</ul>
+<h1><span id="安装nmap">安装Nmap</span></h1><ul>
+<li>Windows: 下载运行 <a href="https://nmap.org/dist/nmap-7.30-setup.exe" target="_blank" rel="external">https://nmap.org/dist/nmap-7.30-setup.exe</a></li>
+<li>Mac (with Homebrew):在终端运行 brew install nmap</li>
+<li>Mac (without Homebrew): 下载安装 <a href="https://nmap.org/dist/nmap-7.30.dmg" target="_blank" rel="external">https://nmap.org/dist/nmap-7.30.dmg</a></li>
+<li>Debian/Ubuntu/Mint: 终端运行 sudo apt-get install nmap</li>
+</ul>
+<p>检查ncat是否正确安装运行，开2个终端，其中一个运行ncat -l 9999,另一个运行ncat localhost 9999.然后在其中一个终端输入一些内容，按enter键，应该可以在另一个终端看到输入的内容。<br>其中一个ncat程序在这里充当了一个简单的网络服务器的角色，另一个充当客户端角色。</p>
+<blockquote>
+<p>Note:如果发生错误如“Address already in use”,表示你电脑中已经有其他程序在使用9999端口。你可以换个端口使用。注意客户端和服务器需要使用同一个端口。<br>在终端输入Control-C退出ncat程序。如果先输入的是服务器端，客户端会自动退出。因为服务器关闭会自动中断连接。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/13/HTTP-Caching/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -354,28 +511,28 @@
       
         
           
-            <h1><span id="validating-cached-responses-with-etags">Validating cached responses with ETags</span><a href="#validating-cached-responses-with-etags" class="header-anchor">#</a></h1><ul>
+            <h1><span id="validating-cached-responses-with-etags">Validating cached responses with ETags</span></h1><ul>
 <li>The server uses the ETag HTTP header to communicate a validation token.</li>
 <li>The validation token enables efficient resource update checks:no data transferred if the resource has not changed.<br>Ensure that the server is providing the necessary ETag tokens. Check your server documentation for the necessary configuration flags.</li>
 </ul>
-<h1><span id="cache-control">Cache-Control</span><a href="#cache-control" class="header-anchor">#</a></h1><ul>
+<h1><span id="cache-control">Cache-Control</span></h1><ul>
 <li>Each resource can define its caching policy via the Cache-Control HTTP header.</li>
 <li>Cache-Control directives control who can cache the response, under which conditions, and for how long.</li>
 </ul>
-<h2><span id="no-cache-and-no-store">“no-cache” and “no-store”</span><a href="#no-cache-and-no-store" class="header-anchor">#</a></h2><p>“no-cache” indicates that the returned response can’t be used to satisfy a subsequent request to the same URL without first checking with the server if the response has changed. As a result, if a proper validation token (ETag) is present, no-cache incurs a roundtrip to validate the cached response, but can eliminate the download if the resource has not changed.</p>
+<h2><span id="no-cache-and-no-store">“no-cache” and “no-store”</span></h2><p>“no-cache” indicates that the returned response can’t be used to satisfy a subsequent request to the same URL without first checking with the server if the response has changed. As a result, if a proper validation token (ETag) is present, no-cache incurs a roundtrip to validate the cached response, but can eliminate the download if the resource has not changed.</p>
 <p>By contrast, “no-store” is much simpler. It simply disallows the browser and all intermediate caches from storing any version of the returned response—for example, one containing private personal or banking data. Every time the user requests this asset, a request is sent to the server and a full response is downloaded.</p>
-<h2><span id="public-vs-private">“public” vs. “private”</span><a href="#public-vs-private" class="header-anchor">#</a></h2><p>If the response is marked as “public”, then it can be cached, even if it has HTTP authentication associated with it, and even when the response status code isn’t normally cacheable. Most of the time, “public” isn’t necessary, because explicit caching information (like “max-age”) indicates that the response is cacheable anyway.</p>
+<h2><span id="public-vs-private">“public” vs. “private”</span></h2><p>If the response is marked as “public”, then it can be cached, even if it has HTTP authentication associated with it, and even when the response status code isn’t normally cacheable. Most of the time, “public” isn’t necessary, because explicit caching information (like “max-age”) indicates that the response is cacheable anyway.</p>
 <p>By contrast, the browser can cache “private” responses. However, these responses are typically intended for a single user, so an intermediate cache is not allowed to cache them. For example, a user’s browser can cache an HTML page with private user information, but a CDN can’t cache the page.</p>
-<h2><span id="max-age">“max-age”</span><a href="#max-age" class="header-anchor">#</a></h2><p>This directive specifies the maximum time in seconds that the fetched response is allowed to be reused from the time of the request. For example, “max-age=60” indicates that the response can be cached and reused for the next 60 seconds.</p>
-<h1><span id="define-optimal-cache-control-policy">Define optimal Cache-Control policy</span><a href="#define-optimal-cache-control-policy" class="header-anchor">#</a></h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
-<h1><span id="invalidating-and-updating-cached-responses">Invalidating and updating cached responses</span><a href="#invalidating-and-updating-cached-responses" class="header-anchor">#</a></h1><ul>
+<h2><span id="max-age">“max-age”</span></h2><p>This directive specifies the maximum time in seconds that the fetched response is allowed to be reused from the time of the request. For example, “max-age=60” indicates that the response can be cached and reused for the next 60 seconds.</p>
+<h1><span id="define-optimal-cache-control-policy">Define optimal Cache-Control policy</span></h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
+<h1><span id="invalidating-and-updating-cached-responses">Invalidating and updating cached responses</span></h1><ul>
 <li>Locally cached responses are used until the resource “expires.”</li>
 <li>Embedding a file content fingerprint in the URL enables you force the client to update a new version of the response.</li>
 <li>Each application needs to define its own cache hierarchy for optimal performance.</li>
 </ul>
 <p>All HTTP requests that the browser makes are first routed to the browser cache to check whether there is a valid cached response that can be used to fulfill the request. If there’s a match, the response is read from the cache, which eliminates both the network latency and the data costs that the transfer incurs.</p>
 <p>How do you get the best of both worlds: client-side caching and quick updates? You change the URL of the resource and force the user to download the new response whenever its content changes. Typically, you do this by embedding a fingerprint of the file, or a version number, in its filename—for example, style.x234dff.css.</p>
-<h1><span id="caching-checklist">Caching checklist</span><a href="#caching-checklist" class="header-anchor">#</a></h1><ul>
+<h1><span id="caching-checklist">Caching checklist</span></h1><ul>
 <li>Use consistent URLs:if you serve the same content on different URLs, then that content will be fetched and stored multiple times.</li>
 <li>Ensure that the server provides a validation token (ETag): validation tokens eliminate the need to transfer the same bytes when a resource has not changed on the server.</li>
 <li>Identify which resources can be cached by intermediaries: those with responses that are identical for all users are great candidates to be cached by a CDN and other intermediaries.</li>
@@ -418,197 +575,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/12/web-font-optimization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/12/web-font-optimization/" itemprop="url">web-font-optimization</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T16:48:38+08:00">
-                2017-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="anatomy-of-a-webfont">Anatomy of a webfont</span><a href="#anatomy-of-a-webfont" class="header-anchor">#</a></h1><ul>
-<li>Unicode fonts can contain thousands of glyphs.</li>
-<li>There are four font formats:WOFF2,WOFF,EOT,and TTF.</li>
-<li>Some font formates require the use of compression.</li>
-</ul>
-<h1><span id="webfont-formats">Webfont formats:</span><a href="#webfont-formats" class="header-anchor">#</a></h1><ul>
-<li>EOT:IE only</li>
-<li>TTF:partial IE support</li>
-<li>WOFF:widest support but not available in some older browsers</li>
-<li>WOFF2:in progress for many browsers</li>
-</ul>
-<p>There is no single format that works in all browsers,which means that we need to deliver multiple fomats to provide consistent experience:</p>
-<ul>
-<li>Serve WOFF 2.0 variant to browsers that support it.</li>
-<li>Serve WOFF variant to the majority of browsers.</li>
-<li>Serve TTF variant to old Android (below 4.4) browsers.</li>
-<li>Serve EOT variant to old IE (below IE9) browsers.</li>
-</ul>
-<h1><span id="reducing-font-size-with-compression">Reducing font size with compression</span><a href="#reducing-font-size-with-compression" class="header-anchor">#</a></h1><p>A font is a collection of glyphs, each of which is a set of paths describing the letter form. The individual glyphs are different, but they contain a lot of similar information that can be compressed with GZIP or a compatible compressor:</p>
-<ul>
-<li>EOT and TTF formats are not compressed by default. Ensure that your servers are configured to apply GZIP compression when delivering these formats.</li>
-<li>WOFF has built-in compression. Ensure that your WOFF compressor is using optimal compression settings.</li>
-<li>WOFF2 uses custom preprocessing and compression algorithms to deliver ~30% file-size reduction over other formats.</li>
-</ul>
-<p>Note: Consider using Zopfli compression for the EOT, TTF, and WOFF formats. Zopfli is a zlib compatible compressor that delivers ~5% file-size reduction over gzip.</p>
-<h1><span id="define-a-font-family-with-font-face">Define a font family with @font-face</span><a href="#define-a-font-family-with-font-face" class="header-anchor">#</a></h1><ul>
-<li>Use the format() hint to specify multiple font formats.</li>
-<li>Subset large Unicode fonts to improve performance. Use Unicode-range subsetting and provide a manual subsetting fallback for older browsers.</li>
-<li>Reduce the number of stylistic font variants to improve the page- and text-rendering performance.</li>
-</ul>
-<ol>
-<li>The browser requests the HTML document.</li>
-<li>The browser begins parsing the HTML response and constructing the DOM.</li>
-<li>The browser discovers CSS, JS, and other resources and dispatches requests.</li>
-<li>The browser constructs the CSSOM after all of the CSS content is received and combines it with the DOM tree to construct the render tree.<ul>
-<li>Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.</li>
-</ul>
-</li>
-<li>The browser performs layout and paints content to the screen.<ul>
-<li>If the font is not yet available, the browser may not render any text pixels.</li>
-<li>After the font is available, the browser paints the text pixels.</li>
-</ul>
-</li>
-</ol>
-<p>The “race” between the first paint of page content, which can be done shortly after the render tree is built, and the request for the font resource is what creates the “blank text problem” where the browser might render page layout but omits any text.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -658,7 +629,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +651,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

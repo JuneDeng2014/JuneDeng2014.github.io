@@ -261,6 +261,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/12/web-font-optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/12/web-font-optimization/" itemprop="url">web-font-optimization</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T16:48:38+08:00">
+                2017-12-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="anatomy-of-a-webfont">Anatomy of a webfont</span></h1><ul>
+<li>Unicode fonts can contain thousands of glyphs.</li>
+<li>There are four font formats:WOFF2,WOFF,EOT,and TTF.</li>
+<li>Some font formates require the use of compression.</li>
+</ul>
+<h1><span id="webfont-formats">Webfont formats:</span></h1><ul>
+<li>EOT:IE only</li>
+<li>TTF:partial IE support</li>
+<li>WOFF:widest support but not available in some older browsers</li>
+<li>WOFF2:in progress for many browsers</li>
+</ul>
+<p>There is no single format that works in all browsers,which means that we need to deliver multiple fomats to provide consistent experience:</p>
+<ul>
+<li>Serve WOFF 2.0 variant to browsers that support it.</li>
+<li>Serve WOFF variant to the majority of browsers.</li>
+<li>Serve TTF variant to old Android (below 4.4) browsers.</li>
+<li>Serve EOT variant to old IE (below IE9) browsers.</li>
+</ul>
+<h1><span id="reducing-font-size-with-compression">Reducing font size with compression</span></h1><p>A font is a collection of glyphs, each of which is a set of paths describing the letter form. The individual glyphs are different, but they contain a lot of similar information that can be compressed with GZIP or a compatible compressor:</p>
+<ul>
+<li>EOT and TTF formats are not compressed by default. Ensure that your servers are configured to apply GZIP compression when delivering these formats.</li>
+<li>WOFF has built-in compression. Ensure that your WOFF compressor is using optimal compression settings.</li>
+<li>WOFF2 uses custom preprocessing and compression algorithms to deliver ~30% file-size reduction over other formats.</li>
+</ul>
+<p>Note: Consider using Zopfli compression for the EOT, TTF, and WOFF formats. Zopfli is a zlib compatible compressor that delivers ~5% file-size reduction over gzip.</p>
+<h1><span id="define-a-font-family-with-font-face">Define a font family with @font-face</span></h1><ul>
+<li>Use the format() hint to specify multiple font formats.</li>
+<li>Subset large Unicode fonts to improve performance. Use Unicode-range subsetting and provide a manual subsetting fallback for older browsers.</li>
+<li>Reduce the number of stylistic font variants to improve the page- and text-rendering performance.</li>
+</ul>
+<ol>
+<li>The browser requests the HTML document.</li>
+<li>The browser begins parsing the HTML response and constructing the DOM.</li>
+<li>The browser discovers CSS, JS, and other resources and dispatches requests.</li>
+<li>The browser constructs the CSSOM after all of the CSS content is received and combines it with the DOM tree to construct the render tree.<ul>
+<li>Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.</li>
+</ul>
+</li>
+<li>The browser performs layout and paints content to the screen.<ul>
+<li>If the font is not yet available, the browser may not render any text pixels.</li>
+<li>After the font is available, the browser paints the text pixels.</li>
+</ul>
+</li>
+</ol>
+<p>The “race” between the first paint of page content, which can be done shortly after the render tree is built, and the request for the font resource is what creates the “blank text problem” where the browser might render page layout but omits any text.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/04/automate-image-optimization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -417,251 +603,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/11/30/notes-of-loading-performance/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/30/notes-of-loading-performance/" itemprop="url">notes of loading performance</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T16:43:44+08:00">
-                2017-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="understanding-low-bandwith-and-high-latency">Understanding Low Bandwith and High Latency</span><a href="#understanding-low-bandwith-and-high-latency" class="header-anchor">#</a></h1><ul>
-<li>introduce tools to emulate network</li>
-<li>Use timeouts to handle intermittent connectivity</li>
-</ul>
-<h1><span id="optimizing-content-efficiency">Optimizing Content Efficiency</span><a href="#optimizing-content-efficiency" class="header-anchor">#</a></h1><h2><span id="eliminating-unnecessary-downloads">Eliminating Unnecessary Downloads</span><a href="#eliminating-unnecessary-downloads" class="header-anchor">#</a></h2><pre><code>TL;DR
-- Inventory your own assets and third-party assests on your pages.
-- Measure the performance of each asset:its value and its technical performance
-- Determine if the resources are providing sufficient value
-Eliminate unnecessary resources from application.
- - you&apos;ve always included resource x on your pages,but doest the cost of downloading and displaying it offset the value it delivers to the user? Can you measure and prove its value?
- - Does the resource(especially if it&apos;s a third-party resource) deliver consistent performance?Is that resource in the critical path,or need to be?If the rescource is in the critical path,could it be a single point of failure  for the site?That is,if the resource is unavailable,does it affect performance and the user experience of your page?
- - Does this resource need or have an SLA?Does this resource follow performance best practices:compression,caching,and so on.
-
-Too often,pages contain resources that are unnecessary,or worse,that hinder page performance without delivering much value to the visitor or to the site they&apos;re hosted on.This applies equally to first-party and third-party resources and widgets.
-</code></pre><h2><span id="optimizing-encoding-and-transfer-size-of-text-based-assets">Optimizing Encoding and Transfer Size of Text-Based Assets</span><a href="#optimizing-encoding-and-transfer-size-of-text-based-assets" class="header-anchor">#</a></h2><pre><code>1. Data compression 101
-TL;DR:
-    - Compression is the process of encoding information using fewer bits.
-    - Eliminating unnecessary data always yields the best results.
-    - There are many different compression techniques and algorithms.
-    - You will need a varity of techniques to achieve the best compression.
-2. Minification:preprocessing &amp; context-specific optimizations
-TL;DR:
-    - Content-specific optimizations can significantly reduce the size of delivered resources.
-    - Content-specific optimizations are best applied as part of your build/release cycle.
-3. Text compression with GZIP
-TL;DR:
-    - GZIP performs best on text-based assets:CSS,JavaScript,HTML
-    - All modern browsers support GZIP compression and will automatically request it.
-    - Your server must be configured to enable GZIP compression.
-    - Some CDNs require special care to ensure that GZIP is enabled.
-
-- Apply content-specific optimizations first: CSS, JS, and HTML minifiers.
-- Apply GZIP to compress the minified output.
-
-Enabling GZIP is one of the simplest and highest-payoff optimizations to implement, and yet, many people don&apos;t implement it. Most web servers compress content on your behalf, and you just need to verify that the server is correctly configured to compress all the content types that benefit from GZIP compression.
-
-
-A quick and simple way to see GZIP in action is to open Chrome DevTools and inspect the “Size / Content” column in the Network panel: “Size” indicates the transfer size of the asset, and “Content” the uncompressed size of the asset.
-</code></pre><h2><span id="image-optimization">Image Optimization</span><a href="#image-optimization" class="header-anchor">#</a></h2><h3><span id="eliminating-and-replacing-images">Eliminating and replacing images</span><a href="#eliminating-and-replacing-images" class="header-anchor">#</a></h3><pre><code>TL;DR:
-    - Eliminate unnecessary image resources
-    - Leverage CSS3 effects where possible
-    - Use web fonts instead of encoding text in images
-</code></pre><h3><span id="vector-vs-raster-images">Vector vs. Raster images</span><a href="#vector-vs-raster-images" class="header-anchor">#</a></h3><pre><code>TL;DR：
-    - Vector images are ideal for iamges that consists of geometric shapes
-    - Vector images are zoom and resolution-independent
-    - Raster images shoud be used of complex scenes with lots of irregular shapes and details
-</code></pre><h3><span id="implications-of-high-resolution-screens">Implications of high-resolution screens</span><a href="#implications-of-high-resolution-screens" class="header-anchor">#</a></h3><pre><code>TL;DR
-    - High resolution screens have multiple device pixels per css pixel
-    - High resolution images require significantly higher number of pixels and bytes
-    - Image optimization techniques are the same regardless of resolution
-
-prefer vector images wherever possible.
-if a raster image is required,deliver and optimize multiple variants of each imagewith of help of srcset and picture.
-</code></pre><h3><span id="optimizing-vector-images">Optimizing vector images</span><a href="#optimizing-vector-images" class="header-anchor">#</a></h3><pre><code>TL;DR
-    - SVG is an XML-based image format
-    - SVG files shoud be minified to reduce their size (tool:svgo)
-    - SVG files to compressed with GZIP
-</code></pre><h3><span id="optimizing-raster-images">Optimizing raster images</span><a href="#optimizing-raster-images" class="header-anchor">#</a></h3><pre><code>TL;DR
-    - A raster images is a grid of pixels
-    - Each pixel encodes color and transparency information
-    - Image compressors use a variety of techniques to reduce the number of required bits per pixel to reduce file size of the image
-</code></pre><h3><span id="lossless-vs-loosy-image-compression">Lossless vs loosy image compression</span><a href="#lossless-vs-loosy-image-compression" class="header-anchor">#</a></h3><pre><code>TL;DR
-    - Due to how our eyes work,images are great candidates for lossy compression
-    - Image optimization is a function of lossy and lossless compression
-    - Differences in image formats are due to the difference in how and which lossy and lossless algorithms are used to optimize the images
-    - There is no single best format or &quot;quality setting&quot; for all images:each combination of particular compressor and image contents produce a unique output
-</code></pre><h3><span id="selecting-the-right-image-format">Selecting the right image format</span><a href="#selecting-the-right-image-format" class="header-anchor">#</a></h3><pre><code>TL;DR
-    - Start by selecting the right universal format:gif,png,jepg
-    - Experiment and select the best settings for each format:quality,palette size,etc
-    - Consider adding WebP and JPEG XR assets for modern clients
-
-1. Do you need animation? If so, GIF is the only universal choice
-1. Do you need to preserve fine detail with highest resolution? Use PNG.
-1. Are you optimizing a photo,screenshot,or a similar image asset? Use JPEG.
-
-WebP and JPEG XR :
-    - Some CDNS provide image optimization as a service,including JPEG XR and WebP delivery.
-    - Some open-source tools(for example,PageSpeed for Apache or Nginx) automate the optimization,conversation,and serving of approriate assets.
-    - You can add additional application logic to detect the client,check which formats they support,and serve the best availlable image format.
-</code></pre><h3><span id="tools-and-parameter-turning">Tools and parameter turning</span><a href="#tools-and-parameter-turning" class="header-anchor">#</a></h3><pre><code>- gifsicle:create and optimize GIF images
-- jpegtran:optimize JPEG images
-- optipng:lossless PNG optimization
-- pngquant:lossy PNG optimization
-</code></pre><h3><span id="deliver-scaled-image-assets">Deliver scaled image assets</span><a href="#deliver-scaled-image-assets" class="header-anchor">#</a></h3><pre><code>TL;DR
-    - Deliver scaled assets is one of the simplest and most effective optimizations
-    - Pay close attention to large assets as they result in high overhead 
-    - Reduce the number of unnecessary pixels by scaling your images to their display size
-Image optimization boils down to two criteria: optimizing the number of bytes used to encode each image pixel, and optimizing the total number of pixels: the filesize of the image is simply the total number of pixels times the number of bytes used to encode each pixel. Nothing more, nothing less.
-As a result, one of the simplest and most effective image optimization techniques is to ensure that we are not shipping any more pixels than needed to display the asset at its intended size in the browser. Sounds simple, right? Unfortunately, most pages fail this test for many of their image assets: typically, they ship larger assets and rely on the browser to rescale them - which also consumes extra CPU resources - and display them at a lower resolution.
-
-**you should ensure that the number of unnecessary pixels is minimal, and that your large assets in particular are delivered as close as possible to their display size.**
-</code></pre><h3><span id="image-optimization-checklist">Image optimization checklist</span><a href="#image-optimization-checklist" class="header-anchor">#</a></h3><pre><code>- __Prefer vector formats__
-- __Minify and compress SVG assets__
-- __Pick best raster image format__
-- __Experiment with optimal quality settings for raster formats__
-- __Remove unnecessary image metadata__
-- __Serve scaled images__
-- __Automate__:invest into automated tools and infrastructure that will ensure that all of your image assets are always optimized
-</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -711,7 +657,7 @@ As a result, one of the simplest and most effective image optimization technique
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -733,7 +679,7 @@ As a result, one of the simplest and most effective image optimization technique
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
