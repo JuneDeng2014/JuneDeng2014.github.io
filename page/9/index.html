@@ -261,6 +261,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/20/http-web-servers-unti-1-lesson-6-http-responses/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/20/http-web-servers-unti-1-lesson-6-http-responses/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 6 HTTP responses</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T16:44:17+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="http-responses">HTTP responses</span></h1><p>在上一节课的<a href="https://junedeng2014.github.io/2017/12/20/http-web-servers-note05-http-get-requests/#Exercise-Send-a-request-by-hand">练习</a>中,当输入 <code>Host:localhost</code> 按下两次enter键，服务器发回一堆的文本。这就是一个HTTP响应(<em>HTTP response</em>）。当你的浏览器向服务器请求一个页面，一张图片，或者任何东西，都会发生请求和响应的交换。</p>
+<p>其他方法测试一下。使用 <em>ncat</em> 连接到 <em>google.com</em> 80端口，发送一个请求，路径为 <em>/</em> ，在<em>google.com</em> 主机上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: google.com</div></pre></td></tr></table></figure>
+<blockquote>
+<p>确保发送的是 <em>Host: google.com</em> ，不要加上 <em>www</em> 在这里。它们本质上是不同的主机名，我们想要看看它们的区别。按下2次enter键！</p>
+</blockquote>
+<p>(我测试了一下，返回的是”Operation time out.”)</p>
+<p>HTTP 响应由三部分组成：状态行，一些头，和响应主体。(the status line,some headers,and a response body)</p>
+<p>状态行(<em>status line</em>)是服务器发回的第一行文本。头(<em>headers</em>)是在空白行之前的其他行。响应主体(<em>response body</em>)是剩下的部分 - 在示例中，即这些HTML。</p>
+<h1><span id="status-line">Status line</span></h1><p>在之前的示例服务器中，状态行为 <em>HTTP/1.0 200 OK</em> 。在Google的例子中，状态行为 <em>HTTP/1.1 301 Moved Permanently</em> 。状态行告知客户端，服务器是否明白它的请求，服务器是否有它请求的资源，接下来如何继续。它也告知客户端服务器使用的是哪种HTTP方言。</p>
+<p>数字200和301是HTTP 状态码(<em>status code</em>)。状态码分为几十种。状态码的第一个数字表明请求的大概结果。为了简写，网页开发人员将所有 <em>2</em> 开头的状态码写为 <em>2xx</em> ，’x’代表任意的数字。</p>
+<ul>
+<li><em>1xx - Informational.</em> 该请求正在进行中，或者还有另外的步骤。</li>
+<li><em>2xx - Success!</em> 请求成功。服务器正在发送客户端请求的数据。</li>
+<li><em>3xx - Redirection.</em> 服务器告知客户端它应该重定向到其他的URI。这些头通常还包含一个指明更新的URI地址(<em>Location</em>)的头。不同的状态码告知客户端重定向是永久的还是临时的。</li>
+<li><em>4xx - Client error.</em> 服务器不明白客户端的请求，或不能满足它。不同的状态码告知客户端它是否是一个坏的URI，或者权限问题，或其他的问题。</li>
+<li><em>5xx - Server error.</em> 服务器端发生错误。</li>
+</ul>
+<p>可在该<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="external">维基百科页</a>或者这个<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank" rel="external">HTTP规范页</a>查看更多关于HTTP状态码的资料。</p>
+<h1><span id="headers">Headers</span></h1><p>一个HTTP响应可以包含多个头(<em>headers</em>)。每个头都以一个关键字开始一行，比如 <em>Location</em> 或者 <em>Content-type</em> ，接着是一个冒号和值。头相当于是响应的元数据。浏览器或者其他客户端不会展示它们，与之相替的是，它们会告诉客户端各种关于响应的信息。</p>
+<p>WEB的很多很多特性都是通过头实现的。例如，<em>cookies</em> 是一个WEB特性，它让服务器将数据保存到浏览器上，如让用户保持登录状态。服务器发送 <em>Set-Cookie</em> 头设置一个cookie。浏览器在之后的请求中会通过一个 <em>Cookie</em> 头将cookie数据发送回服务器。</p>
+<p><em>Content-type</em> 头表明服务器发送的是何种数据，包含一般的类别和具体的格式。例如，一个PNG格式图片的 Content-type 为 <em>image/png</em> 。如果内容是文本，包括HTML，服务器也会告知文本是由哪种方式编码的。UTF-8是常见的选择，也是Python文本的默认编码方式。</p>
+<p>头经常会包含更多关于响应主体的元数据。例如，示例服务器和Google都发送了一个 <em>Content-Length</em> 头，这告知客户端响应主体的长度(以bytes计算)。当服务器发送了这条信息，客户端可以在读取第一个响应后重新使用该连接发送另一个请求。浏览器利用这个获取多条数据（比如网页上的很多图片），而不需要重新连接到服务器。</p>
+<h1><span id="response-body">Response body</span></h1><p>头部信息以一个空白行结尾。空白行之后的所有内容都是响应主体(<em>response body</em>)。如果该请求是成功的(比如一个 <em>200 OK</em> 状态)，响应主体就是客户端请求的任何资源的副本，如网页、图片或者任何其他的数据。</p>
+<p>但如果发生错误，响应主体就是错误信息。如果你请求一个不存在的资源，你会得到 <em>404 Not Found</em> 错误，实际的错误显示在响应主体中。</p>
+<h1><span id="exercise-be-a-web-server">Exercise: Be a web server!</span></h1><p>使用 <em>ncat -l 9999</em> 监听9999端口，使用浏览器连接到它 <a href="http://localhost:9999/" target="_blank" rel="external">http://localhost:9999/</a> 。在终端能看到什么？</p>
+<p>我的终端出现的是这些信息: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: localhost:9999</div><div class="line">Connection: keep-alive</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36</div><div class="line">Upgrade-Insecure-Requests: 1</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</div><div class="line">DNT: 1</div><div class="line">Accept-Encoding: gzip, deflate, br</div><div class="line">Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7</div></pre></td></tr></table></figure>
+<p>接下来，发送一个HTTP响应给你的浏览器，在浏览器发送给你的头下面键入以下内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 307 Temporary Redirect</div><div class="line">Location: https://www.eff.org/</div></pre></td></tr></table></figure>
+<p>最后，按两次enter键发送一个空白行，表明头的结束。</p>
+<p>浏览器会打开eff的主页。</p>
+<p>再试一次，运行 <em>ncat -l 9999</em> 充当服务器，让你的浏览器连接到此，但这次，不要发送307重定向，发送 <em>200 OK</em> 和一段文本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Content-type: text/plain</div><div class="line">Content-length: 50</div><div class="line"></div><div class="line">Hello, browser! I am a real HTTP server, honestly!</div></pre></td></tr></table></figure>
+<p>(记住头和主体之间的空白行！)</p>
+<p>浏览器会展示你发送的这条信息”Hello, browser! I am a real HTTP server, honestly!”</p>
+<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/75becdb9-da2a-4fbf-9a30-5f3ccd1aa1d6" target="_blank" rel="external">查看原文</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/20/http-web-servers-unti-1-lesson-5-http-get-requests/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -398,173 +576,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/19/http-web-servers-unti-1-lesson-4-hostnames-and-ports/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/19/http-web-servers-unti-1-lesson-4-hostnames-and-ports/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 4 Hostnames and ports</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T13:44:17+08:00">
-                2017-12-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="hostnames">Hostnames</span></h1><p>一个完整的 HTTP 或 HTTPS URI包含网络服务器的主机名，比如 <em>www.udacity.com</em> 或者 <em>www.un.int</em> 或者 <em>www.cheeseboardcollective.coop</em> 。URI的主机名也可以是一个IP地址。<br>如果在浏览器键入：<a href="http://216.58.194.174/" target="_blank" rel="external">http://216.58.194.174/</a> 会访问Google。</p>
-<blockquote>
-<p>为什么叫做主机名？<br>在网络术语中，一个主机就是在网络上的一台能够托管服务的电脑。</p>
-</blockquote>
-<p>互联网通过IP地址区分不同的电脑；互联网上每一次的网络通讯，都标记了发送和接收方的IP地址。为了连接到一个网络服务器，比如 <em>www.udacity.com</em> , 客户端需要将其主机名转换为IP地址。我们的操作系统网络配置使用域名服务(<em>Domain Name Service</em>) - 由互联网服务提供商 (isp) 和其他网络用户维护的一组服务器 - 查找主机名，获取IP地址。</p>
-<p>在终端，我们可以使用 <em>host</em> 程序在DNS中来查找主机名。<br>在终端中输入 host www.google.com ，输出如下：<br>www.google.com has address 66.220.152.28<br>www.google.com has IPv6 address 2404:6800:4008:800::2004</p>
-<p>在终端中输入 host www.baidu.com ，输出如下：<br>www.baidu.com is an alias for www.a.shifen.com.<br>www.a.shifen.com has address 61.135.169.121<br>www.a.shifen.com has address 61.135.169.125</p>
-<p>在浏览器地址栏输入百度的IP地址： <em>61.135.169.125</em> 或 <em>61.135.169.121</em> 会访问百度的主页。</p>
-<p>有一些系统没有 <em>host</em> 命令，但有一个类似的命令叫做 <em>nslookup</em> 。这个命令也会展示你给出的主机名的IP地址，它还会显示给出答案的DNS服务器的IP地址。</p>
-<p>我的测试结果：<br>june:~ june$ nslookup www.google.com<br>Server:        192.168.1.150<br>Address:    192.168.1.150#53</p>
-<p>Non-authoritative answer:<br>Name:    www.google.com<br>Address: 31.13.71.23</p>
-<p>june:~ june$ nslookup www.baidu.com<br>Server:        192.168.1.150<br>Address:    192.168.1.150#53</p>
-<p>Non-authoritative answer:<br>www.baidu.com    canonical name = www.a.shifen.com.<br>Name:    www.a.shifen.com<br>Address: 61.135.169.125<br>Name:    www.a.shifen.com<br>Address: 61.135.169.121</p>
-<p><em>localhost</em> 的 IPv4 地址是什么？<br>用 <em>host</em> 或者 <em>nslookup</em> 在终端测试一下。<br>答案：127.0.0.1</p>
-<p>有两种不同的IP地址：老的 <em>IPv4</em> 和 新的 <em>IPv6</em> 。<br>如果你看到一个地址如 <em>127.0.0.1</em> 或者 <em>216.58.194.164</em> ，这些是IPv4地址。<br>IPv6地址要长一些，如 <em>2607:f8b0:4005:804::2004</em> ，但是这些地址可以缩写。</p>
-<h1><span id="localhost">Localhost</span></h1><p>IPv4地址 <em>127.0.01</em> 和IPv6地址 <em>::1</em> 是特定的地址，指这台电脑自己。主机名 <em>localhost</em> 指代的就是这些特定的地址。</p>
-<p>当运行示例服务器的时候，会打印出一条消息，正在监听 <em>0.0.0.0</em> 端口。这不是一个常规的IP地址。相反，它是一个特定的编码，指代”这台电脑上的所有IPv4地址”，包含 <em>localhost</em> ，也包含你电脑的常规IP地址。</p>
-<h1><span id="ports">Ports</span></h1><p>当你告知浏览器连接到示例服务器，你在浏览器输入URI <em><a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a></em> 。这个URI有一个端口号：<em>8000</em> 。但你在自然环境中看到的大部分网络地址上是没有端口号的。这是因为客户端通常可以通过URI方案知道端口号。</p>
-<p>例如，HTTP URIs意味着端口号为 <em>80</em> ，而HTTPS URIs意味着端口号为 <em>443</em> 。你的python示例服务器运行在8000端口。因为这不是默认的端口号，所以我们需要在URI中指明其端口号。</p>
-<p><em>到底什么是端口号？</em> 为了了解这个，我们需要先知道互联网是如何工作的。电脑发送和接收的所有的网络通信 - 从网络请求到登录回话，再到文件共享等 - 消息都被拆分为数据包。每个包都有发送方和接收方电脑的IP地址。也有发送方和接收方的端口号(某些低级的数据包，比如ping例外)。IP地址区分电脑；端口号区分这些电脑上的程序。</p>
-<p>我们说服务器“监听”某个端口，比如 80 或者 8000，“监听”意味着服务器开启了，它告知操作系统它想要在某个特定端口接收客户端的连接。当一个客户端，比如一个网络浏览器，“连接”到这个端口，发送一个请求，操作系统知道将该请求转发到服务器监听的端口。</p>
-<blockquote>
-<p>为什么我们的示例服务器使用 8000 端口而非 80 端口？由于历史原因，操作系统只允许管理员(或者根)账号监听1024之下的端口。这对于生产网络服务器没有问题，但对于学习不太方便。</p>
-</blockquote>
-<p>想了解更多关于地址，端口和互联网的运作，可查看该课程 <a href="https://cn.udacity.com/course/networking-for-web-developers--ud256" target="_blank" rel="external">Web 开发者的网络入门</a></p>
-<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/34ad0283-c360-443a-a18a-dbbbce982db0" target="_blank" rel="external">查看原文</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -619,7 +630,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -641,7 +652,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

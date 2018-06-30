@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[seo前端能做啥]]></title>
+      <url>%2F2018%2F06%2F30%2Fseo%E5%89%8D%E7%AB%AF%E8%83%BD%E5%81%9A%E5%95%A5%2F</url>
+      <content type="text"><![CDATA[meta定义关键词、网站描述12&lt;meta name="keywords" content="keyword1,keyword2" /&gt;&lt;meta name="description" content="description1,description2" /&gt; html语义化标签123&lt;header&gt;&lt;/header&gt;&lt;main&gt;&lt;/main&gt;&lt;footer&gt;&lt;/footer&gt; html避免嵌套级别太多尽量做到html扁平化。 img标签的四大属性不能省1&lt;img src="" alt="图片描述" width="" height="" /&gt; ​alt属性是为了让图片因网速慢、src引用错误、浏览器禁用图像、用户使用屏幕阅读器等情况，未成功显示时候，仍可以显示文本，让用户可大概知道这张图片大概是什么。width和height是为了防止因为图片无法显示，造成页面重新渲染，或者布局错乱。 h1-h6标签的使用 一个页面建议只出现一个h1标签，而且一般是放在网页log上面使用。 h1-h6标签自带权重，如果只为了设置字体大小，或者区分样式，不适合使用h1-h6。 其他 避免 iframe 标签 重要内容谨慎使用 display:none; a标签尽量添加title属性 利用布局，把重要内容HTML代码放在最前 使用”rel=nofollow”属性，集中网站权重]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[csrf防范]]></title>
       <url>%2F2018%2F06%2F30%2Fcsrf%E9%98%B2%E8%8C%83%2F</url>
       <content type="text"><![CDATA[CSRF, 即Cross-site request forgery，跨站请求伪造。CSRF防范： 在表单里增加Hash值，以认证这确实是用户发送的请求，然后在服务器端进行Hash值验证。 验证码：每次的用户提交都需要用户在表单中填写一个图片上的随机字符串。 修改，增加重要信息，比如密码，个人信息的操作，尽量使用post。避免使用get把信息暴露在url上面。]]></content>
