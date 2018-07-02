@@ -79,16 +79,34 @@
 
 
 
-<meta name="description" content="什么是内存泄露？内存泄露是指new了一块内存，但无法被释放或者被垃圾回收。new了一个对象之后，它申请占用了一块堆内存，当把这个对象指针置为null时或者离开作用域导致被销毁，那么这块内存没有人引用它了，在JS里面就会被自动垃圾回收。但是如果这个对象指针没有被置为null，且代码里面没办法再获取到这个对象指针了，就会导致无法释放掉它指向的内存，也就是说发生了内存泄露。为什么代码里面会拿不到这个对象">
+<meta name="description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：
+
+分配内存（allocate）；
+使用分配到的内存（read,write）；
+不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。
+
+垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="到底什么是内存泄漏">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/06/30/到底什么是内存泄漏/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="什么是内存泄露？内存泄露是指new了一块内存，但无法被释放或者被垃圾回收。new了一个对象之后，它申请占用了一块堆内存，当把这个对象指针置为null时或者离开作用域导致被销毁，那么这块内存没有人引用它了，在JS里面就会被自动垃圾回收。但是如果这个对象指针没有被置为null，且代码里面没办法再获取到这个对象指针了，就会导致无法释放掉它指向的内存，也就是说发生了内存泄露。为什么代码里面会拿不到这个对象">
-<meta property="og:updated_time" content="2018-07-02T02:25:34.947Z">
+<meta property="og:description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：
+
+分配内存（allocate）；
+使用分配到的内存（read,write）；
+不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。
+
+垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
+<meta property="og:updated_time" content="2018-07-02T07:54:16.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="到底什么是内存泄漏">
-<meta name="twitter:description" content="什么是内存泄露？内存泄露是指new了一块内存，但无法被释放或者被垃圾回收。new了一个对象之后，它申请占用了一块堆内存，当把这个对象指针置为null时或者离开作用域导致被销毁，那么这块内存没有人引用它了，在JS里面就会被自动垃圾回收。但是如果这个对象指针没有被置为null，且代码里面没办法再获取到这个对象指针了，就会导致无法释放掉它指向的内存，也就是说发生了内存泄露。为什么代码里面会拿不到这个对象">
+<meta name="twitter:description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：
+
+分配内存（allocate）；
+使用分配到的内存（read,write）；
+不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。
+
+垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
 
 
 
@@ -350,7 +368,19 @@
       
 
       
-        <p>什么是内存泄露？内存泄露是指new了一块内存，但无法被释放或者被垃圾回收。new了一个对象之后，它申请占用了一块堆内存，当把这个对象指针置为null时或者离开作用域导致被销毁，那么这块内存没有人引用它了，在JS里面就会被自动垃圾回收。但是如果这个对象指针没有被置为null，且代码里面没办法再获取到这个对象指针了，就会导致无法释放掉它指向的内存，也就是说发生了内存泄露。为什么代码里面会拿不到这个对象指针了呢，举一个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+        <h1><span id="内存生命周期">内存生命周期</span></h1><p>不管什么程序语言，内存生命周期是一致的：</p>
+<ol>
+<li>分配内存（allocate）；</li>
+<li>使用分配到的内存（read,write）；</li>
+<li>不需要时，归还、释放（release）；<br>所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。</li>
+</ol>
+<h1><span id="垃圾收集garbage-collection">垃圾收集(garbage collection)</span></h1><h2><span id="引用reference">引用(reference)</span></h2><p>垃圾收集算法主要依赖于“引用”概念。<br>在内存管理的环境中，一个对象如果有访问另一个对象的权限（隐式或者显式），叫做一个对象引用另一个对象。例如，一个Javascript对象具有对它原型的引用（隐式引用）和对它属性的引用（显式引用）。<br>在这里，“对象”的概念不仅特指 JavaScript 对象，还包括函数作用域（或者全局词法作用域）。</p>
+<h2><span id="引用计数垃圾回收reference-counting-garbage-collection">引用计数垃圾回收(reference-counting garbage collection)</span></h2><p>这是最天真的垃圾收集算法。此算法把“对象是否不再需要”简化定义为“对象有没有其他对象引用到它”。如果没有引用指向该对象（零引用），对象将被垃圾回收机制回收。</p>
+<h3><span id="limitation-cycles">Limitation: cycles</span></h3><p>下面的例子中，两个对象被创建，并且相互引用，形成了一个cycle。<br>它们在函数调用后离开作用域，所以它们是没用的了，可以被回收了。但是引用计数算法考虑到这俩对象依然被至少引用了一次，所以不会垃圾收集它们。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">    <span class="keyword">var</span> o2 = &#123;&#125;;</div><div class="line">    o.a = o2; <span class="comment">//o 引用 o2</span></div><div class="line">    o2.a = o; <span class="comment">// o2 引用 o</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"june is a cute girl"</span>;</div><div class="line">&#125;</div><div class="line">f();</div></pre></td></tr></table></figure></p>
+<h2><span id="标记清除算法mark-and-sweep-algorithm">标记清除算法(mark-and-sweep algorithm)</span></h2><p>这个算法把“对象是否不再需要”简化定义为“对象是否可以获得”。<br>这个算法假定设置一个叫做根（root）的对象（在Javascript里，根是全局对象）。垃圾回收器将定期从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和收集所有不能获得的对象。</p>
+<p>这个算法比前一个要好，因为“有零引用的对象”总是不可获得的，但相反却不一定，参考“循环引用”。<br>从2012年起，所有现代浏览器都使用了标记-清除垃圾回收算法。</p>
+<h2><span id="cycles不再是问题">Cycles不再是问题</span></h2><p>在上面的示例中，函数调用返回之后，两个对象从全局对象出发无法获取。因此，他们将会被垃圾回收器回收。</p>
+<h1><span id="什么是内存泄露">什么是内存泄露？</span></h1><p>内存泄露是指new了一块内存，但无法被释放或者被垃圾回收。new了一个对象之后，它申请占用了一块堆内存，当把这个对象指针置为null时或者离开作用域导致被销毁，那么这块内存没有人引用它了，在JS里面就会被自动垃圾回收。但是如果这个对象指针没有被置为null，且代码里面没办法再获取到这个对象指针了，就会导致无法释放掉它指向的内存，也就是说发生了内存泄露。</p>
 
       
     </div>
@@ -441,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -516,6 +555,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">内存生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">垃圾收集(garbage collection)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">引用(reference)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">引用计数垃圾回收(reference-counting garbage collection)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.1.</span> <span class="nav-text">Limitation: cycles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">标记清除算法(mark-and-sweep algorithm)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Cycles不再是问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">什么是内存泄露？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
