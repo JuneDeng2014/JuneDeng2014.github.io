@@ -261,6 +261,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/31/a-bit-of-pixels/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/31/a-bit-of-pixels/" itemprop="url">a-bit-of-pixels</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T09:55:35+08:00">
+                2017-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="dipsdevice-independent-pixels">dips:device independent pixels</span></h1><p>当页面设置了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>的时候，document.documentElement.clientWidth在大部分浏览器下，得到的是布局视区的宽度，等同于dips的宽度。</p>
+<h1><span id="screenwidth">screen.width</span></h1><p>对于screen.width的值：</p>
+<ul>
+<li>在iOS视网膜设备上，screen.width返回dips宽。因此，在竖着显示的时候，视网膜显示屏的ipad和非视网膜显示屏的ipad返回的都是768.</li>
+<li>在某些Android设备上，screen.width返回的是物理像素宽度</li>
+</ul>
+<h1><span id="summary">summary</span></h1><ul>
+<li>devicePixelRatio在大多数浏览器是值得信赖的.</li>
+<li>在iOS设备，screen.width乘以devicePixelRatio得到的是物理像素值。</li>
+<li>在Android以及Windows Phone设备，screen.width除以devicePixelRatio得到的是设备独立像素(dips)值。</li>
+</ul>
+<p>摘自：<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/27/learn-compass/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -391,152 +545,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/05/23/font-face/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/23/font-face/" itemprop="url">font-face</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T18:08:54+08:00">
-                2017-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>昨天要改一个很简单的需求，把网站的标题改下。<br>修改了html，发现字体很奇怪。<br>有的是设计师给的，有的不是。</p>
-<p>本以为需要切图，查看了源码，发现字体文件只有之前标题的那几个字。<br>新增的字没有办法应用那个字体。</p>
-<p>找设计师要来了他的字体文件，truetype的，解压。<br>上传到<a href="http://transfonter.org。" target="_blank" rel="external">http://transfonter.org。</a><br>把自己需要的那几个字，也就是新的标题转为svg,woff,ttf,eot,woff2格式。<br>替换掉原来的font文件即可。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">"myfont"</span>;</div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../font/myfont.eot"</span>); <span class="comment">/* IE9 */</span></div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../font/myfont.eot?#iefix"</span>) <span class="built_in">format</span>(<span class="string">"embedded-opentype"</span>), <span class="comment">/* IE6-IE8 */</span></div><div class="line">  <span class="built_in">url</span>(<span class="string">"../font/myfont.woff"</span>) <span class="built_in">format</span>(<span class="string">"woff"</span>), <span class="comment">/* chrome, firefox */</span></div><div class="line">  <span class="built_in">url</span>(<span class="string">"../font/myfont.ttf"</span>) <span class="built_in">format</span>(<span class="string">"truetype"</span>), <span class="comment">/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */</span></div><div class="line">  <span class="built_in">url</span>(<span class="string">"../font/myfont.svg#myfont"</span>) <span class="built_in">format</span>(<span class="string">"svg"</span>); <span class="comment">/* iOS 4.1- */</span></div><div class="line">  <span class="attribute">font-style</span>: normal;</div><div class="line">  <span class="attribute">font-weight</span>: normal;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>查看为何这段代码生效：<br><a href="http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/" target="_blank" rel="external">http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">	<span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</div><div class="line">	<span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), </div><div class="line">	     <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </div><div class="line">	     <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>),</div><div class="line">	     <span class="built_in">url</span>(<span class="string">'myfont-webfont.svg#svgFontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -591,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
