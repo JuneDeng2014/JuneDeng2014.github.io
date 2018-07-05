@@ -261,6 +261,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/20/http-web-servers-unti-1-lesson-5-http-get-requests/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/20/http-web-servers-unti-1-lesson-5-http-get-requests/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 5 HTTP GET requests</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T15:24:44+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="http-get-requests">HTTP GET requests</span></h1><p>查看下示例服务器运行的终端服务器日志。当你向示例服务器请求一个页面，日志会出现这样一条记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 - - [03/Oct/2016 15:45:50] &quot;GET /readme.png HTTP/1.1&quot; 200 -</div></pre></td></tr></table></figure></p>
+<p>查看日期和时间之后的部分, <em>“GET /readme.pg HTTP/1.1”</em> ，这就是浏览器发送给服务器的请求行的文本。该条日志记录告诉你它收到了一个请求，照字面意义，<em>GET /readme.pg HTTP/1.1</em> 。</p>
+<p>这条请求有三个部分。</p>
+<p><em>GET</em> 是使用的方法(<em>method</em>)或HTTP动词(<em>HTTP verb</em>)，这表明发出的是什么样的请求。当客户端想要服务器发送某个资源，比如一个网页或者图片，就使用 <em>GET</em> 方式。我们会在之后查看当客户端想要做其他事情，比如提交表单或对某个资源作出修改，使用的其他的方式。</p>
+<p><em>/readme.png</em> 是请求的资源的路径。注意：客户端在此没有发送该资源的完整的URI。它并没有说 <em><a href="https://localhost:8000/readme.png" target="_blank" rel="external">https://localhost:8000/readme.png</a></em> 。它只是发送路径。</p>
+<p>最后， <em>HTTP/1.1</em> 是该请求的协议。这么多年过去，HTTP如何工作发生了一些改变。客户端必须告知服务器它们说的是HTTP的哪一种方言。现在，HTTP/1.1是最常见的版本。</p>
+<h1><span id="exercise-send-a-request-by-hand">Exercise: Send a request by hand</span></h1><p>可以使用 <em>ncat</em> 连接到示例服务器，手动发送一个HTTP请求。<br>开启一个终端，运行示例服务器，<code>python3 -m http.server 8000</code>。<br>使用 <em>ncat 127.0.0.1 8000</em> 将终端连接到示例服务器。<br>键入下面两行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: localhost</div></pre></td></tr></table></figure></p>
+<p>按两次enter键，服务器的响应会马上显示在你的终端。根据你终端的尺寸大小，网络服务器的文件数量，你可能会需要向上滚动才能看到响应的开始。</p>
+<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/d7ce9e02-109b-4416-b3ee-a6832defee4c" target="_blank" rel="external">查看原文</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/19/http-web-servers-unti-1-lesson-4-hostnames-and-ports/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -415,183 +565,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-unti-1-lesson-3-parts-of-uri/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/18/http-web-servers-unti-1-lesson-3-parts-of-uri/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 3 Parts of a URI</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T15:04:25+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="parts-of-a-uri">Parts of a URI</span></h1><p>网络地址也叫做URI，统一资源标识符。<br>从网络用户的角度来看，URI就是一段文本你键入到浏览器，告知浏览器你想访问哪个页面。<br>从网络开发者的角度来看，URI要稍微复杂点.</p>
-<blockquote>
-<p>你或许见过术语URL,或者统一资源定位符。两者非常接近。具体来说，url是网络资源的URI。<br>a URL is a URI for a resource on the network.<br>因为URI稍微更精确一点，我们在课程中会使用该术语。<br>不必太担心二者之间的区别。</p>
-</blockquote>
-<p>一个URI即一个资源的名字 - 就比如眼前这个页面，一个维基百科的文章，一个数据资源比如Google地图的api。<br>URI由几个部分组成，每个部分都有自己对语法。<br>有些部分是可选的，这就是为什么不同服务的URI不同于彼此。</p>
-<p>这是一个URI的例子：<a href="https://en.wikipedia.org/wiki/Fish" target="_blank" rel="external">https://en.wikipedia.org/wiki/Fish</a></p>
-<p>这个URI有三个可见的部分，由一些标点符号分开：</p>
-<ul>
-<li>https is the scheme;(方案)</li>
-<li>en.wikipedia.org is the hostname;(主机名)</li>
-<li>and /wiki/Fish is the path;(路径)</li>
-</ul>
-<h1><span id="scheme">Scheme</span></h1><p>URI的第一部分是方案(scheme),告诉客户端如何获取资源。<br>常见的URI方案有：http,https,file。<br>文件URI方案告诉客户端在本地文件系统获取文件。<br>http和https URI指向网络服务器提供的资源。</p>
-<p>http和https URIs看起来基本一样。区别在于，当一个客户端通过https URI去获取一个资源，会使用加密的连接。<br>加密的网络连接最初用于保护密码和信用卡交易，但现在，很多的网站会使用它们保护用户的隐私。</p>
-<p>还有很多其他的URI方案。可在<a href="http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" target="_blank" rel="external">http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml</a> 查看。</p>
-<h1><span id="hostname">Hostname</span></h1><p>在http URI中，方案之后就是主机名(hostname)：比如<em>www.udacity.com</em>或者<em>localhost</em>。这告知客户端连接到哪个服务器。</p>
-<p>我们经常看到网络地址写得和主机名一样。但在html代码中，我们不能这样写<br><code>&lt;a href=&quot;www.google.com&quot;&gt;this&lt;/a&gt;</code>就连接到Google。<br>主机名只能出现在它支持的URI方案之后，比如 <em>http</em> 或者 <em>https</em> 。在这些URIs之后，必须还有 <em>://</em> 分开方案和主机名。<br>不是所有的URIs都有主机名。比如 <em>mailto</em> URI只需要一个邮箱地址: <em>malito:spamexample.net</em> 就是一个符合语法规范的 <em>mailto</em> URI。这也稍微更多地展现了URI中的标点符号用法: <em>:</em> 在方案之后，<em>//</em> 在主机名之前。<em>mailto</em> 没有主机名部分，所以没有 <em>//</em> 部分。</p>
-<h1><span id="path">Path</span></h1><p>在http URI(和很多其他),下一个出现的就是路径，指明了服务器上的一个特定的资源。<br>一个服务器可以有很多资源在上面 - 比如不提的网页，视频或者api。路径告知服务器客户端要查找的是哪一个资源。</p>
-<p>在之前的示例服务器上，你看到的路径与你的文件系统上的文件相对应。<br>真实世界中，URI路径并不一定与特定的文件名相同。比如，如果你Google搜索，你会看到一个类似<br><em>/search?q=ponies</em> 的URI路径。这并不意味着Google服务器上有一个名为 <em>/search?q=ponies</em> 的文件。<br>服务器解析路径，确定发送什么资源。<br>在搜索请求的例子中，服务器会发送回之前可能从未存在过的搜索结果页面。</p>
-<p>如果写一个没有路径的URI，比如<em><a href="http://udacity.com" target="_blank" rel="external">http://udacity.com</a></em>，浏览器会自动填充默认路径，即一个斜杠。<br><em><a href="http://udacity.com" target="_blank" rel="external">http://udacity.com</a></em>和<em><a href="http://udacity.com/" target="_blank" rel="external">http://udacity.com/</a></em> (单斜杆结尾) 是一样的。</p>
-<p>一个斜杠的路径也叫做根(<em>root</em>)。<br>示例服务器的根URI - <em><a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a></em> -就是你电脑的整个文件系统的根，即网络服务器提供的资源的根。示例服务器不会让浏览器获取不是它运行的目录下的文件。</p>
-<h1><span id="relative-uri-references">Relative URI references</span></h1><p>查看示例服务器根页面的html源码。看到其中的一个<code>&lt;a&gt;</code>标签链接到一个文件。<br>比如：<code>&lt;a href=&quot;cliffsofinsanity.png&quot;&gt;cliffsofinsanity.png&lt;/a&gt;</code><br>像这样的URIs没有方案或者主机名，只有一个路径。这就是相对URI引用(<em>relative URI reference</em>)。<br>这是相对于上下文 - 具体来说，即它出现的页面。<br>这个URI并不包含主机名或它所在服务器的端口，但浏览器能够从上下文弄清楚。<br>如果你点击其中的一个链接，浏览器根据上下文知道它需要从原始页面的同一个服务器去拿资源。</p>
-<h1><span id="other-uri-parts">Other URI parts</span></h1><p>一个URI中可能出现其他的部分。看看下面2个维基百科URIs的区别：</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Oxygen" target="_blank" rel="external">https://en.wikipedia.org/wiki/Oxygen</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Oxygen#Discovery" target="_blank" rel="external">https://en.wikipedia.org/wiki/Oxygen#Discovery</a><br>在浏览器中输入上面的链接，会访问维基百科网络服务器上的同一个页面。但第二个会展示页面滚动到氧气的发现这部分内容。<br><em>#</em> 符号之后的URI部分叫做 <em>fragment</em> (片段)。 浏览器不会将这部分发送到网络服务器。它只是让一个链接指向某个资源的一个具体的部分；在HTML页面中，它会通过 <em>id</em> 链接到某个元素。</li>
-</ul>
-<p>相比之下，看看google搜索的URI:</p>
-<ul>
-<li><a href="https://www.google.com/search?q=fish" target="_blank" rel="external">https://www.google.com/search?q=fish</a><br><em>?q=fish</em> 是URI的查询部分。这部分会发送到服务器。</li>
-</ul>
-<p>URI可能还有其他的部分，可以在下面的维基百科页面查看更多详情：</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax" target="_blank" rel="external">https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax</a></li>
-</ul>
-<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/ee47b732-4d2b-4105-abb0-f5712a96e281" target="_blank" rel="external">查看原文</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -668,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
