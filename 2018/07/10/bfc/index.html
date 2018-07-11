@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为 absolute或者fixed display为inline-block,table-cell,table-caption,ta">
+<meta name="description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,tab">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bfc">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/07/10/bfc/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为 absolute或者fixed display为inline-block,table-cell,table-caption,ta">
+<meta property="og:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,tab">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T02:28:22.238Z">
+<meta property="og:updated_time" content="2018-07-11T02:31:44.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bfc">
-<meta name="twitter:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为 absolute或者fixed display为inline-block,table-cell,table-caption,ta">
+<meta name="twitter:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,tab">
 
 
 
@@ -359,7 +359,7 @@
 </ol>
 <h1><span id="如何创建bfc">如何创建BFC</span></h1><ol>
 <li><code>float</code> 值不为 <code>none</code></li>
-<li><code>position</code>为 <code>absolute</code>或者<code>fixed</code></li>
+<li><code>position</code>为<code>absolute</code>或者<code>fixed</code></li>
 <li><code>display</code>为<code>inline-block</code>,<code>table-cell</code>,<code>table-caption</code>,<code>table</code>,<code>table-row</code>,<code>table-row-group</code>,<code>table-header-group</code>,<code>table-footer-group</code> (which is the default for HTML tables, table rows, table bodies, table headers and table footers, respectively),<code>inline-table</code></li>
 <li>块级元素设置了<code>overflow</code>的值，不为默认的<code>visible</code></li>
 <li><code>display:flow-root</code>,没有副作用的创建BFC,但是浏览器兼容不好</li>
@@ -370,7 +370,11 @@
 <li><code>column-span: all</code></li>
 </ol>
 <h1><span id="总结">总结</span></h1><blockquote>
-<p>A block formatting context contains everything inside of the element creating it.<br>翻译：bfc包含所有它的元素。(再也不用担心浮动的元素跑出去了)<br>Block formatting contexts are important for the positioning and clearing of floats. The rules for positioning and clearing of floats apply only to things within the same block formatting context. Floats do not affect the layout of the content inside other block formatting contexts, and clear only clears past floats in the same block formatting context. Margin collapsing also occurs only between blocks that belong to the same block formatting context.</p>
+<p>A block formatting context contains everything inside of the element creating it.</p>
+</blockquote>
+<p>翻译：bfc包含所有它的元素。(再也不用担心浮动的元素跑出去了)</p>
+<blockquote>
+<p>Block formatting contexts are important for the positioning and clearing of floats. The rules for positioning and clearing of floats apply only to things within the same block formatting context. Floats do not affect the layout of the content inside other block formatting contexts, and clear only clears past floats in the same block formatting context. Margin collapsing also occurs only between blocks that belong to the same block formatting context.</p>
 </blockquote>
 <h1><span id="reference">reference</span></h1><ol>
 <li><a href="https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/" target="_blank" rel="noopener">https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/</a></li>
