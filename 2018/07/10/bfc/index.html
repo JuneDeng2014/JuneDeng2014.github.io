@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,tab">
+<meta name="description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) 同一个bfc里面的相连子元素，纵向的margin会发生重叠，实际的margin值是margin值较大子元素的margin值。要阻止margin重叠，只需要将它们放到不同的bfc，那么它们之间的margin就不会发生重叠了。创建新的bfc，可以阻止margin重叠">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bfc">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/07/10/bfc/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,tab">
+<meta property="og:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) 同一个bfc里面的相连子元素，纵向的margin会发生重叠，实际的margin值是margin值较大子元素的margin值。要阻止margin重叠，只需要将它们放到不同的bfc，那么它们之间的margin就不会发生重叠了。创建新的bfc，可以阻止margin重叠">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T02:31:44.140Z">
+<meta property="og:updated_time" content="2018-07-11T03:46:10.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bfc">
-<meta name="twitter:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) prevent an item wrapping a float  如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,tab">
+<meta name="twitter:description" content="BFC的作用 contain floats(包含浮动元素) prevent margins collapsing(阻止margin重叠) 同一个bfc里面的相连子元素，纵向的margin会发生重叠，实际的margin值是margin值较大子元素的margin值。要阻止margin重叠，只需要将它们放到不同的bfc，那么它们之间的margin就不会发生重叠了。创建新的bfc，可以阻止margin重叠">
 
 
 
@@ -354,7 +354,7 @@
       
         <h1><span id="bfc的作用">BFC的作用</span></h1><ol>
 <li>contain floats(包含浮动元素)</li>
-<li>prevent margins collapsing(阻止margin重叠)</li>
+<li>prevent margins collapsing(阻止margin重叠) 同一个bfc里面的相连子元素，纵向的margin会发生重叠，实际的margin值是margin值较大子元素的margin值。要阻止margin重叠，只需要将它们放到不同的bfc，那么它们之间的margin就不会发生重叠了。创建新的bfc，可以阻止margin重叠。栗子：<a href="https://jsfiddle.net/JuneDeng/xhp0oyfj/" target="_blank" rel="noopener">https://jsfiddle.net/JuneDeng/xhp0oyfj/</a></li>
 <li>prevent an item wrapping a float</li>
 </ol>
 <h1><span id="如何创建bfc">如何创建BFC</span></h1><ol>
@@ -372,7 +372,6 @@
 <h1><span id="总结">总结</span></h1><blockquote>
 <p>A block formatting context contains everything inside of the element creating it.</p>
 </blockquote>
-<p>翻译：bfc包含所有它的元素。(再也不用担心浮动的元素跑出去了)</p>
 <blockquote>
 <p>Block formatting contexts are important for the positioning and clearing of floats. The rules for positioning and clearing of floats apply only to things within the same block formatting context. Floats do not affect the layout of the content inside other block formatting contexts, and clear only clears past floats in the same block formatting context. Margin collapsing also occurs only between blocks that belong to the same block formatting context.</p>
 </blockquote>
