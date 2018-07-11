@@ -80,11 +80,13 @@
 
 
 <meta name="description" content="12345678&amp;lt;div class=&quot;box&quot;&amp;gt;    &amp;lt;nav class=&quot;left&quot;&amp;gt;        &amp;lt;h3&amp;gt;导航1&amp;lt;/h3&amp;gt;    &amp;lt;/nav&amp;gt;    &amp;lt;section&amp;gt;        &amp;lt;div class=&quot;module&quot;&amp;gt;&amp;lt;/div&amp;gt;    &amp;lt;/section&amp;gt;&amp;lt;/div">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="border与等高布局">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/05/01/border-and-layout/index.html">
 <meta property="og:site_name" content="JuneDeng">
 <meta property="og:description" content="12345678&amp;lt;div class=&quot;box&quot;&amp;gt;    &amp;lt;nav class=&quot;left&quot;&amp;gt;        &amp;lt;h3&amp;gt;导航1&amp;lt;/h3&amp;gt;    &amp;lt;/nav&amp;gt;    &amp;lt;section&amp;gt;        &amp;lt;div class=&quot;module&quot;&amp;gt;&amp;lt;/div&amp;gt;    &amp;lt;/section&amp;gt;&amp;lt;/div">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-11T06:36:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="border与等高布局">
@@ -350,9 +352,9 @@
       
 
       
-        <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"module"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">    <span class="attribute">border-left</span>:<span class="number">300px</span> solid <span class="number">#222</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">    <span class="attribute">margin-left</span>:-<span class="number">300px</span>;</div><div class="line">    <span class="attribute">float</span>:left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>reference:<a href="http://www.imooc.com/video/13378" target="_blank" rel="external">http://www.imooc.com/video/13378</a><br>测试了上面的代码，发现没有实现等高布局。</p>
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"module"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">border-left</span>:<span class="number">300px</span> solid <span class="number">#222</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>reference:<a href="http://www.imooc.com/video/13378" target="_blank" rel="noopener">http://www.imooc.com/video/13378</a><br>测试了上面的代码，发现没有实现等高布局。</p>
 
       
     </div>
@@ -467,7 +469,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

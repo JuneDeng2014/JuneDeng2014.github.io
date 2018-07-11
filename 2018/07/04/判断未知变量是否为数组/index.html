@@ -79,22 +79,18 @@
 
 
 
-<meta name="description" content="问题描述面试被问到这个问题。我想了想，肯定不能用typeof,因为数组也是对象的一种，typeof返回的是object，达不到预期。
-解决办法instanceof
-The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain">
+<meta name="description" content="问题描述面试被问到这个问题。我想了想，肯定不能用typeof,因为数组也是对象的一种，typeof返回的是object，达不到预期。 解决办法instanceof The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断未知变量是否为数组">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/07/04/判断未知变量是否为数组/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="问题描述面试被问到这个问题。我想了想，肯定不能用typeof,因为数组也是对象的一种，typeof返回的是object，达不到预期。
-解决办法instanceof
-The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain">
-<meta property="og:updated_time" content="2018-07-04T02:32:33.513Z">
+<meta property="og:description" content="问题描述面试被问到这个问题。我想了想，肯定不能用typeof,因为数组也是对象的一种，typeof返回的是object，达不到预期。 解决办法instanceof The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-04T02:32:33.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断未知变量是否为数组">
-<meta name="twitter:description" content="问题描述面试被问到这个问题。我想了想，肯定不能用typeof,因为数组也是对象的一种，typeof返回的是object，达不到预期。
-解决办法instanceof
-The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain">
+<meta name="twitter:description" content="问题描述面试被问到这个问题。我想了想，肯定不能用typeof,因为数组也是对象的一种，typeof返回的是object，达不到预期。 解决办法instanceof The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain">
 
 
 
@@ -360,20 +356,20 @@ The instanceof operator tests whether the prototype property of a constructor ap
 <h1><span id="解决办法">解决办法</span></h1><h2><span id="instanceof">instanceof</span></h2><blockquote>
 <p>The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain of an object.</p>
 </blockquote>
-<p>举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Worker</span>(<span class="params">name, position, department</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">    <span class="keyword">this</span>.position=position;</div><div class="line">    <span class="keyword">this</span>.department=department;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> june = <span class="keyword">new</span> Worker(<span class="string">'june'</span>,<span class="string">'frontend developer'</span>,<span class="string">'BI'</span>);</div><div class="line"> </div><div class="line">june <span class="keyword">instanceof</span> Worker; <span class="comment">//true</span></div><div class="line">june <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
-<h3><span id="语法">语法</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">object <span class="keyword">instanceof</span> <span class="keyword">constructor</span></div><div class="line">// object 是要检测的对象</div><div class="line">// <span class="keyword">constructor</span> 检测对象的方法</div></pre></td></tr></table></figure>
+<p>举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Worker</span>(<span class="params">name, position, department</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.position=position;</span><br><span class="line">    <span class="keyword">this</span>.department=department;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> june = <span class="keyword">new</span> Worker(<span class="string">'june'</span>,<span class="string">'frontend developer'</span>,<span class="string">'BI'</span>);</span><br><span class="line"> </span><br><span class="line">june <span class="keyword">instanceof</span> Worker; <span class="comment">//true</span></span><br><span class="line">june <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="语法">语法</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br><span class="line">// object 是要检测的对象</span><br><span class="line">// <span class="keyword">constructor</span> 检测对象的方法</span><br></pre></td></tr></table></figure>
 <h3><span id="描述">描述</span></h3><p><code>instanceof</code>用于检测<code>constructor.prototype</code>是否存在于对象的原型链上。</p>
 <h3><span id="注意">注意</span></h3><blockquote>
 <p>Note that the value of an instanceof test can change based on changes to the prototype property of constructors, and it can also be changed by changing an object prototype using Object.setPrototypeOf. It is also possible using the non-standard <strong>proto</strong> pseudo-property.</p>
 </blockquote>
-<h2><span id="arrayisarray">Array.isArray()</span></h2><p>判断传入的值是否数组，是返回<code>true</code>,否返回<code>false</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true</span></div><div class="line"><span class="built_in">Array</span>.isArray(&#123;<span class="attr">name</span>:<span class="string">'june'</span>&#125;); <span class="comment">// false</span></div><div class="line"><span class="built_in">Array</span>.isArray(<span class="string">'june'</span>); <span class="comment">// false</span></div><div class="line"><span class="built_in">Array</span>.isArray(<span class="number">9999</span>); <span class="comment">// false </span></div><div class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>); <span class="comment">// false</span></div><div class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>); <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="built_in">Array</span>.isArray(<span class="keyword">new</span> <span class="built_in">Array</span>()); <span class="comment">// true</span></div><div class="line"><span class="comment">//很少人知道，Array.prototype 自身也是一个array</span></div><div class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype);  <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<h2><span id="arrayisarray">Array.isArray()</span></h2><p>判断传入的值是否数组，是返回<code>true</code>,否返回<code>false</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(&#123;<span class="attr">name</span>:<span class="string">'june'</span>&#125;); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="string">'june'</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="number">9999</span>); <span class="comment">// false </span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="keyword">new</span> <span class="built_in">Array</span>()); <span class="comment">// true</span></span><br><span class="line"><span class="comment">//很少人知道，Array.prototype 自身也是一个array</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
 <h2><span id="instanceof-vs-isarray">instanceof vs isArray</span></h2><p>当判断数组实例的时候，使用<code>isArray</code>比<code>instanceOf</code>更可靠。因为它在<code>iframes</code>也能正常工作。</p>
 <p>reference:</p>
 <ul>
-<li><a href="http://web.mit.edu/jwalden/www/isArray.html" target="_blank" rel="external">http://web.mit.edu/jwalden/www/isArray.html</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#Examples" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#Examples</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof</a></li>
-<li><a href="https://segmentfault.com/a/1190000006150186" target="_blank" rel="external">https://segmentfault.com/a/1190000006150186</a></li>
+<li><a href="http://web.mit.edu/jwalden/www/isArray.html" target="_blank" rel="noopener">http://web.mit.edu/jwalden/www/isArray.html</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#Examples" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#Examples</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof</a></li>
+<li><a href="https://segmentfault.com/a/1190000006150186" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006150186</a></li>
 </ul>
 
       
@@ -498,7 +494,7 @@ The instanceof operator tests whether the prototype property of a constructor ap
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

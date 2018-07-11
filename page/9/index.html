@@ -85,6 +85,7 @@
 <meta property="og:url" content="https://junedeng2014.github.io/page/9/index.html">
 <meta property="og:site_name" content="JuneDeng">
 <meta property="og:description" content="make the world a better place">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JuneDeng">
 <meta name="twitter:description" content="make the world a better place">
@@ -261,6 +262,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2018/04/25/gulp-beginner-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/25/gulp-beginner-guide/" itemprop="url">gulp-beginner-guide</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T15:22:51+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="开始写gulp任务">开始写gulp任务</span></h1><p>写gulp任务的基本语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'task-name'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do sth here</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一般的gulp任务包含2个gulp方法，和不同的Gulp插件。<br>一个真正的任务看起来像这样:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'task-name'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'source-files'</span>) <span class="comment">//get source files with gulp.src</span></span><br><span class="line">    .pipe(someGulpPlugin()) <span class="comment">//send it through a gulp plugin</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'destination'</span>))<span class="comment">//output the file in the destination folder</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>一般真正的任务需要2个额外的方法 — gulp.src 和 gulp.test。<br>gulp.src告诉Gulp任务处理什么文件，gulp.dest告诉Gulp，当任务完成时候，输出的文件放哪里。</p>
+<h1><span id="用gulp预处理preprocessing">用gulp预处理(preprocessing)</span></h1><p>使用gulp-sass插件可以将sass编译为css。<br>先安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-sass --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>从node_modules文件夹require gulp-sass，才能使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="comment">// Requires the gulp-sass plugin</span></span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>用sass()方法使用gulp-sass。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'source-files'</span>)</span><br><span class="line">    .pipe(sass()) <span class="comment">//using gulp-sass</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'destination'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>我们需要给sass任务一个源文件和目标文件。在app/scss文件夹创建一个styles.scss。这个文件会被gulp.src添加到sass任务。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/scss/styles.scss'</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'app/css'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在命令行运行 gulp sass，可以看见在app/css下创建了一个styles.css。<br>Gulp-sass使用LibSass将Sass编译成CSS。比基于ruby的方法快。</p>
+<h1><span id="glob-in-node">Glob in Node</span></h1><p>Globs是匹配模式，允许你添加多个文件到gulp.src。有点像正则表达式，但只是针对文件路径。</p>
+<p>当你使用glob，电脑会为这个模式检查文件名和路径。如果模式存在，文件就匹配上了。<br>大部分的Gulp工作流只需要4种不同的globbing patterns:</p>
+<ol>
+<li><code>*.scss</code> : *就是通配符，匹配当前目录下的任何模式。在这种情况下，我们匹配根目录下任意以 <code>.scss</code> 结尾的文件。</li>
+<li><code>**/*.scss</code> : 这是一个更极端的版本。匹配根目录下或者任意子目录下的 <code>.scss</code> 结尾的文件。</li>
+<li><code>!not-me.scss</code> : “!”表示Gulp需要从匹配中排除该模式。如果你不需要匹配的模式中的某一个文件，这很有用。这个例子中，<code>not-me.scss</code> 会从匹配中移除。</li>
+<li><code>*.+(scss|sass)</code> : 加号和括号允许Gulp匹配多个模式。不同的模式用pipe <code>|</code> 分隔开。这个例子,Gulp会匹配根目录下任意以 <code>.scss</code> 和  <code>.sass</code> 结尾的文件。</li>
+</ol>
+<p>知道了golbbing,可以将原来的 <code>app/scss/styles.scss</code> 替换为 <code>scss/**/*.scss</code> 模式。这样就可以匹配任意在根目录下或者子目录下文件扩展名为 <code>.scss</code> 的文件了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/scss/**/*.scss'</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'app/css'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>任意在app/scss目录下的sass文件，会被自动添加到这个任务。<br>现在，我们只用一个命令就可以将所有的sass文件编译成css。<br>可是，每次想要把sass编译为css都要手动运行一遍 <code>gulp sass</code> ，这样太麻烦了。</p>
+<p>幸运的是，每当文件发生变化，Gulp可以自动运行 <code>sass</code> 任务，如果这个文件被一个叫做’watching’的进程。</p>
+<h1><span id="watching-sass-files-for-changes监视sass文件的改变">Watching Sass files for changes(监视sass文件的改变)</span></h1><p>Gulp提供了一个 <code>watch</code> 方法看一个文件是否保存。 <code>watch</code> 方法的语法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Gulp watch syntax</span></span><br><span class="line">gulp.watch(<span class="string">'files-to-watch'</span>,[<span class="string">'task'</span>, <span class="string">'to'</span>, <span class="string">'run'</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>想要监视所有Sass文件并在每次一个Sass 文件保存的时候运行 <code>sass</code> 任务，只需要将 <code>files-to-watch</code> 换成 <code>app/scss/**/*.scss</code> ，把 <code>[&#39;tasks&#39;, &#39;to&#39;, &#39;run&#39;]</code> 换成 <code>[&#39;sass&#39;]</code> 。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.watch(<span class="string">'app/scss/**/*.scss'</span>,[<span class="string">'sass'</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>然而大多数时候，我们需要一次监视多种类型的文件。<br>我们可以将多个监视任务组合成一个 <code>watch</code> 任务：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.watch(<span class="string">'app/scss/**/*.scss'</span>,[<span class="string">'sass'</span>])</span><br><span class="line">    <span class="comment">// other watchers</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>可以运行 <code>gulp watch</code> 立刻运行监视任务。<br>每次保存一个 <code>.scss</code> 文件，都会运行 <code>sass</code> 任务。</p>
+<h1><span id="live-reloading-with-browser-sync">Live-reloading with Browser Sync</span></h1><p>先安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install browser-sync --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>注意安装的时候没有 <code>gulp-</code> 前缀。这是因为Gulp和Browser Sync一起工作，所以不需要使用插件。<br>使用前需要require:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</span><br></pre></td></tr></table></figure></p>
+<p>告诉 <code>watch</code> 任务，必须在 <code>browserSync</code> 完成之后才能运行。<br>我们可以给 <code>watch</code> 任务添加一个参数来达到这个目的:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>,[<span class="string">'arrays'</span>, <span class="string">'of'</span>, <span class="string">'tasks'</span>, <span class="string">'to'</span>, <span class="string">'complete'</span>, <span class="string">'before'</span>, <span class="string">'watch'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>,[<span class="string">'browserSync'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.task(<span class="string">'app/scss/**/*.scss'</span>,[<span class="string">'scss'</span>]);</span><br><span class="line">    <span class="comment">// other watchers</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>保证 <code>sass</code> 任务在 <code>watch</code> 之前运行，这样，无论什么时候运行gulp命令css都是最新的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>,[<span class="string">'browserSync'</span>,<span class="string">'sass'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.watch(<span class="string">'app/scss/**/*.scss'</span>,[<span class="string">'scss'</span>]);</span><br><span class="line">    <span class="comment">// other watchers</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>现在在命令行运行 <code>gulp watch</code> ，gulp会同时开启 <code>sass</code> 和 <code>browserSync</code> 任务。当这两个任务都完成了， <code>watch</code> 才开始运行。</p>
+<p>同时，指向 <code>app/index.html</code> 的浏览器窗口会弹出。如果修改 <code>styles.scss</code> 文件， 浏览器会自动重载。<br>当html和js文件保存的时候，也重载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>,[<span class="string">'browserSync'</span>, <span class="string">'sass'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.watch(<span class="string">'app/scss/**/*.scss'</span>,[<span class="string">'sass'</span>]);</span><br><span class="line">    <span class="comment">// reload the browser whenever HTML or JS files change</span></span><br><span class="line">    gulp.watch(<span class="string">'app/*.html'</span>,browserSync.reload);</span><br><span class="line">    gulp.watch(<span class="string">'app/js/**/*.js'</span>,browserSync.reload);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>目前为止，做成了3件事情：</p>
+<ol>
+<li>生成开发服务器</li>
+<li>使用Sass预处理程序</li>
+<li>每当文件发生改变，重载浏览器。</li>
+</ol>
+<p>接下来优化资源，先从css和js文件开始。</p>
+<h1><span id="优化css和js文件">优化CSS和JS文件</span></h1><p>优化css和js的时候，开发者需要做2件事情：minification and concatenation。<br>开发者经常遇到的问题是不能按照正确的顺序来连接这些文件。<br>比如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- stuff --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>"<span class="attr">js</span>/<span class="attr">lib</span>/<span class="attr">a-xxx.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>"<span class="attr">js</span>/<span class="attr">lib</span>/<span class="attr">b-xxx.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>"<span class="attr">js</span>/<span class="attr">main.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这些文件不在同一个目录下。很难用传统的插件比如gulp-concatenate串联。<br>很幸运，现在有一个插件，叫做gulp-useref能够解决这个问题。<br>Gulp-useref将任意数量的css和js文件并为一个文件。<br>语法如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- build:&lt;type&gt; &lt;path&gt; --&gt;</span></span><br><span class="line">... HTML Markup, list of script / link tags.</span><br><span class="line"><span class="comment">&lt;!-- endbuild --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>&lt;type&gt;</code> 可以是 <code>js</code> , <code>css</code> , 或者 <code>remove</code> 。最好是把type设置为试图串联的文件类型。如果把 <code>type</code> 设置为 <code>remove</code> ，Gulp会删除整段代码，不会生成文件。<br><code>&lt;path&gt;</code> 只得是生成文件的目标路径。<br>我们想要js文件到 <code>js</code> 文件夹，名字为 <code>main.min.js</code> ，标记可以这样写:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- build:js js/main.min.js --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>"<span class="attr">js</span>/<span class="attr">lib</span>/<span class="attr">a-xxx.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>"<span class="attr">js</span>/<span class="attr">lib</span>/<span class="attr">b-xxx.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>"<span class="attr">js</span>/<span class="attr">main.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- endbuild --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>现在来配置gulp-useref。先安装，再在gulpfile中require。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-useref --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> useref=<span class="built_in">require</span>(<span class="string">'gulp-useref'</span>);</span><br></pre></td></tr></table></figure>
+<p>设置 <code>useref</code> 任务：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/*html'</span>)</span><br><span class="line">    .pipe(useref())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>运行useref任务，Gulp会把这三个文件串联为一个，放到 <code>dist/js/main.min.js</code> 。<br>现在文件还没有压缩。使用gulp-uglify插件压缩js文件，还需要gulp-if保证只压缩js。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-uglify --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// other requires...</span></span><br><span class="line"><span class="keyword">var</span> uglify=<span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> gulpIf=<span class="built_in">require</span>(<span class="string">'gulp-if'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/*.html'</span>)</span><br><span class="line">    .pipe(useref())</span><br><span class="line">    <span class="comment">// minifies only if it's a javascript file</span></span><br><span class="line">    .pipe(gulpIf(<span class="string">'*.js'</span>,uglify()))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在每次运行 <code>useref</code> ，都会自动压缩js。<br>可以用同样的方法串联css文件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- build:css css/style.min.css --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/styles.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/another-styles.css"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end build --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>用gulp-cssnano插件压缩css文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-cssnano --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cssno=<span class="built_in">require</span>(<span class="string">'gulp-cssnano'</span>);</span><br><span class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/*.html'</span>)</span><br><span class="line">    .pipe(useref())</span><br><span class="line">    .pipe(gulpIf(<span class="string">'*.js'</span>,uglify()))</span><br><span class="line">    .pipe(gulpIf(<span class="string">'*.css'</span>,cssnano()))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dest'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在每次运行 <code>useref</code> 就优化css和js文件。<br>接下来，我们优化图片。</p>
+<h1><span id="优化图片">优化图片</span></h1><p>使用gulp-imagemin优化图片。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-imagemin --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>);</span><br></pre></td></tr></table></figure>
+<p>可以用gulp-imagemin压缩png,jpg,gif甚至是svg文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'images'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/images/**/*.+(png|jpg|gif|svg)'</span>)</span><br><span class="line">    .pipe(imagemin())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist/images'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>不同的文件类型优化得不同，所以可能需要给不同的文件类型配置不同的优化选项。<br>比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'images'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/images/**/*.+(png|jpg|jpeg|gif|svg'</span>)</span><br><span class="line">    pipe(imagemin(&#123;</span><br><span class="line">        <span class="comment">// setting interlaced to true</span></span><br><span class="line">        interlaced:<span class="literal">true</span></span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist/images'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>优化图片很慢，没有必要每次都优化。用gulp-cache来达到这个目的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-cache --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cache=<span class="built_in">require</span>(<span class="string">'gulp-cache'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'images'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/images/**/*.+(png|jpg|jpeg|gif|svg)'</span>)</span><br><span class="line">    <span class="comment">// caching images that ran through imagemin</span></span><br><span class="line">    .pipe(cache(imagemin(&#123;</span><br><span class="line">        interlaced:<span class="literal">true</span></span><br><span class="line">    &#125;)))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist/images'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>基本搞定。还有一个需要到’dist’文件夹的东西：fonts。</p>
+<h1><span id="复制字体到dist文件夹">复制字体到dist文件夹</span></h1><p>字体已经优化了。我们不需要再做什么。<br>用gulp复制文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'fonts'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/fonts/**/*'</span>)</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist/fonts'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>现在每次运行 <code>gulp fonts</code> 都会将字体从app文件夹复制到dist文件夹。</p>
+<p>现在已经有6个不同任务了。每个任务都单独地在命令行运行，这样有点繁琐。</p>
+<h1><span id="自动清除生成到文件">自动清除生成到文件</span></h1><p>确保不用到文件不会保留在我们不知道到地方。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install del --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> del=<span class="built_in">require</span>(<span class="string">'del'</span>);</span><br></pre></td></tr></table></figure>
+<p><code>del</code> 任务删除任意数组的node globs文件夹。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'clean:dist'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> del.sync(<span class="string">'dist'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>现在每次运行 <code>gulp clean:dist</code> 就会删除dist文件夹。<br>不用担心回删除 <code>dist/images</code> ，因为gulp-cache已经在本地系统保存了图片的缓存。<br>要删除本地系统的缓存，可以创建一个清除缓存的任务。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'cache:clear'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cache.clearAll(callback)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1><span id="combing-gulp-tasks组合gulp任务">Combing Gulp Tasks(组合gulp任务)</span></h1><p>总结一下，目前我们做了2种不同类型gulp任务。<br>第一种是开发过程中，把sass编译为css，监视变化，每次重载浏览器。<br>第二中是优化过程，此时我们已经准备好了所有生产网站所需的文件。我们优化好css，js和图片，复制字体。</p>
+<p>第一组任务用 <code>gulp watch</code> 命令行合为一个工作流了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>,[<span class="string">'browserSync'</span>,<span class="string">'sass'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// ...watchers</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>第二组任务包含创建生产网站的任务： <code>clean:dist</code> , <code>sass</code> , <code>useref</code> , <code>images</code> , 和 <code>fonts</code> 。</p>
+<p>要保证cleans在其他任务完成之前完成，我们需要一个插件Sequence。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install run-sequence --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>语法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> runSequence=<span class="built_in">require</span>(<span class="string">'run-sequence'</span>);</span><br><span class="line">gulp.task(<span class="string">'task-name'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    runSequence(<span class="string">'task-one'</span>,<span class="string">'task-two'</span>,<span class="string">'task-three'</span>,callback);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>当调用 <code>task-name</code> 的时候，gulp会先运行 <code>task-one</code> ，<code>task-one</code> 运行完成，gulp会自动开始运行 <code>task-two</code> ，<code>task-two</code> 完成，运行 <code>task-three</code> 。<br>如果把任务放在一个数组里面，会同时运行这些任务。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'task-name'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    runSequence(<span class="string">'task-one'</span>,[<span class="string">'tasks'</span>,<span class="string">'two'</span>,<span class="string">'in'</span>,<span class="string">'run'</span>,<span class="string">'in'</span>,<span class="string">'parallel'</span>],<span class="string">'task-three'</span>,callback);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这样，gulp先运行 <code>task-one</code> ，当第一个任务运行完成，gulp会同时运行第二个参数里面的任务。当数组里面所有的任务都运行完成，才会开始运行 <code>task-three</code> 。<br>现在可以创建一个任务，保证 <code>dist:clean</code> 先运行，然后再运行其他的任务。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'build'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    runSequence(<span class="string">'clean:dist'</span>,</span><br><span class="line">    [<span class="string">'sass'</span>,<span class="string">'useref'</span>,<span class="string">'images'</span>,<span class="string">'fonts'</span>],</span><br><span class="line">    callback</span><br><span class="line">    )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>为了保证一致性，第一组任务我们也可以创建顺序。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'default'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    runSequence([<span class="string">'sass'</span>,<span class="string">'browserSync'</span>,<span class="string">'watch'</span>],</span><br><span class="line">    callback</span><br><span class="line">    )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>用 <code>default</code> ，你只需要键入 <code>gulp</code> 在命令行。</p>
+<p>[原文链接]: (<a href="https://css-tricks.com/gulp-for-beginners/" target="_blank" rel="noopener">https://css-tricks.com/gulp-for-beginners/</a> )</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/28/http-web-servers-unit-2-lesson-2-what-about-encode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -389,190 +604,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/21/http-web-servers-unit-2-lesson-1-Python-s-http-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/21/http-web-servers-unit-2-lesson-1-Python-s-http-server/" itemprop="url">Http & Web Servers Unit 2 Lesson 1 Python's 'http.server'</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T17:52:06+08:00">
-                2017-12-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="pythons-httpserver">Python’s <em>http.server</em></span></h1><p>上一节课，我们使用Python的 <em>http.server</em> 模块内置的示例服务器。但这个示例服务器也就那样 - 只是证明了模块的能力。除了提供一个目录下的静态文件，你还能用HTTP做好多其他的事情。在本节课，你会用 <em>http.server</em> 创建不同的网络服务，并同时学习更多关于HTTP的知识。你还会使用另一个模块, <em>requests</em> ，写代码充当一个HTTP的客户端。</p>
-<p>这些模块是用面向对象编程语言Python写的。你应该已经熟悉创建类实例，定义子类和定义类的方法。如果你需要复习面向对象操作的Python语法，你可以浏览<a href="https://docs.python.org/3/tutorial/classes.html" target="_blank" rel="external">Python类教程</a> 。</p>
-<p>在本节课的练习中，你将写代码运行在自己的电脑上。起始代码即上节课下载的，应该在 <em>course-ud303</em> 目录下。用你最喜欢的文本编辑器开始练习吧！</p>
-<h1><span id="servers-and-handlers">Servers and handlers</span></h1><p>使用 <em>http.server</em> 的网络服务器由两部分组成：HTTPServer类和请求处理器类。第一部分，<em>HTTPServer</em> 类，和所有的网络服务一样，是内建在模块内的。它知道如何监听端口，接收来自客户端的请求。每当它接收到一个请求时，它就将请求交到第二部分 - 请求处理器 - 每个网络服务器的请求处理器都不一样。</p>
-<p>为了运行一个网络服务，你的Python代码需要做到下面的几点：</p>
-<ul>
-<li>引入 <em>http.server</em> 模块，至少是你需要的那一部分。</li>
-<li>创建一个 <em>http.server.BaseHTTPRequestHandler</em> 子类。这就是你的处理器类。</li>
-<li>在处理器类为每一个你想要处理的 <em>HTTP verb</em> 定义方法。(在这个课程中，我们唯一见到的 HTTP verb就是 <em>GET</em> ，但之后我们会见到更多其他的。)<ul>
-<li>GET 请求的方法必须叫做 <em>do_GET</em>。</li>
-<li>在方法内，调用处理器类的内置方法读取HTTP请求并写响应。</li>
-</ul>
-</li>
-<li>创建一个 <em>http.server.HTTPServer</em> 的实例，将你的处理器类和服务器信息给它 - 特别是你的端口号。</li>
-<li>调取这个 <em>HTTPServer</em> 实例的 <em>run_forever</em> 方法。</li>
-</ul>
-<p>一旦你调取 HTTPServer 实例的 <em>run_forever</em> 方法，它就会永远运行，除非停止。就像上一节课那样，如果你的Python服务器在运行中，你想要让它停止运行，就在它运行的终端键入 Ctrl-C。（有时候你需要键入两到三次。）</p>
-<h1><span id="exercise-the-hello-server">Exercise: The hello server</span></h1><p>我们来快速看一个例子。从你的终端，进入到你之前下载的 <em>course-ud303</em> 目录下，在 <em>Lesson-2</em> 子目录下，你可以看到 <em>0_HelloServer</em> 子目录。里面有一个Python程序叫做 <em>HelloServer.py</em> 。在你到文本编辑器打开它看看。然后在你的终端运行这个程序: <em>python3 HelloServer.py</em> 。它什么都不会做，直到你通过浏览器访问 <a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a> 。</p>
-<h2><span id="a-tour-of-the-hello-server">A tour of the hello server</span></h2><p>在文本编辑器打开 <em>HelloServer.py</em> ，我们来一行一行地看看这段代码的每一个部分。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> http.server <span class="keyword">import</span> HTTPServer, BaseHTTPRequestHandler</div></pre></td></tr></table></figure>
-<p>http.server模块里面包含很多部分内容。现在，这个程序只需要其中两个部分。我们现在使用 <em>import</em> 的 <em>from</em> 语法，这样我们就不用在代码里一遍又一遍打 <em>http.server</em> 。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloHandler</span><span class="params">(BaseHTTPRequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_GET</span><span class="params">(self)</span>:</span></div></pre></td></tr></table></figure>
-<p>这就是处理器类。从在 <em>http.server</em> 中定义的 <em>BaseHTTPRequestHandler</em> 父类继承下来。我已经定义了一个方法，<em>do_Get</em> ，用来处理 HTTP GET 请求。当这个网络服务器接收到一个 GET 请求，它就会调取这个方法响应。</p>
-<p>在之前的课程中我们了解到，服务器在一个 HTTP 响应中需要发送3样东西：一个状态码，一些头信息，和一个响应主体。处理器的父类对处理这些事情都有方法。在 <em>do_Get</em> 中，我只需要依次调取它们即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># First, send a 200 OK response</span></div><div class="line">self.send_response(<span class="number">200</span>)</div></pre></td></tr></table></figure>
-<p>服务器需要要做的就是发送一个 200 OK 状态码; <em>send_response</em> 方法做这个。我不需要告知它200意味着OK；父类已经知道这个了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Then send headers.</span></div><div class="line">self.send_header(<span class="string">'Content-type'</span>,<span class="string">'text/plain;charset=utf-8'</span>)</div><div class="line">self.end_headers()</div></pre></td></tr></table></figure>
-<p>接下来服务器需要做的就是发送 HTTP 头。 父类提供 <em>send_header</em> 和 <em>end_headers</em> 方法来做这些。目前，我只让服务器发送了一个单行的头 - Content-type 头告知客户端响应主体会是 UTF-8 编码的纯文本。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Now,write the response body.</span></div><div class="line">self.wfile.write(<span class="string">"Hello, Http!\n"</span>.encode())</div></pre></td></tr></table></figure>
-<p><em>do_GET</em> 方法的最后一部分写响应主体。</p>
-<p>父类给了我们一个叫做 <em>self.wfile</em> 的变量来发送响应。 <em>wfile</em> 代表着 <em>writeable file</em> 。Python和很多其他的编程语言一样，将打开文件和网络连接类比起来：它们都是你能读取的数据。有些文件对象是只读的；有些是只写的；有些是既能读也能写的。</p>
-<p><em>self.wfile</em> 代表着服务器到客户端的连接；如名字所示，它是只读的。它的 <em>write</em> 方法将任意的二进制数据写到发送到客户端的响应中。</p>
-<p><em>.encode()</em> 是干嘛的？之后我们再看。现在让我们看看剩下的其他代码。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    server_address = (<span class="string">''</span>, <span class="number">8000</span>)  <span class="comment"># Serve on all addresses, port 8000.</span></div><div class="line">    httpd = HTTPServer(server_address, HelloHandler)</div><div class="line">    httpd.serve_forever()</div></pre></td></tr></table></figure>
-<p>如果我们将该模块当作Python程序运行，这段代码才会运行。如果只是引入，则不会运行。<em>HTTPServer</em> 构造函数需要知道它监听的是哪个地址和端口；当我调用 <em>server_address</em> 的时候，将地址和端口作为元组传入。我也给了它 <em>HelloHandler</em> 类，它会用这个来处理来自客户端的请求。</p>
-<p>在文件的最后，我在 <em>HTTPServer</em> 调取了 <em>server_forever</em> ，让它开始处理HTTP请求。服务器开始运行了。</p>
-<h1><span id="end-of-the-tour">End of the tour</span></h1><p>用Python写最基本的HTTP服务器就是这些内容了。但是这个hello server不怎么有趣。甚至做的还没有示例服务器多。不管你查询什么，它都只会说hello。</p>
-<p>余下的课程，我们会建造不只是说hello的服务器。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -622,7 +658,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

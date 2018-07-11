@@ -79,22 +79,18 @@
 
 
 
-<meta name="description" content="Validating cached responses with ETags
-The server uses the ETag HTTP header to communicate a validation token.
-The validation token enables efficient resource update checks:no data transferred if the">
+<meta name="description" content="Validating cached responses with ETags The server uses the ETag HTTP header to communicate a validation token. The validation token enables efficient resource update checks:no data transferred if the">
+<meta name="keywords" content="performance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP-Caching">
 <meta property="og:url" content="https://junedeng2014.github.io/2017/12/13/HTTP-Caching/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="Validating cached responses with ETags
-The server uses the ETag HTTP header to communicate a validation token.
-The validation token enables efficient resource update checks:no data transferred if the">
+<meta property="og:description" content="Validating cached responses with ETags The server uses the ETag HTTP header to communicate a validation token. The validation token enables efficient resource update checks:no data transferred if the">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-15T11:21:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP-Caching">
-<meta name="twitter:description" content="Validating cached responses with ETags
-The server uses the ETag HTTP header to communicate a validation token.
-The validation token enables efficient resource update checks:no data transferred if the">
+<meta name="twitter:description" content="Validating cached responses with ETags The server uses the ETag HTTP header to communicate a validation token. The validation token enables efficient resource update checks:no data transferred if the">
 
 
 
@@ -369,7 +365,7 @@ The validation token enables efficient resource update checks:no data transferre
 <h2><span id="public-vs-private">“public” vs. “private”</span></h2><p>If the response is marked as “public”, then it can be cached, even if it has HTTP authentication associated with it, and even when the response status code isn’t normally cacheable. Most of the time, “public” isn’t necessary, because explicit caching information (like “max-age”) indicates that the response is cacheable anyway.</p>
 <p>By contrast, the browser can cache “private” responses. However, these responses are typically intended for a single user, so an intermediate cache is not allowed to cache them. For example, a user’s browser can cache an HTML page with private user information, but a CDN can’t cache the page.</p>
 <h2><span id="max-age">“max-age”</span></h2><p>This directive specifies the maximum time in seconds that the fetched response is allowed to be reused from the time of the request. For example, “max-age=60” indicates that the response can be cached and reused for the next 60 seconds.</p>
-<h1><span id="define-optimal-cache-control-policy">Define optimal Cache-Control policy</span></h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
+<h1><span id="define-optimal-cache-control-policy">Define optimal Cache-Control policy</span></h1><p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png</a></p>
 <h1><span id="invalidating-and-updating-cached-responses">Invalidating and updating cached responses</span></h1><ul>
 <li>Locally cached responses are used until the resource “expires.”</li>
 <li>Embedding a file content fingerprint in the URL enables you force the client to update a new version of the response.</li>
@@ -508,7 +504,7 @@ The validation token enables efficient resource update checks:no data transferre
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

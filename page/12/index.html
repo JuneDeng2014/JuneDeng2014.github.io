@@ -85,6 +85,7 @@
 <meta property="og:url" content="https://junedeng2014.github.io/page/12/index.html">
 <meta property="og:site_name" content="JuneDeng">
 <meta property="og:description" content="make the world a better place">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JuneDeng">
 <meta name="twitter:description" content="make the world a better place">
@@ -261,6 +262,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/19/http-web-servers-unti-1-lesson-4-hostnames-and-ports/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/19/http-web-servers-unti-1-lesson-4-hostnames-and-ports/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 4 Hostnames and ports</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T13:44:17+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="hostnames">Hostnames</span></h1><p>一个完整的 HTTP 或 HTTPS URI包含网络服务器的主机名，比如 <em><a href="http://www.udacity.com" target="_blank" rel="noopener">www.udacity.com</a></em> 或者 <em><a href="http://www.un.int" target="_blank" rel="noopener">www.un.int</a></em> 或者 <em><a href="http://www.cheeseboardcollective.coop" target="_blank" rel="noopener">www.cheeseboardcollective.coop</a></em> 。URI的主机名也可以是一个IP地址。<br>如果在浏览器键入：<a href="http://216.58.194.174/" target="_blank" rel="noopener">http://216.58.194.174/</a> 会访问Google。</p>
+<blockquote>
+<p>为什么叫做主机名？<br>在网络术语中，一个主机就是在网络上的一台能够托管服务的电脑。</p>
+</blockquote>
+<p>互联网通过IP地址区分不同的电脑；互联网上每一次的网络通讯，都标记了发送和接收方的IP地址。为了连接到一个网络服务器，比如 <em><a href="http://www.udacity.com" target="_blank" rel="noopener">www.udacity.com</a></em> , 客户端需要将其主机名转换为IP地址。我们的操作系统网络配置使用域名服务(<em>Domain Name Service</em>) - 由互联网服务提供商 (isp) 和其他网络用户维护的一组服务器 - 查找主机名，获取IP地址。</p>
+<p>在终端，我们可以使用 <em>host</em> 程序在DNS中来查找主机名。<br>在终端中输入 host <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a> ，输出如下：<br><a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a> has address 66.220.152.28<br><a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a> has IPv6 address 2404:6800:4008:800::2004</p>
+<p>在终端中输入 host <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> ，输出如下：<br><a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> is an alias for <a href="http://www.a.shifen.com" target="_blank" rel="noopener">www.a.shifen.com</a>.<br><a href="http://www.a.shifen.com" target="_blank" rel="noopener">www.a.shifen.com</a> has address 61.135.169.121<br><a href="http://www.a.shifen.com" target="_blank" rel="noopener">www.a.shifen.com</a> has address 61.135.169.125</p>
+<p>在浏览器地址栏输入百度的IP地址： <em>61.135.169.125</em> 或 <em>61.135.169.121</em> 会访问百度的主页。</p>
+<p>有一些系统没有 <em>host</em> 命令，但有一个类似的命令叫做 <em>nslookup</em> 。这个命令也会展示你给出的主机名的IP地址，它还会显示给出答案的DNS服务器的IP地址。</p>
+<p>我的测试结果：<br>june:~ june$ nslookup <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a><br>Server:        192.168.1.150<br>Address:    192.168.1.150#53</p>
+<p>Non-authoritative answer:<br>Name:    <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a><br>Address: 31.13.71.23</p>
+<p>june:~ june$ nslookup <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>Server:        192.168.1.150<br>Address:    192.168.1.150#53</p>
+<p>Non-authoritative answer:<br><a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>    canonical name = <a href="http://www.a.shifen.com" target="_blank" rel="noopener">www.a.shifen.com</a>.<br>Name:    <a href="http://www.a.shifen.com" target="_blank" rel="noopener">www.a.shifen.com</a><br>Address: 61.135.169.125<br>Name:    <a href="http://www.a.shifen.com" target="_blank" rel="noopener">www.a.shifen.com</a><br>Address: 61.135.169.121</p>
+<p><em>localhost</em> 的 IPv4 地址是什么？<br>用 <em>host</em> 或者 <em>nslookup</em> 在终端测试一下。<br>答案：127.0.0.1</p>
+<p>有两种不同的IP地址：老的 <em>IPv4</em> 和 新的 <em>IPv6</em> 。<br>如果你看到一个地址如 <em>127.0.0.1</em> 或者 <em>216.58.194.164</em> ，这些是IPv4地址。<br>IPv6地址要长一些，如 <em>2607:f8b0:4005:804::2004</em> ，但是这些地址可以缩写。</p>
+<h1><span id="localhost">Localhost</span></h1><p>IPv4地址 <em>127.0.01</em> 和IPv6地址 <em>::1</em> 是特定的地址，指这台电脑自己。主机名 <em>localhost</em> 指代的就是这些特定的地址。</p>
+<p>当运行示例服务器的时候，会打印出一条消息，正在监听 <em>0.0.0.0</em> 端口。这不是一个常规的IP地址。相反，它是一个特定的编码，指代”这台电脑上的所有IPv4地址”，包含 <em>localhost</em> ，也包含你电脑的常规IP地址。</p>
+<h1><span id="ports">Ports</span></h1><p>当你告知浏览器连接到示例服务器，你在浏览器输入URI <em><a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a></em> 。这个URI有一个端口号：<em>8000</em> 。但你在自然环境中看到的大部分网络地址上是没有端口号的。这是因为客户端通常可以通过URI方案知道端口号。</p>
+<p>例如，HTTP URIs意味着端口号为 <em>80</em> ，而HTTPS URIs意味着端口号为 <em>443</em> 。你的python示例服务器运行在8000端口。因为这不是默认的端口号，所以我们需要在URI中指明其端口号。</p>
+<p><em>到底什么是端口号？</em> 为了了解这个，我们需要先知道互联网是如何工作的。电脑发送和接收的所有的网络通信 - 从网络请求到登录回话，再到文件共享等 - 消息都被拆分为数据包。每个包都有发送方和接收方电脑的IP地址。也有发送方和接收方的端口号(某些低级的数据包，比如ping例外)。IP地址区分电脑；端口号区分这些电脑上的程序。</p>
+<p>我们说服务器“监听”某个端口，比如 80 或者 8000，“监听”意味着服务器开启了，它告知操作系统它想要在某个特定端口接收客户端的连接。当一个客户端，比如一个网络浏览器，“连接”到这个端口，发送一个请求，操作系统知道将该请求转发到服务器监听的端口。</p>
+<blockquote>
+<p>为什么我们的示例服务器使用 8000 端口而非 80 端口？由于历史原因，操作系统只允许管理员(或者根)账号监听1024之下的端口。这对于生产网络服务器没有问题，但对于学习不太方便。</p>
+</blockquote>
+<p>想了解更多关于地址，端口和互联网的运作，可查看该课程 <a href="https://cn.udacity.com/course/networking-for-web-developers--ud256" target="_blank" rel="noopener">Web 开发者的网络入门</a></p>
+<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/34ad0283-c360-443a-a18a-dbbbce982db0" target="_blank" rel="noopener">查看原文</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-unti-1-lesson-3-parts-of-uri/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -359,7 +527,7 @@
 <p>你或许见过术语URL,或者统一资源定位符。两者非常接近。具体来说，url是网络资源的URI。<br>a URL is a URI for a resource on the network.<br>因为URI稍微更精确一点，我们在课程中会使用该术语。<br>不必太担心二者之间的区别。</p>
 </blockquote>
 <p>一个URI即一个资源的名字 - 就比如眼前这个页面，一个维基百科的文章，一个数据资源比如Google地图的api。<br>URI由几个部分组成，每个部分都有自己对语法。<br>有些部分是可选的，这就是为什么不同服务的URI不同于彼此。</p>
-<p>这是一个URI的例子：<a href="https://en.wikipedia.org/wiki/Fish" target="_blank" rel="external">https://en.wikipedia.org/wiki/Fish</a></p>
+<p>这是一个URI的例子：<a href="https://en.wikipedia.org/wiki/Fish" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fish</a></p>
 <p>这个URI有三个可见的部分，由一些标点符号分开：</p>
 <ul>
 <li>https is the scheme;(方案)</li>
@@ -368,177 +536,28 @@
 </ul>
 <h1><span id="scheme">Scheme</span></h1><p>URI的第一部分是方案(scheme),告诉客户端如何获取资源。<br>常见的URI方案有：http,https,file。<br>文件URI方案告诉客户端在本地文件系统获取文件。<br>http和https URI指向网络服务器提供的资源。</p>
 <p>http和https URIs看起来基本一样。区别在于，当一个客户端通过https URI去获取一个资源，会使用加密的连接。<br>加密的网络连接最初用于保护密码和信用卡交易，但现在，很多的网站会使用它们保护用户的隐私。</p>
-<p>还有很多其他的URI方案。可在<a href="http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" target="_blank" rel="external">http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml</a> 查看。</p>
-<h1><span id="hostname">Hostname</span></h1><p>在http URI中，方案之后就是主机名(hostname)：比如<em>www.udacity.com</em>或者<em>localhost</em>。这告知客户端连接到哪个服务器。</p>
+<p>还有很多其他的URI方案。可在<a href="http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" target="_blank" rel="noopener">http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml</a> 查看。</p>
+<h1><span id="hostname">Hostname</span></h1><p>在http URI中，方案之后就是主机名(hostname)：比如<em><a href="http://www.udacity.com" target="_blank" rel="noopener">www.udacity.com</a></em>或者<em>localhost</em>。这告知客户端连接到哪个服务器。</p>
 <p>我们经常看到网络地址写得和主机名一样。但在html代码中，我们不能这样写<br><code>&lt;a href=&quot;www.google.com&quot;&gt;this&lt;/a&gt;</code>就连接到Google。<br>主机名只能出现在它支持的URI方案之后，比如 <em>http</em> 或者 <em>https</em> 。在这些URIs之后，必须还有 <em>://</em> 分开方案和主机名。<br>不是所有的URIs都有主机名。比如 <em>mailto</em> URI只需要一个邮箱地址: <em>malito:spamexample.net</em> 就是一个符合语法规范的 <em>mailto</em> URI。这也稍微更多地展现了URI中的标点符号用法: <em>:</em> 在方案之后，<em>//</em> 在主机名之前。<em>mailto</em> 没有主机名部分，所以没有 <em>//</em> 部分。</p>
 <h1><span id="path">Path</span></h1><p>在http URI(和很多其他),下一个出现的就是路径，指明了服务器上的一个特定的资源。<br>一个服务器可以有很多资源在上面 - 比如不提的网页，视频或者api。路径告知服务器客户端要查找的是哪一个资源。</p>
 <p>在之前的示例服务器上，你看到的路径与你的文件系统上的文件相对应。<br>真实世界中，URI路径并不一定与特定的文件名相同。比如，如果你Google搜索，你会看到一个类似<br><em>/search?q=ponies</em> 的URI路径。这并不意味着Google服务器上有一个名为 <em>/search?q=ponies</em> 的文件。<br>服务器解析路径，确定发送什么资源。<br>在搜索请求的例子中，服务器会发送回之前可能从未存在过的搜索结果页面。</p>
-<p>如果写一个没有路径的URI，比如<em><a href="http://udacity.com" target="_blank" rel="external">http://udacity.com</a></em>，浏览器会自动填充默认路径，即一个斜杠。<br><em><a href="http://udacity.com" target="_blank" rel="external">http://udacity.com</a></em>和<em><a href="http://udacity.com/" target="_blank" rel="external">http://udacity.com/</a></em> (单斜杆结尾) 是一样的。</p>
-<p>一个斜杠的路径也叫做根(<em>root</em>)。<br>示例服务器的根URI - <em><a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a></em> -就是你电脑的整个文件系统的根，即网络服务器提供的资源的根。示例服务器不会让浏览器获取不是它运行的目录下的文件。</p>
+<p>如果写一个没有路径的URI，比如<em><a href="http://udacity.com" target="_blank" rel="noopener">http://udacity.com</a></em>，浏览器会自动填充默认路径，即一个斜杠。<br><em><a href="http://udacity.com" target="_blank" rel="noopener">http://udacity.com</a></em>和<em><a href="http://udacity.com/" target="_blank" rel="noopener">http://udacity.com/</a></em> (单斜杆结尾) 是一样的。</p>
+<p>一个斜杠的路径也叫做根(<em>root</em>)。<br>示例服务器的根URI - <em><a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a></em> -就是你电脑的整个文件系统的根，即网络服务器提供的资源的根。示例服务器不会让浏览器获取不是它运行的目录下的文件。</p>
 <h1><span id="relative-uri-references">Relative URI references</span></h1><p>查看示例服务器根页面的html源码。看到其中的一个<code>&lt;a&gt;</code>标签链接到一个文件。<br>比如：<code>&lt;a href=&quot;cliffsofinsanity.png&quot;&gt;cliffsofinsanity.png&lt;/a&gt;</code><br>像这样的URIs没有方案或者主机名，只有一个路径。这就是相对URI引用(<em>relative URI reference</em>)。<br>这是相对于上下文 - 具体来说，即它出现的页面。<br>这个URI并不包含主机名或它所在服务器的端口，但浏览器能够从上下文弄清楚。<br>如果你点击其中的一个链接，浏览器根据上下文知道它需要从原始页面的同一个服务器去拿资源。</p>
 <h1><span id="other-uri-parts">Other URI parts</span></h1><p>一个URI中可能出现其他的部分。看看下面2个维基百科URIs的区别：</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Oxygen" target="_blank" rel="external">https://en.wikipedia.org/wiki/Oxygen</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Oxygen#Discovery" target="_blank" rel="external">https://en.wikipedia.org/wiki/Oxygen#Discovery</a><br>在浏览器中输入上面的链接，会访问维基百科网络服务器上的同一个页面。但第二个会展示页面滚动到氧气的发现这部分内容。<br><em>#</em> 符号之后的URI部分叫做 <em>fragment</em> (片段)。 浏览器不会将这部分发送到网络服务器。它只是让一个链接指向某个资源的一个具体的部分；在HTML页面中，它会通过 <em>id</em> 链接到某个元素。</li>
+<li><a href="https://en.wikipedia.org/wiki/Oxygen" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Oxygen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oxygen#Discovery" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Oxygen#Discovery</a><br>在浏览器中输入上面的链接，会访问维基百科网络服务器上的同一个页面。但第二个会展示页面滚动到氧气的发现这部分内容。<br><em>#</em> 符号之后的URI部分叫做 <em>fragment</em> (片段)。 浏览器不会将这部分发送到网络服务器。它只是让一个链接指向某个资源的一个具体的部分；在HTML页面中，它会通过 <em>id</em> 链接到某个元素。</li>
 </ul>
 <p>相比之下，看看google搜索的URI:</p>
 <ul>
-<li><a href="https://www.google.com/search?q=fish" target="_blank" rel="external">https://www.google.com/search?q=fish</a><br><em>?q=fish</em> 是URI的查询部分。这部分会发送到服务器。</li>
+<li><a href="https://www.google.com/search?q=fish" target="_blank" rel="noopener">https://www.google.com/search?q=fish</a><br><em>?q=fish</em> 是URI的查询部分。这部分会发送到服务器。</li>
 </ul>
 <p>URI可能还有其他的部分，可以在下面的维基百科页面查看更多详情：</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax" target="_blank" rel="external">https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax</a></li>
 </ul>
-<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/ee47b732-4d2b-4105-abb0-f5712a96e281" target="_blank" rel="external">查看原文</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/12/18/http-web-servers-unti-1-lesson-2-your-first-web-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/18/http-web-servers-unti-1-lesson-2-your-first-web-server/" itemprop="url">HTTP & Web Servers Unit 1 Lesson 2 Your first web server</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T13:52:23+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="练习运行你的第一个网络服务器">练习：运行你的第一个网络服务器</span></h1><p>服务器只需要做一件事：处理收到的请求。<br>Python的http.server模块可以你的电脑上运行一个内置的网络服务器。</p>
-<p>开一个终端，cd到一个含有一些文件的目录，可以是文本文件，html文件或者图片，然后在终端运行：<br>python3 -m http.server 8000。</p>
-<p>浏览器键入：<a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a> 。<br>这个示例服务器是一个真正的网络服务器。如果该本地网络还有其他的电脑，你可以使用其他电脑获取该服务器上的文件。<br>当你在浏览器键入localhost:8000，你的浏览器会向你正在运行的python程序发送http请求。<br>这个程序会返回一段数据，浏览器会展示给你。</p>
-<blockquote>
-<p>Note:如果刚才的目录下，你有一个文件叫做index.html，你会看到index.html的内容，而不是目录下的文件列表。将index.html移动到其他地方，你看到的又是目录下的文件列表。</p>
-</blockquote>
-<h1><span id="什么是服务器">什么是服务器？</span></h1><p>A server is just a program that accepts connections from other programs on the network.</p>
-<p>当你开始一个服务器程序，它等着客户端连接到它-就像刚才的示例服务器等着浏览器向它请求一个页面一样。<br>当连接来了，服务器运行一段代码 - 比如运行一个函数 - 来处理每一个到来的连接。<br>就像是打电话：通过这个渠道，服务器和客户端可以互聊。<br>网络客户端通过连接发送请求，服务器发送响应回来。</p>
+<p><a href="https://classroom.udacity.com/courses/ud303/lessons/6ff26dd7-51d6-49b3-9f90-41377bff4564/concepts/ee47b732-4d2b-4105-abb0-f5712a96e281" target="_blank" rel="noopener">查看原文</a></p>
 
           
         
@@ -578,7 +597,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -628,7 +647,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

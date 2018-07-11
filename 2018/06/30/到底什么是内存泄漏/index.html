@@ -79,34 +79,18 @@
 
 
 
-<meta name="description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：
-
-分配内存（allocate）；
-使用分配到的内存（read,write）；
-不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。
-
-垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
+<meta name="description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：  分配内存（allocate）； 使用分配到的内存（read,write）； 不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。  垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="到底什么是内存泄漏">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/06/30/到底什么是内存泄漏/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：
-
-分配内存（allocate）；
-使用分配到的内存（read,write）；
-不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。
-
-垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
+<meta property="og:description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：  分配内存（allocate）； 使用分配到的内存（read,write）； 不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。  垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-07-02T08:35:36.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="到底什么是内存泄漏">
-<meta name="twitter:description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：
-
-分配内存（allocate）；
-使用分配到的内存（read,write）；
-不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。
-
-垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
+<meta name="twitter:description" content="内存生命周期不管什么程序语言，内存生命周期是一致的：  分配内存（allocate）； 使用分配到的内存（read,write）； 不需要时，归还、释放（release）；所有语言第二部分都是明确的。第一和第三部分在底层语言中是明确的，但在像JavaScript这些高级语言中，大部分都是隐含的。  垃圾收集(garbage collection)引用(reference)垃圾收集算法主要依赖于“引">
 
 
 
@@ -376,17 +360,17 @@
 </ol>
 <h1><span id="垃圾收集garbage-collection">垃圾收集(garbage collection)</span></h1><h2><span id="引用reference">引用(reference)</span></h2><p>垃圾收集算法主要依赖于“引用”概念。<br>在内存管理的环境中，一个对象如果有访问另一个对象的权限（隐式或者显式），叫做一个对象引用另一个对象。例如，一个Javascript对象具有对它原型的引用（隐式引用）和对它属性的引用（显式引用）。<br>在这里，“对象”的概念不仅特指 JavaScript 对象，还包括函数作用域（或者全局词法作用域）。</p>
 <h2><span id="引用计数垃圾回收reference-counting-garbage-collection">引用计数垃圾回收(reference-counting garbage collection)</span></h2><p>这是最天真的垃圾收集算法。此算法把“对象是否不再需要”简化定义为“对象有没有其他对象引用到它”。如果没有引用指向该对象（零引用），对象将被垃圾回收机制回收。</p>
-<h3><span id="limitation-cycles">Limitation: cycles</span></h3><p>下面的例子中，两个对象被创建，并且相互引用，形成了一个cycle。<br>它们在函数调用后离开作用域，所以它们是没用的了，可以被回收了。但是引用计数算法考虑到这俩对象依然被至少引用了一次，所以不会垃圾收集它们。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">    <span class="keyword">var</span> o2 = &#123;&#125;;</div><div class="line">    o.a = o2; <span class="comment">//o 引用 o2</span></div><div class="line">    o2.a = o; <span class="comment">// o2 引用 o</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"june is a cute girl"</span>;</div><div class="line">&#125;</div><div class="line">f();</div></pre></td></tr></table></figure></p>
+<h3><span id="limitation-cycles">Limitation: cycles</span></h3><p>下面的例子中，两个对象被创建，并且相互引用，形成了一个cycle。<br>它们在函数调用后离开作用域，所以它们是没用的了，可以被回收了。但是引用计数算法考虑到这俩对象依然被至少引用了一次，所以不会垃圾收集它们。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> o2 = &#123;&#125;;</span><br><span class="line">    o.a = o2; <span class="comment">//o 引用 o2</span></span><br><span class="line">    o2.a = o; <span class="comment">// o2 引用 o</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"june is a cute girl"</span>;</span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></p>
 <h2><span id="标记清除算法mark-and-sweep-algorithm">标记清除算法(mark-and-sweep algorithm)</span></h2><p>这个算法把“对象是否不再需要”简化定义为“对象是否可以获得”。<br>这个算法假定设置一个叫做根（root）的对象（在Javascript里，根是全局对象）。垃圾回收器将定期从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和收集所有不能获得的对象。</p>
 <p>这个算法比前一个要好，因为“有零引用的对象”总是不可获得的，但相反却不一定，参考“循环引用”。<br>从2012年起，所有现代浏览器都使用了标记-清除垃圾回收算法。</p>
 <h2><span id="cycles不再是问题">Cycles不再是问题</span></h2><p>在上面的示例中，函数调用返回之后，两个对象从全局对象出发无法获取。因此，他们将会被垃圾回收器回收。</p>
 <h1><span id="什么是内存泄露">什么是内存泄露？</span></h1><p>内存泄漏本质上是指应用不再需要的内存没有返还给操作系统或者闲置内存池。然而，某内存是否有用是一个难以判断的问题。只有程序员才知道一个内存是否要返还给操作系统。</p>
 <p>参考链接：</p>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2017/04/memory-leak.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2017/04/memory-leak.html</a></li>
-<li><a href="https://github.com/wengjq/Blog/issues/1" target="_blank" rel="external">https://github.com/wengjq/Blog/issues/1</a></li>
-<li><a href="https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/" target="_blank" rel="external">https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2017/04/memory-leak.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/04/memory-leak.html</a></li>
+<li><a href="https://github.com/wengjq/Blog/issues/1" target="_blank" rel="noopener">https://github.com/wengjq/Blog/issues/1</a></li>
+<li><a href="https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/" target="_blank" rel="noopener">https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/</a></li>
 </ul>
 
       
@@ -511,7 +495,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

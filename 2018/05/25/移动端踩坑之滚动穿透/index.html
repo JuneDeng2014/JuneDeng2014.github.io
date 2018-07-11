@@ -79,28 +79,18 @@
 
 
 
-<meta name="description" content="问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome）
-解决办法日期控件源码修改：
-
-touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。
-每次日期控件显">
+<meta name="description" content="问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome） 解决办法日期控件源码修改：  touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。 每次日期控件显">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端踩坑之滚动穿透">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/05/25/移动端踩坑之滚动穿透/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome）
-解决办法日期控件源码修改：
-
-touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。
-每次日期控件显">
+<meta property="og:description" content="问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome） 解决办法日期控件源码修改：  touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。 每次日期控件显">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-28T07:58:01.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端踩坑之滚动穿透">
-<meta name="twitter:description" content="问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome）
-解决办法日期控件源码修改：
-
-touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。
-每次日期控件显">
+<meta name="twitter:description" content="问题描述用了日期控件(https://github.com/foxrunsoftware/DatePicker),每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome） 解决办法日期控件源码修改：  touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期控件的dom。 每次日期控件显">
 
 
 
@@ -362,7 +352,7 @@ touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期�
       
 
       
-        <h1><span id="问题描述">问题描述</span></h1><p>用了日期控件(<a href="https://github.com/foxrunsoftware/DatePicker" target="_blank" rel="external">https://github.com/foxrunsoftware/DatePicker</a>),<br>每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome）</p>
+        <h1><span id="问题描述">问题描述</span></h1><p>用了日期控件(<a href="https://github.com/foxrunsoftware/DatePicker)" target="_blank" rel="noopener">https://github.com/foxrunsoftware/DatePicker)</a>,<br>每次控件打开，滚动选择日期，页面主体的滚动条也还能滚动。（安卓正常，只有ios和windows chrome）</p>
 <h1><span id="解决办法">解决办法</span></h1><p>日期控件源码修改：</p>
 <ul>
 <li><code>touchmove</code> 事件中调用 <code>preventDefault</code>,将 <code>EventTarget</code> 从 <code>body</code> 改为日期控件的dom。</li>
@@ -370,7 +360,7 @@ touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期�
 </ul>
 <p>因为我的日期控件就在页面顶部，所以不需要记录页面的滚动位置。<br>这样设置之后，ios和windows chrome都能够正常工作了。</p>
 <p>bug fixed！</p>
-<p><a href="https://github.com/pod4g/tool/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98" target="_blank" rel="external">网上的比较全面的解决办法</a></p>
+<p><a href="https://github.com/pod4g/tool/wiki/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">网上的比较全面的解决办法</a></p>
 
       
     </div>
@@ -494,7 +484,7 @@ touchmove 事件中调用 preventDefault,将 EventTarget 从 body 改为日期�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -79,28 +79,18 @@
 
 
 
-<meta name="description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:
-
-设置base，一般来说为设计稿都尺寸/10；我这里设置为108.
-设置html的fontSize。
-12var do">
+<meta name="description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:  设置base，一般来说为设计稿都尺寸/10；我这里设置为108. 设置html的fontSize。 12var do">
+<meta name="keywords" content="CSS, REM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动开发之rem">
 <meta property="og:url" content="https://junedeng2014.github.io/2018/05/25/移动开发之rem/index.html">
 <meta property="og:site_name" content="JuneDeng">
-<meta property="og:description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:
-
-设置base，一般来说为设计稿都尺寸/10；我这里设置为108.
-设置html的fontSize。
-12var do">
+<meta property="og:description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:  设置base，一般来说为设计稿都尺寸/10；我这里设置为108. 设置html的fontSize。 12var do">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-25T09:36:04.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动开发之rem">
-<meta name="twitter:description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:
-
-设置base，一般来说为设计稿都尺寸/10；我这里设置为108.
-设置html的fontSize。
-12var do">
+<meta name="twitter:description" content="第一次在移动端使用rem，看到设计稿尺寸一脸懵逼。尺寸宽度为1080。网上看了一堆资料，然后我直接设置了 html{font-size:20px;}，跟着感觉写了一通。最后测试的时候，样式惨不忍睹。经过公司jojo女神的点拨，重写了一遍样式。总的来说，移动端使用rem分为三步走:  设置base，一般来说为设计稿都尺寸/10；我这里设置为108. 设置html的fontSize。 12var do">
 
 
 
@@ -366,7 +356,7 @@
 <ul>
 <li>设置base，一般来说为设计稿都尺寸/10；我这里设置为108.</li>
 <li><p>设置html的fontSize。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> doc_wid = <span class="built_in">document</span>.body.clientWidth/<span class="number">10</span>;</div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"html"</span>)[<span class="number">0</span>].style.fontSize=doc_wid+<span class="string">"px"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doc_wid = <span class="built_in">document</span>.body.clientWidth/<span class="number">10</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"html"</span>)[<span class="number">0</span>].style.fontSize=doc_wid+<span class="string">"px"</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>尺寸计算：设计稿上面的实际尺寸rem/base<br>比如header在设计稿为142px，那么就设置为 <code>.header{height:142rem/$base}</code> (scss的写法)</p>
 </li>
@@ -485,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
