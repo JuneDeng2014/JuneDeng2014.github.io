@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[margin collapse]]></title>
+      <url>%2F2018%2F07%2F18%2Fmargin-collapse%2F</url>
+      <content type="text"><![CDATA[Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.This does not happen on left and right margins! Only top and bottom margins! 元素的上下margin值会重叠为一个，等于其中较大的那个值。注意：只有上下的会重叠，左右的不会。比如两个相邻的元素：12&lt;div&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt; 12div&#123;margin-bottom: 20px;&#125;p&#123;margin-top: 10px;&#125; 实际的margin值为2个元素margin值较大的值，20px，而不是20px + 10 px。 如何避免margin重叠？这个在之前的bfc讲过，将2个元素放在不同的bfc中即可避免。栗子：https://jsfiddle.net/JuneDeng/xhp0oyfj/9/]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[bfc]]></title>
       <url>%2F2018%2F07%2F10%2Fbfc%2F</url>
       <content type="text"><![CDATA[BFC的作用 contain floats(包含浮动元素) 栗子：https://jsfiddle.net/JuneDeng/uv782te3/12/ prevent margins collapsing(阻止margin重叠) 同一个bfc里面的相连子元素，纵向的margin会发生重叠，实际的margin值是margin值较大子元素的margin值。要阻止margin重叠，只需要将它们放到不同的bfc，那么它们之间的margin就不会发生重叠了。创建新的bfc，可以阻止margin重叠。栗子：https://jsfiddle.net/JuneDeng/xhp0oyfj/9/ prevent text wrapping(阻止文字绕排) 栗子：https://jsfiddle.net/JuneDeng/fLzjk94g/8/ 如何创建BFC float 值不为 none position为absolute或者fixed display为inline-block,table-cell,table-caption,table,table-row,table-row-group,table-header-group,table-footer-group (which is the default for HTML tables, table rows, table bodies, table headers and table footers, respectively),inline-table 块级元素设置了overflow的值，不为默认的visible display:flow-root,没有副作用的创建BFC,但是浏览器兼容不好 content:layout,content,strict 兼容性不强 flex items(display:flex或者inline-flex的直接子元素) grid items(display:grid或者inline-grid的直接子元素) multicol containers(column-count或者column-width不为auto，包括column-count: 1) column-span: all 总结 A block formatting context contains everything inside of the element creating it. Block formatting contexts are important for the positioning and clearing of floats. The rules for positioning and clearing of floats apply only to things within the same block formatting context. Floats do not affect the layout of the content inside other block formatting contexts, and clear only clears past floats in the same block formatting context. Margin collapsing also occurs only between blocks that belong to the same block formatting context. reference https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/ https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/ https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context]]></content>

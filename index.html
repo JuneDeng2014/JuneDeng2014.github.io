@@ -262,6 +262,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2018/07/18/margin-collapse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/18/margin-collapse/" itemprop="url">margin collapse</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T10:38:36+08:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.<br>This does not happen on left and right margins! Only top and bottom margins!</p>
+</blockquote>
+<p>元素的上下margin值会重叠为一个，等于其中较大的那个值。<br>注意：只有上下的会重叠，左右的不会。<br>比如两个相邻的元素：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;<span class="attribute">margin-bottom</span>: <span class="number">20px</span>;&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;<span class="attribute">margin-top</span>: <span class="number">10px</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>实际的margin值为2个元素margin值较大的值，20px，而不是20px + 10 px。</p>
+<p>如何避免margin重叠？<br>这个在之前的bfc讲过，将2个元素放在不同的<a href="https://junedeng2014.github.io/2018/07/10/bfc/">bfc</a>中即可避免。栗子：<a href="https://jsfiddle.net/JuneDeng/xhp0oyfj/9/" target="_blank" rel="noopener">https://jsfiddle.net/JuneDeng/xhp0oyfj/9/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2018/07/10/bfc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -418,207 +566,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2018/07/05/flex/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/flex/" itemprop="url">flex</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T13:50:54+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="flexbox-overview">Flexbox Overview</span></h1><p>Flexbox 使用2种我们从未见过的盒子：flex containers &amp; flex items 。flex container的任务是把一些flex items组合在一起，并决定如何定位它们。<br>任意HTML元素，如果作为flex container的直接子元素，就是一个item。<br>可以单独操作flex item，但大部分时候，都是由flex container决定item的布局的。flex items的主要目的是让container知道它需要定位多少元素。</p>
-<blockquote>
-<p>You align a bunch of flex items inside a container, and, in turn, those items can serve as flex containers for their own items. </p>
-</blockquote>
-<h1><span id="flexbox-container">Flexbox Container</span></h1><p>使用flexbox的第一步就是把一个html元素变为flex container.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1><span id="align-a-flex-item">Align A Flex Item</span></h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>:center; <span class="comment">/* define the horizontal alignment of its items x轴怎么定位 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个和给想要居中的元素添加<code>margin:0 auto</code>的效果是一样的。通过容器控制子元素在flexbox中十分常见。这和我们之前定位盒子不一样。<br><code>justify-content</code>的属性还有以下的值：</p>
-<ul>
-<li>center</li>
-<li>flex-start (align to the left)</li>
-<li>flex-end (align to the right)</li>
-<li>space around</li>
-<li>space-between</li>
-</ul>
-<h1><span id="group-flex-items">Group Flex Items</span></h1><p>flex containers只管如何定位它们的直接子元素，不管flex items里面的东西。</p>
-<h1><span id="cross-axis-vertical-alignment">Cross-axis (Vertical) Alignment</span></h1><p>给flex container添加<code>align-items</code>属性，来纵向定位flex items，即y轴如何定位元素。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">align-items</span>:center; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>align-items</code>和<code>justify-content</code>属性的值差不多：</p>
-<ul>
-<li>center</li>
-<li>flex-start (顶部开始 top)</li>
-<li>flex-end (底部开始 bottom)</li>
-<li>stretch (每个flex item高度拉伸到和flex container一样高，不管flex item包含多少内容，常用于创建内容不定的等高列)</li>
-<li>baseline</li>
-</ul>
-<h1><span id="wrapping-flex-items包裹flex-items">Wrapping Flex Items(包裹flex items)</span></h1><p>flexbox比基于浮动的grid布局更强大，因为它可以改变alignment,direction,order,甚至size。<br>使用<code>flex-wrap</code>属性创建grid。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">flex-wrap</span>:wrap; <span class="comment">/* 一行放不下，自动到下一行，和浮动布局差不多 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是呢，flexbox能控制多余的item如何排列。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">justify-content</span>:center;</span><br><span class="line">    <span class="attribute">flex-wrap</span>:wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1><span id="flex-container-direction方向">Flex Container Direction(方向)</span></h1><p>方向决定容器是如何渲染items的，横向或者纵向。<br>默认为横向，即为行。<br>将行变为列，只需要一行css代码:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>:column;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这就将默认的行，变为了列。页面从grid变为了纵向的一列。<br>响应式设计的一个难点就是用同样的html标记展现给移动端用户和桌面用户，但大部分的移动端布局是单列的，而桌面布局则是横向堆积元素的。<code>flex-direction</code> 对于创建响应式布局超级有用～</p>
-<h1><span id="排列注意事项">排列注意事项</span></h1><p>如果旋转了容器的方向，<code>justify-content</code>属性也会跟着旋转，它现在控制元素的纵向排列，而非横向。要在列中居中排列，使用<code>align-items</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>:column;</span><br><span class="line">    <span class="attribute">align-items</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1><span id="flex-container-order排序">Flex Container Order(排序)</span></h1><p>要让一个盒子显示在另一个之前，之前的方法是移动html标记的位置。<code>flex-direction</code>属性让我们可以控制这个显示的顺序。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    justify-content-center;</span><br><span class="line">    <span class="selector-tag">flex-wrap</span><span class="selector-pseudo">:wrap</span>;</span><br><span class="line">    <span class="selector-tag">flex-direction</span><span class="selector-pseudo">:row-reverse</span>;</span><br><span class="line">    <span class="selector-tag">align-items</span><span class="selector-pseudo">:center</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1><span id="flex-item-order">Flex Item Order</span></h1><p>之前都是通过父容器来定位flex items，但控制单个item也是可行的。<br>给一个flex item添加<code>order</code>属性，改变它在容器中的顺序，而不会影响到旁边的items。<br>它的默认值为0，增加或者减少这个值，使这个元素向右或者向左移动。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">align-items</span>:center;</span><br><span class="line">    <span class="attribute">flex-direction</span>:row;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.first-item</span>&#123;</span><br><span class="line">    <span class="attribute">order</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.last-item</span>&#123;</span><br><span class="line">    <span class="attribute">order</span>:-<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码会让第一个元素和最后一个元素交换位置，即使它们不是处于同一行。这个和<code>row-reverse</code>,<code>column-reverse</code>不一样，它们不能跨行/列。</p>
-<h1><span id="flex-item-alignment">Flex Item Alignment</span></h1><p>在flex item上设置<code>align-self</code>属性来覆盖在父容器上设置的<code>align-items</code>属性。<br>值和<code>align-item</code>一样：</p>
-<ul>
-<li>center</li>
-<li>flex-start (top)</li>
-<li>flex-end (bottom)</li>
-<li>stretch</li>
-<li>baseline</li>
-</ul>
-<h1><span id="flexible-items">Flexible Items</span></h1><blockquote>
-<p>Flex items are flexible: they can shrink and stretch to match the width of their containers.<br>Compare this to the justify-content property, which distributes extra space between items. This is similar, but now we’re distributing that space into the items themselves. The result is full control over how flex items fit into their containers.</p>
-</blockquote>
-<h1><span id="flex-items-and-auto-margins">Flex Items And Auto-margins</span></h1><blockquote>
-<p>Auto-margins eat up all the extra space in a flex container.</p>
-</blockquote>
-<h1><span id="总结">总结</span></h1><ul>
-<li>创建flex container: <code>display:flex</code></li>
-<li>定义flex items的x轴排列： <code>justify-confent</code></li>
-<li>定义flex items的y轴排列: <code>align-items</code></li>
-<li>行变为列: <code>flex-direction</code></li>
-<li>改变flex items的排列顺序: <code>row-reverse</code> 或 <code>column-reverse</code></li>
-<li>自定义单个元素的顺序: <code>order</code></li>
-<li>自定义单个元素的排列：<code>align-self</code></li>
-<li>创建可以伸展和收缩的盒子：<code>flex</code></li>
-</ul>
-<h1><span id="小青蛙游戏">小青蛙游戏</span></h1><p>学习flex布局，这里有个好玩的小青蛙游戏，推荐给大家：<br><a href="https://flexboxfroggy.com/" target="_blank" rel="noopener">https://flexboxfroggy.com/</a></p>
-<p>面试的时候为连<code>align-items</code>和<code>justify-content</code>都没有回答出来，明明五月的时候才用flex布局写了app项目。一首《凉凉》送给自己。继续努力。</p>
-<p>参考链接：<br><a href="https://internetingishard.com/html-and-css/flexbox/" target="_blank" rel="noopener">https://internetingishard.com/html-and-css/flexbox/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -673,7 +620,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

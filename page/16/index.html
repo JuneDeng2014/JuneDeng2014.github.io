@@ -262,6 +262,246 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/11/30/notes-of-loading-performance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="June Deng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/june.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuneDeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/notes-of-loading-performance/" itemprop="url">notes of loading performance</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T16:43:44+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="understanding-low-bandwith-and-high-latency">Understanding Low Bandwith and High Latency</span></h1><ul>
+<li>introduce tools to emulate network</li>
+<li>Use timeouts to handle intermittent connectivity</li>
+</ul>
+<h1><span id="optimizing-content-efficiency">Optimizing Content Efficiency</span></h1><h2><span id="eliminating-unnecessary-downloads">Eliminating Unnecessary Downloads</span></h2><pre><code>TL;DR
+- Inventory your own assets and third-party assests on your pages.
+- Measure the performance of each asset:its value and its technical performance
+- Determine if the resources are providing sufficient value
+Eliminate unnecessary resources from application.
+ - you&apos;ve always included resource x on your pages,but doest the cost of downloading and displaying it offset the value it delivers to the user? Can you measure and prove its value?
+ - Does the resource(especially if it&apos;s a third-party resource) deliver consistent performance?Is that resource in the critical path,or need to be?If the rescource is in the critical path,could it be a single point of failure  for the site?That is,if the resource is unavailable,does it affect performance and the user experience of your page?
+ - Does this resource need or have an SLA?Does this resource follow performance best practices:compression,caching,and so on.
+
+Too often,pages contain resources that are unnecessary,or worse,that hinder page performance without delivering much value to the visitor or to the site they&apos;re hosted on.This applies equally to first-party and third-party resources and widgets.
+</code></pre><h2><span id="optimizing-encoding-and-transfer-size-of-text-based-assets">Optimizing Encoding and Transfer Size of Text-Based Assets</span></h2><pre><code>1. Data compression 101
+TL;DR:
+    - Compression is the process of encoding information using fewer bits.
+    - Eliminating unnecessary data always yields the best results.
+    - There are many different compression techniques and algorithms.
+    - You will need a varity of techniques to achieve the best compression.
+2. Minification:preprocessing &amp; context-specific optimizations
+TL;DR:
+    - Content-specific optimizations can significantly reduce the size of delivered resources.
+    - Content-specific optimizations are best applied as part of your build/release cycle.
+3. Text compression with GZIP
+TL;DR:
+    - GZIP performs best on text-based assets:CSS,JavaScript,HTML
+    - All modern browsers support GZIP compression and will automatically request it.
+    - Your server must be configured to enable GZIP compression.
+    - Some CDNs require special care to ensure that GZIP is enabled.
+
+- Apply content-specific optimizations first: CSS, JS, and HTML minifiers.
+- Apply GZIP to compress the minified output.
+
+Enabling GZIP is one of the simplest and highest-payoff optimizations to implement, and yet, many people don&apos;t implement it. Most web servers compress content on your behalf, and you just need to verify that the server is correctly configured to compress all the content types that benefit from GZIP compression.
+
+
+A quick and simple way to see GZIP in action is to open Chrome DevTools and inspect the “Size / Content” column in the Network panel: “Size” indicates the transfer size of the asset, and “Content” the uncompressed size of the asset.
+</code></pre><h2><span id="image-optimization">Image Optimization</span></h2><h3><span id="eliminating-and-replacing-images">Eliminating and replacing images</span></h3><pre><code>TL;DR:
+    - Eliminate unnecessary image resources
+    - Leverage CSS3 effects where possible
+    - Use web fonts instead of encoding text in images
+</code></pre><h3><span id="vector-vs-raster-images">Vector vs. Raster images</span></h3><pre><code>TL;DR：
+    - Vector images are ideal for iamges that consists of geometric shapes
+    - Vector images are zoom and resolution-independent
+    - Raster images shoud be used of complex scenes with lots of irregular shapes and details
+</code></pre><h3><span id="implications-of-high-resolution-screens">Implications of high-resolution screens</span></h3><pre><code>TL;DR
+    - High resolution screens have multiple device pixels per css pixel
+    - High resolution images require significantly higher number of pixels and bytes
+    - Image optimization techniques are the same regardless of resolution
+
+prefer vector images wherever possible.
+if a raster image is required,deliver and optimize multiple variants of each imagewith of help of srcset and picture.
+</code></pre><h3><span id="optimizing-vector-images">Optimizing vector images</span></h3><pre><code>TL;DR
+    - SVG is an XML-based image format
+    - SVG files shoud be minified to reduce their size (tool:svgo)
+    - SVG files to compressed with GZIP
+</code></pre><h3><span id="optimizing-raster-images">Optimizing raster images</span></h3><pre><code>TL;DR
+    - A raster images is a grid of pixels
+    - Each pixel encodes color and transparency information
+    - Image compressors use a variety of techniques to reduce the number of required bits per pixel to reduce file size of the image
+</code></pre><h3><span id="lossless-vs-loosy-image-compression">Lossless vs loosy image compression</span></h3><pre><code>TL;DR
+    - Due to how our eyes work,images are great candidates for lossy compression
+    - Image optimization is a function of lossy and lossless compression
+    - Differences in image formats are due to the difference in how and which lossy and lossless algorithms are used to optimize the images
+    - There is no single best format or &quot;quality setting&quot; for all images:each combination of particular compressor and image contents produce a unique output
+</code></pre><h3><span id="selecting-the-right-image-format">Selecting the right image format</span></h3><pre><code>TL;DR
+    - Start by selecting the right universal format:gif,png,jepg
+    - Experiment and select the best settings for each format:quality,palette size,etc
+    - Consider adding WebP and JPEG XR assets for modern clients
+
+1. Do you need animation? If so, GIF is the only universal choice
+1. Do you need to preserve fine detail with highest resolution? Use PNG.
+1. Are you optimizing a photo,screenshot,or a similar image asset? Use JPEG.
+
+WebP and JPEG XR :
+    - Some CDNS provide image optimization as a service,including JPEG XR and WebP delivery.
+    - Some open-source tools(for example,PageSpeed for Apache or Nginx) automate the optimization,conversation,and serving of approriate assets.
+    - You can add additional application logic to detect the client,check which formats they support,and serve the best availlable image format.
+</code></pre><h3><span id="tools-and-parameter-turning">Tools and parameter turning</span></h3><pre><code>- gifsicle:create and optimize GIF images
+- jpegtran:optimize JPEG images
+- optipng:lossless PNG optimization
+- pngquant:lossy PNG optimization
+</code></pre><h3><span id="deliver-scaled-image-assets">Deliver scaled image assets</span></h3><pre><code>TL;DR
+    - Deliver scaled assets is one of the simplest and most effective optimizations
+    - Pay close attention to large assets as they result in high overhead 
+    - Reduce the number of unnecessary pixels by scaling your images to their display size
+Image optimization boils down to two criteria: optimizing the number of bytes used to encode each image pixel, and optimizing the total number of pixels: the filesize of the image is simply the total number of pixels times the number of bytes used to encode each pixel. Nothing more, nothing less.
+As a result, one of the simplest and most effective image optimization techniques is to ensure that we are not shipping any more pixels than needed to display the asset at its intended size in the browser. Sounds simple, right? Unfortunately, most pages fail this test for many of their image assets: typically, they ship larger assets and rely on the browser to rescale them - which also consumes extra CPU resources - and display them at a lower resolution.
+
+**you should ensure that the number of unnecessary pixels is minimal, and that your large assets in particular are delivered as close as possible to their display size.**
+</code></pre><h3><span id="image-optimization-checklist">Image optimization checklist</span></h3><pre><code>- __Prefer vector formats__
+- __Minify and compress SVG assets__
+- __Pick best raster image format__
+- __Experiment with optimal quality settings for raster formats__
+- __Remove unnecessary image metadata__
+- __Serve scaled images__
+- __Automate__:invest into automated tools and infrastructure that will ensure that all of your image assets are always optimized
+</code></pre><p>reference:<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/11/30/performance-notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -407,163 +647,6 @@ You don&apos;t have to load everything in under 1 second to produce the percepti
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://junedeng2014.github.io/2017/11/21/css布局学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="June Deng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/june.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JuneDeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/21/css布局学习/" itemprop="url">css布局学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T10:46:45+08:00">
-                2017-11-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skills/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><p>max-width<br>  使用max-width替代width可以使浏览器更好地处理小窗口的情况。所有主流浏览器斗支持max-width，包括ie7+.</p>
-  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span>&#123;</span><br><span class="line">    <span class="attribute">max-wdith</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>box-sizing<br>  传统的盒子模型不直接，所以新增了box-sizing的css属性。当你设置元素的<code>CSS box-sizing:border-box;</code>时，此原属的内边距和边框不再会增加它的宽度。</p>
-<p>  不过 box-sizing 是个很新的属性，目前需要使用 -webkit- 和 -moz- 前缀。这可以启用特定浏览器实验中的特性。同时记住它是支持IE8+的。</p>
-</li>
-<li><p>position</p>
-<ol>
-<li>static<br> 默认值。任意<code>CSS position:static;</code>的元素表示不会被特殊定位。</li>
-<li>relative</li>
-<li>fixed<br> 一个固定定位<code>CSS position:fixed;</code>元素会相对于视窗来定位，这意味着即使页面滚动，它还是会停留在相同的位置。和<code>CSS position:relative;</code>一样，top\right\bottom\left属性都可用。<br> 脱离文档流。<br> 移动浏览器对fixed支持很差。</li>
-<li>absolute<br> absolute 是最棘手的position值。 absolute 与 fixed 的表现类似，但是它不是相对于视窗而是相对于最近的“positioned”祖先元素。如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。记住一个“positioned”元素是指 position 值不是 static 的元素。</li>
-</ol>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -618,7 +701,7 @@ You don&apos;t have to load everything in under 1 second to produce the percepti
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
