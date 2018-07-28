@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[2018第三季度目标]]></title>
+      <url>%2F2018%2F07%2F28%2F2018%E7%AC%AC%E4%B8%89%E5%AD%A3%E5%BA%A6%E7%9B%AE%E6%A0%87%2F</url>
+      <content type="text"><![CDATA[2018年7月，对于我来说是紧张刺激的一个月。找到了新的工作，面试的心情犹如过山车，在这个过程中学习到很多，对专业知识查漏补缺，发现自己进步空间还很大，需要学习的东西还有很多很多。拿到了体检报告，自己的bmi等各项指标都越来越健康，视力都在变好，非常有成就感。重新下载了keep，开始使用keep锻炼身体了，设置运动目标每个星期三次，每次三十分钟以上，都完成了。体重维持着，距离我的目标还有2.8kg，感觉不会减少了。不过现在的锻炼目标主要是保持健康，不强行要求降低体重。 马上就要去新公司入职了，一段时间内可能都需要保持高强度地学习。自己可掌控的时间可能就不那么多了。未来三个月的目标尽量精简： 2018年第三季度不购买服装。商家的促销和打折没完没了，总会因为便宜而忍不住剁手，买下一堆自己不需要也没那么喜欢也不太适合自己的服饰，这样的坏习惯必须改变。每当无聊玩手机，不要打开淘宝，而是打开扇贝背单词。 扇贝打卡和keep运动就不需要多说了，继续保持。 用眼卫生方面：晚上不要躺床上玩手机，kindle的书看起来。或者用喜马拉雅听书或者听歌，现在扣扣音乐也能定时关闭了。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[margin collapse]]></title>
       <url>%2F2018%2F07%2F18%2Fmargin-collapse%2F</url>
       <content type="text"><![CDATA[Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.This does not happen on left and right margins! Only top and bottom margins! 元素的上下margin值会重叠为一个，等于其中较大的那个值。注意：只有上下的会重叠，左右的不会。比如两个相邻的元素：12&lt;div&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt; 12div&#123;margin-bottom: 20px;&#125;p&#123;margin-top: 10px;&#125; 实际的margin值为2个元素margin值较大的值，20px，而不是20px + 10 px。 如何避免margin重叠？这个在之前的bfc讲过，将2个元素放在不同的bfc中即可避免。栗子：https://jsfiddle.net/JuneDeng/xhp0oyfj/9/]]></content>
