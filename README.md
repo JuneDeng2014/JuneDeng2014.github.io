@@ -1,2 +1,3 @@
 # JuneDeng2014.github.io
-blog
+This is my blog.
+Enjoy.
